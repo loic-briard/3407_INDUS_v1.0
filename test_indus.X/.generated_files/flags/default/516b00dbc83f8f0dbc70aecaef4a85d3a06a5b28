@@ -1,0 +1,1 @@
+ -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_ICD5=1  -omf=elf -DXPRJ_default=$(CND_CONF)    -I".." -I"." -Wa,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_ICD5=1,-g,--no-relax$(MP_EXTRA_AS_POST) C:\Loic\0_INDUSTRIE\0_PROGRAMME_MPLAB\3407\Interface_securite_3407_v3\Output file\PW_indus.s

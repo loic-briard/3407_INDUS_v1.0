@@ -1,0 +1,35 @@
+{
+  "boxes": {
+    "box1": {
+      "left": 139,
+      "top": 147,
+      "width": 80,
+      "height": 41,
+      "color": "3",
+      "value": 1
+    },
+    "box2": {
+      "left": 154,
+      "top": 211,
+      "width": 106,
+      "height": 38,
+      "color": "2",
+      "value": 0
+    },
+    "box3": {
+      "left": 155,
+      "top": 274,
+      "width": 106,
+      "height": 40,
+      "color": "1",
+      "value": 0
+    }
+  },
+  "fontVariant": "0",
+  "accidentDate": "2025-09-29",
+  "BrightEnabled": 1,
+  "Bright": 127,
+  "EcoParamsEnabled": 0,
+  "StartTime": "00:00:00",
+  "StopTime": "23:59:00"
+}
