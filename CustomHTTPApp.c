@@ -58,6 +58,8 @@
 
 #include "TCPIP Stack/TCPIP.h"
 #include "MainDemo.h"       // Needed for SaveAppConfig() prototype
+#include "03_Variables.h"
+#include "EEPROM.h"
 
 static HTTP_IO_RESULT HTTPPostConfig(void);
 
@@ -70,20 +72,20 @@ extern unsigned char CODE_CHANGEMENT_HEURE;
 extern unsigned char CODE_DECAL_HORAIRE;
 extern unsigned char FORCAGE_MARCHE;
 extern unsigned char FORCAGE_ARRET;
-extern unsigned char CYCLE_OK;
+//extern unsigned char CYCLE_OK;
 extern unsigned char SYNCHRO;
-extern unsigned char INIT;
+//extern unsigned char INIT;
 
 extern unsigned char CODE_NTP_SERVER[30],CODE_ADR_IP_WEB[30];
-extern unsigned char CODE_ADR_IP_HORL_SECONDAIRE[20][30];
-extern unsigned char CODE_NOM_HORL_SECONDAIRE[20][20];
+//extern unsigned char CODE_ADR_IP_HORL_SECONDAIRE[20][30];
+//extern unsigned char CODE_NOM_HORL_SECONDAIRE[20][20];
 extern unsigned char NOM_SONDE_TEMP[16][15];
 extern unsigned char UC_HEURE_VIEILL[2][4];
 
 extern unsigned char JOURS_SELECT_FINALE[5];
 extern unsigned char UC_DUREE_AFFICHAGE[5];
 extern unsigned char JOURS_SELECT_BUF[5];
-extern unsigned char UC_AFFICH_TEMP[4];
+//extern unsigned char UC_AFFICH_TEMP[4];
 extern unsigned char JOURS_SELECT[5];
 
 extern short S_TEMP_AVEC_OFFSET[16];
@@ -113,7 +115,34 @@ static BOOL lastFailure = FALSE;
  
 void HTTPPrint_adresse_ip_value(void)
 {
-	(PTR_BASE)TCPPutString(sktHTTP, (BYTE*)CODE_ADR_IP_WEB);
+    char buf[16];
+    char *p = buf;
+
+    p += sprintf(p, "%u", AppConfig.MyIPAddr.v[0]);
+    *p++ = '.';
+    p += sprintf(p, "%u", AppConfig.MyIPAddr.v[1]);
+    *p++ = '.';
+    p += sprintf(p, "%u", AppConfig.MyIPAddr.v[2]);
+    *p++ = '.';
+    p += sprintf(p, "%u", AppConfig.MyIPAddr.v[3]);
+    *p = '\0';
+
+    TCPPutString(sktHTTP, (BYTE*)buf);
+//    unsigned char var[4] = { AppConfig.MyIPAddr.v[0],AppConfig.MyIPAddr.v[1],AppConfig.MyIPAddr.v[2],AppConfig.MyIPAddr.v[3]};
+ //   TCPPutArray(sktHTTP, var, sizeof(var));  // écrit exactement 4 octets 
+    // ou
+//    BYTE var[] = "test"; // -> {'t','e','s','t','\0'}
+//    TCPPutString(sktHTTP, var);
+}
+
+void HTTPPrint_nb_accidents(void)
+{
+    unsigned int var = 0;
+    var = EEPROM_ReadByte(EEPROM_NB_ACCIDENT_ADS);
+    if(var != 0)
+        Nop();
+    TCPPut(sktHTTP,NB_Accidents);
+//    TCPPutArray(sktHTTP, var, sizeof(var));
 }
 void HTTPPrint_marche(void)
 {
@@ -434,7 +463,7 @@ HTTP_IO_RESULT HTTPExecutePost(void)
 	MPFSGetFilename(curHTTP.file, filename, 20);
 	
 	// If its the forms.htm page
-	if(!memcmppgm2ram(filename, "index.htm", 9))
+	if(!memcmppgm2ram(filename, "index_indu.htm", 14))//"index_indu.htm"
 		return HTTPPostConfig();
 	
 	return HTTP_IO_DONE;
@@ -459,7 +488,7 @@ static HTTP_IO_RESULT HTTPPostConfig(void)
 	#define SM_READ_FINISHING   (2u)
 	
 	
-//	#define DECAL_HEURE 				1
+	#define ACCIDENTSCOUNT				1
 //	#define ETE_HIVER 					2
 	#define SERVER_NTP 					3
 	#define ADRESSE_IP_AUTO 			4
@@ -485,11 +514,11 @@ static HTTP_IO_RESULT HTTPPostConfig(void)
 				return HTTP_IO_NEED_DATA;
             
 			// Try to match the name value
-//			if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"decal_heure"))
-//			{
-//				index_param = DECAL_HEURE;
-//				curHTTP.smPost = SM_READ_VALUE;
-//			}
+			if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"AccidentsCount"))
+			{
+				index_param = ACCIDENTSCOUNT;
+				curHTTP.smPost = SM_READ_VALUE;
+			}
             else if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"Val_Marche"))        
 			{
 				index_param = MODE_MARCHE;
@@ -768,14 +797,14 @@ static HTTP_IO_RESULT HTTPPostConfig(void)
                     curHTTP.smPost = SM_READ_FINISHING; //SM_READ_NAME; 
                     break;
                     
-//				case DECAL_HEURE :
-//                    
-//                    ((BYTE*)&hex)[1] = curHTTP.data[0];
-//                    ((BYTE*)&hex)[0] = curHTTP.data[1];
-//                    CODE_DECAL_HORAIRE = hexatob(*((WORD_VAL*)&hex));
-//                    index_param = 0;
+				case ACCIDENTSCOUNT :
+                    
+                    NB_Accidents = (unsigned int)atoi((const char*)curHTTP.data);
+                    EEPROM_WriteByte(NB_Accidents, EEPROM_NB_ACCIDENT_ADS);        
+                    index_param = 0;
+                    curHTTP.smPost = SM_READ_FINISHING;
 //                    curHTTP.smPost = SM_READ_NAME;
-//                    break;
+                    break;
                     
 				case CORRECTION_TEMP :
                     
@@ -934,7 +963,7 @@ static HTTP_IO_RESULT HTTPPostConfig(void)
                 }
                 Delay_10_microS();
 				// This is the only expected value, so callback is done
-				strcpypgm2ram((char*)curHTTP.data, "/index.htm");
+				strcpypgm2ram((char*)curHTTP.data, "/index_indu.htm");//"/index.htm"
 				curHTTP.httpStatus = HTTP_REDIRECT;
 				return HTTP_IO_DONE;
 	}

@@ -9,8 +9,9 @@
         <itemPath>../net_tasks.h</itemPath>
         <itemPath>../time_sync.h</itemPath>
         <itemPath>../board_init.h</itemPath>
-        <itemPath>../nv_mem.h</itemPath>
         <itemPath>../uart_utils.h</itemPath>
+        <itemPath>../EEPROM.h</itemPath>
+        <itemPath>../nv_mem.h</itemPath>
       </logicalFolder>
       <logicalFolder name="TCPIP Stack" displayName="TCPIP Stack" projectFiles="true">
         <itemPath>../TCPIP Stack/Announce.h</itemPath>
@@ -86,8 +87,9 @@
         <itemPath>../app_init.c</itemPath>
         <itemPath>../net_tasks.c</itemPath>
         <itemPath>../time_sync.c</itemPath>
-        <itemPath>../nv_mem.c</itemPath>
         <itemPath>../uart_utils.c</itemPath>
+        <itemPath>../EEPROM.c</itemPath>
+        <itemPath>../nv_mem.c</itemPath>
       </logicalFolder>
       <logicalFolder name="TCPIP Stack" displayName="TCPIP Stack" projectFiles="true">
         <itemPath>../TCPIP Stack/Announce.c</itemPath>

@@ -53,6 +53,7 @@ extern BYTE curHTTPID;
 
 void HTTPPrint(DWORD callbackID);
 void HTTPPrint_adresse_ip_value(void);
+void HTTPPrint_nb_accidents(void);
 
 void HTTPPrint(DWORD callbackID)
 {
@@ -60,6 +61,9 @@ void HTTPPrint(DWORD callbackID)
 	{
         case 0x00000002:
 			HTTPPrint_adresse_ip_value();
+			break;
+        case 0x00000079:
+			HTTPPrint_nb_accidents();
 			break;
 		default:
 			// Output notification for undefined values

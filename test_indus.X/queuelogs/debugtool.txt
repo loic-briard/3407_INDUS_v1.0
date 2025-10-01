@@ -1,0 +1,1000 @@
+21339 1759229385794 XXXX 1759229385794, Thread 21339: XXXX 1759229385794, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229385892 XXXX 1759229385892, Thread 21339: XXXX 1759229385892, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229385897 XXXX 1759229385897, Thread 21339: XXXX 1759229385897, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229385995 XXXX 1759229385995, Thread 21339: XXXX 1759229385995, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229386000 XXXX 1759229386000, Thread 21339: XXXX 1759229386000, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229386096 XXXX 1759229386096, Thread 21339: XXXX 1759229386096, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229386101 XXXX 1759229386101, Thread 21339: XXXX 1759229386101, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229386197 XXXX 1759229386197, Thread 21339: XXXX 1759229386197, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229386202 XXXX 1759229386202, Thread 21339: XXXX 1759229386202, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229386298 XXXX 1759229386298, Thread 21339: XXXX 1759229386298, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229386303 XXXX 1759229386303, Thread 21339: XXXX 1759229386303, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229386398 XXXX 1759229386398, Thread 21339: XXXX 1759229386398, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229386404 XXXX 1759229386404, Thread 21339: XXXX 1759229386404, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229386501 XXXX 1759229386501, Thread 21339: XXXX 1759229386501, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229386508 XXXX 1759229386508, Thread 21339: XXXX 1759229386508, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229386602 XXXX 1759229386602, Thread 21339: XXXX 1759229386602, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229386607 XXXX 1759229386607, Thread 21339: XXXX 1759229386607, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229386705 XXXX 1759229386705, Thread 21339: XXXX 1759229386705, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229386711 XXXX 1759229386711, Thread 21339: XXXX 1759229386711, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229386805 XXXX 1759229386805, Thread 21339: XXXX 1759229386805, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229386812 XXXX 1759229386812, Thread 21339: XXXX 1759229386812, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229386908 XXXX 1759229386908, Thread 21339: XXXX 1759229386908, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229386914 XXXX 1759229386914, Thread 21339: XXXX 1759229386914, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229387010 XXXX 1759229387010, Thread 21339: XXXX 1759229387010, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229387016 XXXX 1759229387016, Thread 21339: XXXX 1759229387016, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229387114 XXXX 1759229387114, Thread 21339: XXXX 1759229387114, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229387120 XXXX 1759229387120, Thread 21339: XXXX 1759229387120, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229387215 XXXX 1759229387215, Thread 21339: XXXX 1759229387215, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229387220 XXXX 1759229387220, Thread 21339: XXXX 1759229387220, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229387316 XXXX 1759229387316, Thread 21339: XXXX 1759229387316, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229387322 XXXX 1759229387322, Thread 21339: XXXX 1759229387322, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229387416 XXXX 1759229387416, Thread 21339: XXXX 1759229387416, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229387423 XXXX 1759229387423, Thread 21339: XXXX 1759229387423, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229387517 XXXX 1759229387517, Thread 21339: XXXX 1759229387517, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229387523 XXXX 1759229387523, Thread 21339: XXXX 1759229387523, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229387619 XXXX 1759229387619, Thread 21339: XXXX 1759229387619, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229387625 XXXX 1759229387625, Thread 21339: XXXX 1759229387625, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229387721 XXXX 1759229387721, Thread 21339: XXXX 1759229387721, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229387727 XXXX 1759229387727, Thread 21339: XXXX 1759229387727, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229387823 XXXX 1759229387823, Thread 21339: XXXX 1759229387823, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229387829 XXXX 1759229387829, Thread 21339: XXXX 1759229387829, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229387924 XXXX 1759229387924, Thread 21339: XXXX 1759229387924, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229387930 XXXX 1759229387930, Thread 21339: XXXX 1759229387930, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229388024 XXXX 1759229388024, Thread 21339: XXXX 1759229388024, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229388030 XXXX 1759229388030, Thread 21339: XXXX 1759229388030, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229388124 XXXX 1759229388124, Thread 21339: XXXX 1759229388124, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229388130 XXXX 1759229388130, Thread 21339: XXXX 1759229388130, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229388226 XXXX 1759229388226, Thread 21339: XXXX 1759229388226, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229388232 XXXX 1759229388232, Thread 21339: XXXX 1759229388232, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229388327 XXXX 1759229388327, Thread 21339: XXXX 1759229388327, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229388333 XXXX 1759229388333, Thread 21339: XXXX 1759229388333, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229388429 XXXX 1759229388429, Thread 21339: XXXX 1759229388429, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229388436 XXXX 1759229388436, Thread 21339: XXXX 1759229388436, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229388530 XXXX 1759229388530, Thread 21339: XXXX 1759229388530, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229388537 XXXX 1759229388537, Thread 21339: XXXX 1759229388537, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229388631 XXXX 1759229388631, Thread 21339: XXXX 1759229388631, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229388638 XXXX 1759229388638, Thread 21339: XXXX 1759229388638, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229388732 XXXX 1759229388732, Thread 21339: XXXX 1759229388732, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229388738 XXXX 1759229388738, Thread 21339: XXXX 1759229388738, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229388832 XXXX 1759229388832, Thread 21339: XXXX 1759229388832, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229388838 XXXX 1759229388838, Thread 21339: XXXX 1759229388838, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229388934 XXXX 1759229388934, Thread 21339: XXXX 1759229388934, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229388940 XXXX 1759229388940, Thread 21339: XXXX 1759229388940, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229389036 XXXX 1759229389036, Thread 21339: XXXX 1759229389036, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229389042 XXXX 1759229389042, Thread 21339: XXXX 1759229389042, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229389139 XXXX 1759229389139, Thread 21339: XXXX 1759229389139, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229389145 XXXX 1759229389145, Thread 21339: XXXX 1759229389145, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229389240 XXXX 1759229389240, Thread 21339: XXXX 1759229389240, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229389246 XXXX 1759229389246, Thread 21339: XXXX 1759229389246, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229389340 XXXX 1759229389340, Thread 21339: XXXX 1759229389340, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229389346 XXXX 1759229389346, Thread 21339: XXXX 1759229389346, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229389443 XXXX 1759229389443, Thread 21339: XXXX 1759229389443, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229389449 XXXX 1759229389449, Thread 21339: XXXX 1759229389449, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229389545 XXXX 1759229389545, Thread 21339: XXXX 1759229389545, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229389551 XXXX 1759229389551, Thread 21339: XXXX 1759229389551, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229389646 XXXX 1759229389646, Thread 21339: XXXX 1759229389646, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229389651 XXXX 1759229389651, Thread 21339: XXXX 1759229389651, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229389746 XXXX 1759229389746, Thread 21339: XXXX 1759229389746, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229389753 XXXX 1759229389753, Thread 21339: XXXX 1759229389753, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229389846 XXXX 1759229389846, Thread 21339: XXXX 1759229389846, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229389852 XXXX 1759229389852, Thread 21339: XXXX 1759229389852, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229389953 XXXX 1759229389953, Thread 21339: XXXX 1759229389953, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229389959 XXXX 1759229389959, Thread 21339: XXXX 1759229389959, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229390053 XXXX 1759229390053, Thread 21339: XXXX 1759229390053, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229390059 XXXX 1759229390059, Thread 21339: XXXX 1759229390059, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229390154 XXXX 1759229390154, Thread 21339: XXXX 1759229390154, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229390159 XXXX 1759229390159, Thread 21339: XXXX 1759229390159, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229390257 XXXX 1759229390257, Thread 21339: XXXX 1759229390257, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229390262 XXXX 1759229390262, Thread 21339: XXXX 1759229390262, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229390358 XXXX 1759229390358, Thread 21339: XXXX 1759229390358, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229390363 XXXX 1759229390363, Thread 21339: XXXX 1759229390363, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229390459 XXXX 1759229390459, Thread 21339: XXXX 1759229390459, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229390465 XXXX 1759229390465, Thread 21339: XXXX 1759229390465, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229390559 XXXX 1759229390559, Thread 21339: XXXX 1759229390559, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229390565 XXXX 1759229390565, Thread 21339: XXXX 1759229390565, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229390660 XXXX 1759229390660, Thread 21339: XXXX 1759229390660, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229390665 XXXX 1759229390665, Thread 21339: XXXX 1759229390665, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229390762 XXXX 1759229390762, Thread 21339: XXXX 1759229390762, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229390768 XXXX 1759229390768, Thread 21339: XXXX 1759229390768, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229390864 XXXX 1759229390864, Thread 21339: XXXX 1759229390864, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229390870 XXXX 1759229390870, Thread 21339: XXXX 1759229390870, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229390964 XXXX 1759229390964, Thread 21339: XXXX 1759229390964, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229390971 XXXX 1759229390971, Thread 21339: XXXX 1759229390971, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229391066 XXXX 1759229391066, Thread 21339: XXXX 1759229391066, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229391072 XXXX 1759229391072, Thread 21339: XXXX 1759229391072, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229391168 XXXX 1759229391168, Thread 21339: XXXX 1759229391168, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229391174 XXXX 1759229391174, Thread 21339: XXXX 1759229391174, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229391268 XXXX 1759229391268, Thread 21339: XXXX 1759229391268, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229391273 XXXX 1759229391273, Thread 21339: XXXX 1759229391273, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229391369 XXXX 1759229391369, Thread 21339: XXXX 1759229391369, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229391374 XXXX 1759229391374, Thread 21339: XXXX 1759229391374, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229391473 XXXX 1759229391473, Thread 21339: XXXX 1759229391473, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229391479 XXXX 1759229391479, Thread 21339: XXXX 1759229391479, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229391574 XXXX 1759229391574, Thread 21339: XXXX 1759229391574, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229391580 XXXX 1759229391580, Thread 21339: XXXX 1759229391580, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229391674 XXXX 1759229391674, Thread 21339: XXXX 1759229391674, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229391680 XXXX 1759229391680, Thread 21339: XXXX 1759229391680, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229391775 XXXX 1759229391775, Thread 21339: XXXX 1759229391775, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229391780 XXXX 1759229391780, Thread 21339: XXXX 1759229391780, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229391877 XXXX 1759229391877, Thread 21339: XXXX 1759229391877, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229391884 XXXX 1759229391884, Thread 21339: XXXX 1759229391884, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229391978 XXXX 1759229391978, Thread 21339: XXXX 1759229391978, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229391984 XXXX 1759229391984, Thread 21339: XXXX 1759229391984, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229392079 XXXX 1759229392079, Thread 21339: XXXX 1759229392079, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229392084 XXXX 1759229392084, Thread 21339: XXXX 1759229392084, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229392181 XXXX 1759229392181, Thread 21339: XXXX 1759229392181, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229392187 XXXX 1759229392187, Thread 21339: XXXX 1759229392187, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229392284 XXXX 1759229392284, Thread 21339: XXXX 1759229392284, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229392289 XXXX 1759229392289, Thread 21339: XXXX 1759229392289, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229392385 XXXX 1759229392385, Thread 21339: XXXX 1759229392385, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229392391 XXXX 1759229392391, Thread 21339: XXXX 1759229392391, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229392486 XXXX 1759229392486, Thread 21339: XXXX 1759229392486, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229392493 XXXX 1759229392493, Thread 21339: XXXX 1759229392493, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229392591 XXXX 1759229392591, Thread 21339: XXXX 1759229392591, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229392597 XXXX 1759229392597, Thread 21339: XXXX 1759229392597, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229392694 XXXX 1759229392694, Thread 21339: XXXX 1759229392694, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229392700 XXXX 1759229392700, Thread 21339: XXXX 1759229392700, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229392795 XXXX 1759229392795, Thread 21339: XXXX 1759229392795, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229392800 XXXX 1759229392800, Thread 21339: XXXX 1759229392800, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229392896 XXXX 1759229392896, Thread 21339: XXXX 1759229392896, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229392902 XXXX 1759229392902, Thread 21339: XXXX 1759229392902, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229393000 XXXX 1759229393000, Thread 21339: XXXX 1759229393000, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229393005 XXXX 1759229393005, Thread 21339: XXXX 1759229393005, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229393101 XXXX 1759229393101, Thread 21339: XXXX 1759229393101, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229393106 XXXX 1759229393106, Thread 21339: XXXX 1759229393106, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229393201 XXXX 1759229393201, Thread 21339: XXXX 1759229393201, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229393207 XXXX 1759229393207, Thread 21339: XXXX 1759229393207, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229393301 XXXX 1759229393301, Thread 21339: XXXX 1759229393301, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229393308 XXXX 1759229393308, Thread 21339: XXXX 1759229393308, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229393402 XXXX 1759229393402, Thread 21339: XXXX 1759229393402, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229393408 XXXX 1759229393408, Thread 21339: XXXX 1759229393408, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229393503 XXXX 1759229393503, Thread 21339: XXXX 1759229393503, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229393509 XXXX 1759229393509, Thread 21339: XXXX 1759229393509, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229393606 XXXX 1759229393606, Thread 21339: XXXX 1759229393606, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229393612 XXXX 1759229393612, Thread 21339: XXXX 1759229393612, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229393707 XXXX 1759229393707, Thread 21339: XXXX 1759229393707, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229393713 XXXX 1759229393712, Thread 21339: XXXX 1759229393712, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229393808 XXXX 1759229393808, Thread 21339: XXXX 1759229393808, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229393813 XXXX 1759229393813, Thread 21339: XXXX 1759229393813, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229393907 XXXX 1759229393907, Thread 21339: XXXX 1759229393907, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229393914 XXXX 1759229393914, Thread 21339: XXXX 1759229393914, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229394010 XXXX 1759229394010, Thread 21339: XXXX 1759229394010, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229394016 XXXX 1759229394016, Thread 21339: XXXX 1759229394016, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229394110 XXXX 1759229394110, Thread 21339: XXXX 1759229394110, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229394115 XXXX 1759229394115, Thread 21339: XXXX 1759229394115, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229394212 XXXX 1759229394212, Thread 21339: XXXX 1759229394212, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229394218 XXXX 1759229394218, Thread 21339: XXXX 1759229394218, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229394313 XXXX 1759229394313, Thread 21339: XXXX 1759229394313, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229394319 XXXX 1759229394319, Thread 21339: XXXX 1759229394319, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229394415 XXXX 1759229394415, Thread 21339: XXXX 1759229394414, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229394421 XXXX 1759229394421, Thread 21339: XXXX 1759229394421, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229394514 XXXX 1759229394514, Thread 21339: XXXX 1759229394514, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229394521 XXXX 1759229394521, Thread 21339: XXXX 1759229394521, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229394615 XXXX 1759229394615, Thread 21339: XXXX 1759229394615, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229394620 XXXX 1759229394620, Thread 21339: XXXX 1759229394620, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229394716 XXXX 1759229394716, Thread 21339: XXXX 1759229394716, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229394722 XXXX 1759229394722, Thread 21339: XXXX 1759229394722, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229394818 XXXX 1759229394818, Thread 21339: XXXX 1759229394818, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229394824 XXXX 1759229394824, Thread 21339: XXXX 1759229394824, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229394920 XXXX 1759229394920, Thread 21339: XXXX 1759229394920, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229394928 XXXX 1759229394928, Thread 21339: XXXX 1759229394928, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229395024 XXXX 1759229395024, Thread 21339: XXXX 1759229395024, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229395030 XXXX 1759229395030, Thread 21339: XXXX 1759229395030, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229395126 XXXX 1759229395126, Thread 21339: XXXX 1759229395126, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229395132 XXXX 1759229395132, Thread 21339: XXXX 1759229395132, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229395226 XXXX 1759229395226, Thread 21339: XXXX 1759229395226, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229395231 XXXX 1759229395231, Thread 21339: XXXX 1759229395231, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229395328 XXXX 1759229395328, Thread 21339: XXXX 1759229395328, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229395334 XXXX 1759229395334, Thread 21339: XXXX 1759229395334, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229395429 XXXX 1759229395429, Thread 21339: XXXX 1759229395429, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229395435 XXXX 1759229395435, Thread 21339: XXXX 1759229395435, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229395531 XXXX 1759229395531, Thread 21339: XXXX 1759229395531, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229395537 XXXX 1759229395537, Thread 21339: XXXX 1759229395537, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229395632 XXXX 1759229395632, Thread 21339: XXXX 1759229395632, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229395637 XXXX 1759229395637, Thread 21339: XXXX 1759229395637, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229395733 XXXX 1759229395733, Thread 21339: XXXX 1759229395733, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229395738 XXXX 1759229395738, Thread 21339: XXXX 1759229395738, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229395834 XXXX 1759229395834, Thread 21339: XXXX 1759229395834, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229395840 XXXX 1759229395840, Thread 21339: XXXX 1759229395840, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229395936 XXXX 1759229395936, Thread 21339: XXXX 1759229395936, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229395941 XXXX 1759229395941, Thread 21339: XXXX 1759229395941, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229396037 XXXX 1759229396037, Thread 21339: XXXX 1759229396037, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229396044 XXXX 1759229396044, Thread 21339: XXXX 1759229396044, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229396138 XXXX 1759229396138, Thread 21339: XXXX 1759229396138, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229396142 XXXX 1759229396142, Thread 21339: XXXX 1759229396142, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229396238 XXXX 1759229396238, Thread 21339: XXXX 1759229396238, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229396244 XXXX 1759229396244, Thread 21339: XXXX 1759229396244, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229396339 XXXX 1759229396339, Thread 21339: XXXX 1759229396339, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229396343 XXXX 1759229396343, Thread 21339: XXXX 1759229396343, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229396441 XXXX 1759229396441, Thread 21339: XXXX 1759229396441, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229396447 XXXX 1759229396447, Thread 21339: XXXX 1759229396447, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229396541 XXXX 1759229396541, Thread 21339: XXXX 1759229396541, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229396548 XXXX 1759229396548, Thread 21339: XXXX 1759229396548, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229396642 XXXX 1759229396642, Thread 21339: XXXX 1759229396642, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229396648 XXXX 1759229396648, Thread 21339: XXXX 1759229396648, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229396744 XXXX 1759229396744, Thread 21339: XXXX 1759229396744, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229396750 XXXX 1759229396750, Thread 21339: XXXX 1759229396750, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229396844 XXXX 1759229396844, Thread 21339: XXXX 1759229396844, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229396850 XXXX 1759229396850, Thread 21339: XXXX 1759229396850, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229396946 XXXX 1759229396946, Thread 21339: XXXX 1759229396946, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229396952 XXXX 1759229396952, Thread 21339: XXXX 1759229396952, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229397047 XXXX 1759229397047, Thread 21339: XXXX 1759229397047, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229397053 XXXX 1759229397053, Thread 21339: XXXX 1759229397053, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229397147 XXXX 1759229397147, Thread 21339: XXXX 1759229397147, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229397154 XXXX 1759229397154, Thread 21339: XXXX 1759229397154, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229397247 XXXX 1759229397247, Thread 21339: XXXX 1759229397247, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229397252 XXXX 1759229397252, Thread 21339: XXXX 1759229397252, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229397348 XXXX 1759229397348, Thread 21339: XXXX 1759229397348, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229397353 XXXX 1759229397353, Thread 21339: XXXX 1759229397353, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229397448 XXXX 1759229397448, Thread 21339: XXXX 1759229397448, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229397455 XXXX 1759229397455, Thread 21339: XXXX 1759229397455, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229397550 XXXX 1759229397550, Thread 21339: XXXX 1759229397550, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229397556 XXXX 1759229397556, Thread 21339: XXXX 1759229397556, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229397650 XXXX 1759229397650, Thread 21339: XXXX 1759229397650, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229397656 XXXX 1759229397656, Thread 21339: XXXX 1759229397656, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229397753 XXXX 1759229397753, Thread 21339: XXXX 1759229397753, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229397759 XXXX 1759229397759, Thread 21339: XXXX 1759229397759, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229397855 XXXX 1759229397855, Thread 21339: XXXX 1759229397855, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229397861 XXXX 1759229397861, Thread 21339: XXXX 1759229397861, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229397958 XXXX 1759229397958, Thread 21339: XXXX 1759229397958, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229397963 XXXX 1759229397963, Thread 21339: XXXX 1759229397963, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229398061 XXXX 1759229398061, Thread 21339: XXXX 1759229398061, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229398067 XXXX 1759229398067, Thread 21339: XXXX 1759229398067, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229398162 XXXX 1759229398162, Thread 21339: XXXX 1759229398162, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229398167 XXXX 1759229398167, Thread 21339: XXXX 1759229398167, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229398263 XXXX 1759229398263, Thread 21339: XXXX 1759229398263, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229398269 XXXX 1759229398269, Thread 21339: XXXX 1759229398269, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229398364 XXXX 1759229398364, Thread 21339: XXXX 1759229398364, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229398370 XXXX 1759229398370, Thread 21339: XXXX 1759229398370, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229398465 XXXX 1759229398465, Thread 21339: XXXX 1759229398465, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229398472 XXXX 1759229398472, Thread 21339: XXXX 1759229398472, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229398567 XXXX 1759229398567, Thread 21339: XXXX 1759229398567, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229398574 XXXX 1759229398574, Thread 21339: XXXX 1759229398574, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229398668 XXXX 1759229398668, Thread 21339: XXXX 1759229398668, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229398673 XXXX 1759229398673, Thread 21339: XXXX 1759229398673, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229398770 XXXX 1759229398770, Thread 21339: XXXX 1759229398770, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229398776 XXXX 1759229398776, Thread 21339: XXXX 1759229398776, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229398871 XXXX 1759229398871, Thread 21339: XXXX 1759229398871, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229398876 XXXX 1759229398876, Thread 21339: XXXX 1759229398876, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229398972 XXXX 1759229398972, Thread 21339: XXXX 1759229398972, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229398980 XXXX 1759229398980, Thread 21339: XXXX 1759229398980, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229399073 XXXX 1759229399073, Thread 21339: XXXX 1759229399073, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229399078 XXXX 1759229399078, Thread 21339: XXXX 1759229399078, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229399175 XXXX 1759229399175, Thread 21339: XXXX 1759229399175, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229399181 XXXX 1759229399181, Thread 21339: XXXX 1759229399181, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229399278 XXXX 1759229399278, Thread 21339: XXXX 1759229399278, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229399283 XXXX 1759229399283, Thread 21339: XXXX 1759229399283, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229399379 XXXX 1759229399379, Thread 21339: XXXX 1759229399379, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229399385 XXXX 1759229399385, Thread 21339: XXXX 1759229399385, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229399480 XXXX 1759229399480, Thread 21339: XXXX 1759229399480, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229399486 XXXX 1759229399486, Thread 21339: XXXX 1759229399486, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229399580 XXXX 1759229399580, Thread 21339: XXXX 1759229399580, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229399586 XXXX 1759229399586, Thread 21339: XXXX 1759229399586, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229399682 XXXX 1759229399682, Thread 21339: XXXX 1759229399682, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229399688 XXXX 1759229399688, Thread 21339: XXXX 1759229399688, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229399783 XXXX 1759229399783, Thread 21339: XXXX 1759229399783, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229399789 XXXX 1759229399789, Thread 21339: XXXX 1759229399789, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229399885 XXXX 1759229399885, Thread 21339: XXXX 1759229399885, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229399894 XXXX 1759229399894, Thread 21339: XXXX 1759229399894, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229399986 XXXX 1759229399986, Thread 21339: XXXX 1759229399986, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229399992 XXXX 1759229399992, Thread 21339: XXXX 1759229399992, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229400093 XXXX 1759229400093, Thread 21339: XXXX 1759229400093, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229400099 XXXX 1759229400099, Thread 21339: XXXX 1759229400099, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229400194 XXXX 1759229400194, Thread 21339: XXXX 1759229400194, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229400199 XXXX 1759229400199, Thread 21339: XXXX 1759229400199, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229400294 XXXX 1759229400294, Thread 21339: XXXX 1759229400294, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229400301 XXXX 1759229400301, Thread 21339: XXXX 1759229400301, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229400395 XXXX 1759229400395, Thread 21339: XXXX 1759229400395, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229400402 XXXX 1759229400402, Thread 21339: XXXX 1759229400402, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229400496 XXXX 1759229400496, Thread 21339: XXXX 1759229400496, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229400503 XXXX 1759229400503, Thread 21339: XXXX 1759229400503, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229400598 XXXX 1759229400598, Thread 21339: XXXX 1759229400598, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229400603 XXXX 1759229400603, Thread 21339: XXXX 1759229400603, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229400700 XXXX 1759229400700, Thread 21339: XXXX 1759229400700, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229400706 XXXX 1759229400706, Thread 21339: XXXX 1759229400706, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229400801 XXXX 1759229400801, Thread 21339: XXXX 1759229400801, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229400807 XXXX 1759229400807, Thread 21339: XXXX 1759229400807, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229400903 XXXX 1759229400903, Thread 21339: XXXX 1759229400903, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229400909 XXXX 1759229400909, Thread 21339: XXXX 1759229400909, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229401008 XXXX 1759229401008, Thread 21339: XXXX 1759229401008, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229401014 XXXX 1759229401014, Thread 21339: XXXX 1759229401014, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229401108 XXXX 1759229401108, Thread 21339: XXXX 1759229401108, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229401113 XXXX 1759229401113, Thread 21339: XXXX 1759229401113, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229401209 XXXX 1759229401209, Thread 21339: XXXX 1759229401209, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229401214 XXXX 1759229401214, Thread 21339: XXXX 1759229401214, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229401308 XXXX 1759229401308, Thread 21339: XXXX 1759229401308, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229401314 XXXX 1759229401314, Thread 21339: XXXX 1759229401314, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229401411 XXXX 1759229401411, Thread 21339: XXXX 1759229401411, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229401417 XXXX 1759229401417, Thread 21339: XXXX 1759229401417, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229401511 XXXX 1759229401511, Thread 21339: XXXX 1759229401511, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229401518 XXXX 1759229401518, Thread 21339: XXXX 1759229401518, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229401613 XXXX 1759229401613, Thread 21339: XXXX 1759229401613, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229401620 XXXX 1759229401620, Thread 21339: XXXX 1759229401620, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229401714 XXXX 1759229401714, Thread 21339: XXXX 1759229401714, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229401721 XXXX 1759229401721, Thread 21339: XXXX 1759229401721, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229401815 XXXX 1759229401815, Thread 21339: XXXX 1759229401815, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229401822 XXXX 1759229401822, Thread 21339: XXXX 1759229401822, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229401916 XXXX 1759229401916, Thread 21339: XXXX 1759229401916, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229401922 XXXX 1759229401922, Thread 21339: XXXX 1759229401922, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229402016 XXXX 1759229402016, Thread 21339: XXXX 1759229402016, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229402023 XXXX 1759229402023, Thread 21339: XXXX 1759229402023, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229402117 XXXX 1759229402117, Thread 21339: XXXX 1759229402117, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229402123 XXXX 1759229402123, Thread 21339: XXXX 1759229402123, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229402218 XXXX 1759229402218, Thread 21339: XXXX 1759229402218, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229402224 XXXX 1759229402224, Thread 21339: XXXX 1759229402224, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229402321 XXXX 1759229402321, Thread 21339: XXXX 1759229402321, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229402326 XXXX 1759229402326, Thread 21339: XXXX 1759229402326, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229402420 XXXX 1759229402420, Thread 21339: XXXX 1759229402420, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229402428 XXXX 1759229402428, Thread 21339: XXXX 1759229402428, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229402522 XXXX 1759229402522, Thread 21339: XXXX 1759229402522, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229402528 XXXX 1759229402528, Thread 21339: XXXX 1759229402528, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229402625 XXXX 1759229402625, Thread 21339: XXXX 1759229402625, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229402631 XXXX 1759229402631, Thread 21339: XXXX 1759229402631, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229402726 XXXX 1759229402726, Thread 21339: XXXX 1759229402726, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229402733 XXXX 1759229402733, Thread 21339: XXXX 1759229402733, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229402829 XXXX 1759229402829, Thread 21339: XXXX 1759229402829, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229402836 XXXX 1759229402836, Thread 21339: XXXX 1759229402836, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229402931 XXXX 1759229402931, Thread 21339: XXXX 1759229402931, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229402937 XXXX 1759229402937, Thread 21339: XXXX 1759229402937, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229403031 XXXX 1759229403031, Thread 21339: XXXX 1759229403031, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229403039 XXXX 1759229403039, Thread 21339: XXXX 1759229403039, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229403133 XXXX 1759229403132, Thread 21339: XXXX 1759229403132, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229403139 XXXX 1759229403139, Thread 21339: XXXX 1759229403139, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229403232 XXXX 1759229403232, Thread 21339: XXXX 1759229403232, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229403238 XXXX 1759229403238, Thread 21339: XXXX 1759229403238, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229403334 XXXX 1759229403334, Thread 21339: XXXX 1759229403334, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229403341 XXXX 1759229403341, Thread 21339: XXXX 1759229403341, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229403436 XXXX 1759229403436, Thread 21339: XXXX 1759229403436, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229403442 XXXX 1759229403442, Thread 21339: XXXX 1759229403442, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229403537 XXXX 1759229403537, Thread 21339: XXXX 1759229403537, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229403544 XXXX 1759229403544, Thread 21339: XXXX 1759229403544, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229403638 XXXX 1759229403638, Thread 21339: XXXX 1759229403638, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229403644 XXXX 1759229403644, Thread 21339: XXXX 1759229403644, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229403738 XXXX 1759229403738, Thread 21339: XXXX 1759229403738, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229403744 XXXX 1759229403744, Thread 21339: XXXX 1759229403744, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229403841 XXXX 1759229403841, Thread 21339: XXXX 1759229403841, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229403847 XXXX 1759229403847, Thread 21339: XXXX 1759229403847, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229403942 XXXX 1759229403942, Thread 21339: XXXX 1759229403942, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229403948 XXXX 1759229403948, Thread 21339: XXXX 1759229403948, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229404043 XXXX 1759229404043, Thread 21339: XXXX 1759229404043, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229404049 XXXX 1759229404049, Thread 21339: XXXX 1759229404049, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229404143 XXXX 1759229404143, Thread 21339: XXXX 1759229404143, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229404149 XXXX 1759229404149, Thread 21339: XXXX 1759229404149, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229404243 XXXX 1759229404243, Thread 21339: XXXX 1759229404243, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229404249 XXXX 1759229404249, Thread 21339: XXXX 1759229404249, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229404344 XXXX 1759229404344, Thread 21339: XXXX 1759229404344, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229404350 XXXX 1759229404350, Thread 21339: XXXX 1759229404350, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229404445 XXXX 1759229404445, Thread 21339: XXXX 1759229404445, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229404451 XXXX 1759229404451, Thread 21339: XXXX 1759229404451, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229404547 XXXX 1759229404547, Thread 21339: XXXX 1759229404547, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229404553 XXXX 1759229404553, Thread 21339: XXXX 1759229404553, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229404646 XXXX 1759229404646, Thread 21339: XXXX 1759229404646, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229404652 XXXX 1759229404652, Thread 21339: XXXX 1759229404652, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229404747 XXXX 1759229404747, Thread 21339: XXXX 1759229404747, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229404754 XXXX 1759229404754, Thread 21339: XXXX 1759229404754, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229404847 XXXX 1759229404847, Thread 21339: XXXX 1759229404847, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229404853 XXXX 1759229404853, Thread 21339: XXXX 1759229404853, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229404948 XXXX 1759229404948, Thread 21339: XXXX 1759229404948, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229404955 XXXX 1759229404955, Thread 21339: XXXX 1759229404955, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229405051 XXXX 1759229405051, Thread 21339: XXXX 1759229405051, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229405057 XXXX 1759229405057, Thread 21339: XXXX 1759229405057, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229405152 XXXX 1759229405152, Thread 21339: XXXX 1759229405152, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229405159 XXXX 1759229405159, Thread 21339: XXXX 1759229405159, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229405252 XXXX 1759229405252, Thread 21339: XXXX 1759229405252, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229405257 XXXX 1759229405257, Thread 21339: XXXX 1759229405257, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229405352 XXXX 1759229405352, Thread 21339: XXXX 1759229405352, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229405359 XXXX 1759229405359, Thread 21339: XXXX 1759229405359, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229405454 XXXX 1759229405454, Thread 21339: XXXX 1759229405454, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229405460 XXXX 1759229405460, Thread 21339: XXXX 1759229405460, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229405556 XXXX 1759229405556, Thread 21339: XXXX 1759229405556, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229405562 XXXX 1759229405562, Thread 21339: XXXX 1759229405562, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229405658 XXXX 1759229405658, Thread 21339: XXXX 1759229405658, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229405663 XXXX 1759229405663, Thread 21339: XXXX 1759229405663, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229405759 XXXX 1759229405759, Thread 21339: XXXX 1759229405759, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229405765 XXXX 1759229405765, Thread 21339: XXXX 1759229405765, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229405860 XXXX 1759229405860, Thread 21339: XXXX 1759229405860, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229405865 XXXX 1759229405865, Thread 21339: XXXX 1759229405865, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229405962 XXXX 1759229405962, Thread 21339: XXXX 1759229405962, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229405968 XXXX 1759229405968, Thread 21339: XXXX 1759229405968, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229406064 XXXX 1759229406064, Thread 21339: XXXX 1759229406064, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229406073 XXXX 1759229406073, Thread 21339: XXXX 1759229406073, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229406165 XXXX 1759229406165, Thread 21339: XXXX 1759229406165, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229406171 XXXX 1759229406171, Thread 21339: XXXX 1759229406171, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229406266 XXXX 1759229406266, Thread 21339: XXXX 1759229406266, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229406272 XXXX 1759229406272, Thread 21339: XXXX 1759229406272, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229406366 XXXX 1759229406366, Thread 21339: XXXX 1759229406366, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229406372 XXXX 1759229406372, Thread 21339: XXXX 1759229406372, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229406468 XXXX 1759229406468, Thread 21339: XXXX 1759229406468, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229406475 XXXX 1759229406475, Thread 21339: XXXX 1759229406475, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229406571 XXXX 1759229406571, Thread 21339: XXXX 1759229406571, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229406578 XXXX 1759229406578, Thread 21339: XXXX 1759229406578, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229406672 XXXX 1759229406672, Thread 21339: XXXX 1759229406672, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229406678 XXXX 1759229406678, Thread 21339: XXXX 1759229406678, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229406775 XXXX 1759229406775, Thread 21339: XXXX 1759229406775, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229406780 XXXX 1759229406780, Thread 21339: XXXX 1759229406780, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229406879 XXXX 1759229406879, Thread 21339: XXXX 1759229406878, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229406886 XXXX 1759229406886, Thread 21339: XXXX 1759229406886, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229406979 XXXX 1759229406979, Thread 21339: XXXX 1759229406979, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229406986 XXXX 1759229406986, Thread 21339: XXXX 1759229406986, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229407081 XXXX 1759229407081, Thread 21339: XXXX 1759229407081, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229407087 XXXX 1759229407087, Thread 21339: XXXX 1759229407087, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229407181 XXXX 1759229407181, Thread 21339: XXXX 1759229407181, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229407186 XXXX 1759229407186, Thread 21339: XXXX 1759229407186, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229407281 XXXX 1759229407281, Thread 21339: XXXX 1759229407281, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229407287 XXXX 1759229407287, Thread 21339: XXXX 1759229407287, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229407383 XXXX 1759229407383, Thread 21339: XXXX 1759229407383, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229407388 XXXX 1759229407388, Thread 21339: XXXX 1759229407388, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229407484 XXXX 1759229407484, Thread 21339: XXXX 1759229407484, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229407491 XXXX 1759229407491, Thread 21339: XXXX 1759229407491, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229407587 XXXX 1759229407587, Thread 21339: XXXX 1759229407587, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229407592 XXXX 1759229407592, Thread 21339: XXXX 1759229407592, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229407687 XXXX 1759229407687, Thread 21339: XXXX 1759229407687, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229407694 XXXX 1759229407694, Thread 21339: XXXX 1759229407694, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229407789 XXXX 1759229407789, Thread 21339: XXXX 1759229407789, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229407794 XXXX 1759229407794, Thread 21339: XXXX 1759229407794, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229407888 XXXX 1759229407888, Thread 21339: XXXX 1759229407888, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229407893 XXXX 1759229407893, Thread 21339: XXXX 1759229407893, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229407988 XXXX 1759229407988, Thread 21339: XXXX 1759229407988, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229407994 XXXX 1759229407994, Thread 21339: XXXX 1759229407994, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229408089 XXXX 1759229408089, Thread 21339: XXXX 1759229408089, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229408094 XXXX 1759229408094, Thread 21339: XXXX 1759229408094, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229408189 XXXX 1759229408189, Thread 21339: XXXX 1759229408189, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229408194 XXXX 1759229408194, Thread 21339: XXXX 1759229408194, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229408289 XXXX 1759229408289, Thread 21339: XXXX 1759229408289, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229408293 XXXX 1759229408293, Thread 21339: XXXX 1759229408293, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229408392 XXXX 1759229408392, Thread 21339: XXXX 1759229408392, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229408399 XXXX 1759229408399, Thread 21339: XXXX 1759229408399, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229408492 XXXX 1759229408492, Thread 21339: XXXX 1759229408492, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229408498 XXXX 1759229408498, Thread 21339: XXXX 1759229408498, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229408595 XXXX 1759229408595, Thread 21339: XXXX 1759229408595, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229408602 XXXX 1759229408602, Thread 21339: XXXX 1759229408602, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229408695 XXXX 1759229408695, Thread 21339: XXXX 1759229408695, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229408701 XXXX 1759229408701, Thread 21339: XXXX 1759229408701, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229408797 XXXX 1759229408797, Thread 21339: XXXX 1759229408797, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229408802 XXXX 1759229408802, Thread 21339: XXXX 1759229408802, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229408897 XXXX 1759229408897, Thread 21339: XXXX 1759229408897, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229408904 XXXX 1759229408904, Thread 21339: XXXX 1759229408904, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229408998 XXXX 1759229408998, Thread 21339: XXXX 1759229408998, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229409006 XXXX 1759229409006, Thread 21339: XXXX 1759229409006, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229409099 XXXX 1759229409099, Thread 21339: XXXX 1759229409099, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229409105 XXXX 1759229409105, Thread 21339: XXXX 1759229409105, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229409200 XXXX 1759229409200, Thread 21339: XXXX 1759229409200, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229409206 XXXX 1759229409206, Thread 21339: XXXX 1759229409206, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229409302 XXXX 1759229409302, Thread 21339: XXXX 1759229409302, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229409309 XXXX 1759229409309, Thread 21339: XXXX 1759229409309, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229409402 XXXX 1759229409402, Thread 21339: XXXX 1759229409402, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229409408 XXXX 1759229409408, Thread 21339: XXXX 1759229409408, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229409503 XXXX 1759229409503, Thread 21339: XXXX 1759229409503, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229409509 XXXX 1759229409509, Thread 21339: XXXX 1759229409509, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229409603 XXXX 1759229409603, Thread 21339: XXXX 1759229409603, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229409609 XXXX 1759229409609, Thread 21339: XXXX 1759229409609, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229409705 XXXX 1759229409705, Thread 21339: XXXX 1759229409705, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229409711 XXXX 1759229409711, Thread 21339: XXXX 1759229409711, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229409807 XXXX 1759229409807, Thread 21339: XXXX 1759229409807, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229409813 XXXX 1759229409813, Thread 21339: XXXX 1759229409813, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229409909 XXXX 1759229409909, Thread 21339: XXXX 1759229409909, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229409915 XXXX 1759229409915, Thread 21339: XXXX 1759229409915, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229410010 XXXX 1759229410010, Thread 21339: XXXX 1759229410010, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229410015 XXXX 1759229410015, Thread 21339: XXXX 1759229410015, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229410111 XXXX 1759229410111, Thread 21339: XXXX 1759229410111, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229410116 XXXX 1759229410116, Thread 21339: XXXX 1759229410116, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229410211 XXXX 1759229410211, Thread 21339: XXXX 1759229410211, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229410217 XXXX 1759229410217, Thread 21339: XXXX 1759229410217, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229410314 XXXX 1759229410314, Thread 21339: XXXX 1759229410314, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229410320 XXXX 1759229410320, Thread 21339: XXXX 1759229410320, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229410414 XXXX 1759229410414, Thread 21339: XXXX 1759229410414, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229410422 XXXX 1759229410422, Thread 21339: XXXX 1759229410421, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229410516 XXXX 1759229410516, Thread 21339: XXXX 1759229410516, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229410521 XXXX 1759229410521, Thread 21339: XXXX 1759229410521, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229410617 XXXX 1759229410617, Thread 21339: XXXX 1759229410617, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229410622 XXXX 1759229410622, Thread 21339: XXXX 1759229410622, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229410717 XXXX 1759229410717, Thread 21339: XXXX 1759229410717, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229410723 XXXX 1759229410723, Thread 21339: XXXX 1759229410723, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229410819 XXXX 1759229410819, Thread 21339: XXXX 1759229410819, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229410825 XXXX 1759229410825, Thread 21339: XXXX 1759229410825, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229410920 XXXX 1759229410920, Thread 21339: XXXX 1759229410920, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229410926 XXXX 1759229410926, Thread 21339: XXXX 1759229410926, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229411023 XXXX 1759229411023, Thread 21339: XXXX 1759229411023, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229411028 XXXX 1759229411028, Thread 21339: XXXX 1759229411028, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229411124 XXXX 1759229411124, Thread 21339: XXXX 1759229411124, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229411129 XXXX 1759229411129, Thread 21339: XXXX 1759229411129, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229411225 XXXX 1759229411225, Thread 21339: XXXX 1759229411225, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229411231 XXXX 1759229411231, Thread 21339: XXXX 1759229411231, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229411328 XXXX 1759229411328, Thread 21339: XXXX 1759229411328, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229411334 XXXX 1759229411334, Thread 21339: XXXX 1759229411334, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229411430 XXXX 1759229411430, Thread 21339: XXXX 1759229411430, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229411436 XXXX 1759229411436, Thread 21339: XXXX 1759229411436, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229411531 XXXX 1759229411531, Thread 21339: XXXX 1759229411531, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229411537 XXXX 1759229411537, Thread 21339: XXXX 1759229411537, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229411636 XXXX 1759229411636, Thread 21339: XXXX 1759229411636, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229411642 XXXX 1759229411642, Thread 21339: XXXX 1759229411642, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229411737 XXXX 1759229411737, Thread 21339: XXXX 1759229411737, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229411743 XXXX 1759229411743, Thread 21339: XXXX 1759229411743, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229411838 XXXX 1759229411838, Thread 21339: XXXX 1759229411838, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229411843 XXXX 1759229411843, Thread 21339: XXXX 1759229411843, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229411941 XXXX 1759229411941, Thread 21339: XXXX 1759229411941, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229411948 XXXX 1759229411948, Thread 21339: XXXX 1759229411948, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229412043 XXXX 1759229412043, Thread 21339: XXXX 1759229412043, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229412048 XXXX 1759229412048, Thread 21339: XXXX 1759229412048, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229412143 XXXX 1759229412143, Thread 21339: XXXX 1759229412143, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229412149 XXXX 1759229412149, Thread 21339: XXXX 1759229412149, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229412245 XXXX 1759229412245, Thread 21339: XXXX 1759229412245, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229412250 XXXX 1759229412250, Thread 21339: XXXX 1759229412250, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229412348 XXXX 1759229412348, Thread 21339: XXXX 1759229412348, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229412353 XXXX 1759229412353, Thread 21339: XXXX 1759229412353, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229412448 XXXX 1759229412448, Thread 21339: XXXX 1759229412448, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229412455 XXXX 1759229412455, Thread 21339: XXXX 1759229412455, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229412549 XXXX 1759229412549, Thread 21339: XXXX 1759229412549, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229412556 XXXX 1759229412556, Thread 21339: XXXX 1759229412556, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229412650 XXXX 1759229412650, Thread 21339: XXXX 1759229412650, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229412656 XXXX 1759229412656, Thread 21339: XXXX 1759229412656, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229412751 XXXX 1759229412751, Thread 21339: XXXX 1759229412751, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229412759 XXXX 1759229412759, Thread 21339: XXXX 1759229412759, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229412852 XXXX 1759229412852, Thread 21339: XXXX 1759229412852, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229412858 XXXX 1759229412858, Thread 21339: XXXX 1759229412858, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229412953 XXXX 1759229412953, Thread 21339: XXXX 1759229412953, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229412958 XXXX 1759229412958, Thread 21339: XXXX 1759229412958, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229413081 XXXX 1759229413081, Thread 21339: XXXX 1759229413081, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229413087 XXXX 1759229413087, Thread 21339: XXXX 1759229413087, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229413181 XXXX 1759229413181, Thread 21339: XXXX 1759229413181, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229413187 XXXX 1759229413187, Thread 21339: XXXX 1759229413187, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229413282 XXXX 1759229413282, Thread 21339: XXXX 1759229413282, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229413287 XXXX 1759229413287, Thread 21339: XXXX 1759229413287, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229413383 XXXX 1759229413383, Thread 21339: XXXX 1759229413383, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229413388 XXXX 1759229413388, Thread 21339: XXXX 1759229413388, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229413486 XXXX 1759229413486, Thread 21339: XXXX 1759229413486, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229413492 XXXX 1759229413492, Thread 21339: XXXX 1759229413492, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229413590 XXXX 1759229413590, Thread 21339: XXXX 1759229413590, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229413595 XXXX 1759229413595, Thread 21339: XXXX 1759229413595, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229413695 XXXX 1759229413695, Thread 21339: XXXX 1759229413695, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229413702 XXXX 1759229413702, Thread 21339: XXXX 1759229413702, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229413796 XXXX 1759229413796, Thread 21339: XXXX 1759229413796, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229413802 XXXX 1759229413802, Thread 21339: XXXX 1759229413801, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229413897 XXXX 1759229413897, Thread 21339: XXXX 1759229413897, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229413903 XXXX 1759229413903, Thread 21339: XXXX 1759229413903, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229413998 XXXX 1759229413998, Thread 21339: XXXX 1759229413998, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229414005 XXXX 1759229414005, Thread 21339: XXXX 1759229414005, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229414100 XXXX 1759229414100, Thread 21339: XXXX 1759229414100, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229414105 XXXX 1759229414105, Thread 21339: XXXX 1759229414105, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229414201 XXXX 1759229414201, Thread 21339: XXXX 1759229414201, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229414206 XXXX 1759229414206, Thread 21339: XXXX 1759229414206, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229414301 XXXX 1759229414301, Thread 21339: XXXX 1759229414301, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229414307 XXXX 1759229414307, Thread 21339: XXXX 1759229414307, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229414401 XXXX 1759229414401, Thread 21339: XXXX 1759229414401, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229414406 XXXX 1759229414406, Thread 21339: XXXX 1759229414406, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229414501 XXXX 1759229414501, Thread 21339: XXXX 1759229414501, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229414507 XXXX 1759229414507, Thread 21339: XXXX 1759229414507, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229414601 XXXX 1759229414601, Thread 21339: XXXX 1759229414601, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229414607 XXXX 1759229414607, Thread 21339: XXXX 1759229414607, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229414702 XXXX 1759229414702, Thread 21339: XXXX 1759229414702, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229414708 XXXX 1759229414708, Thread 21339: XXXX 1759229414708, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229414804 XXXX 1759229414804, Thread 21339: XXXX 1759229414804, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229414809 XXXX 1759229414809, Thread 21339: XXXX 1759229414809, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229414905 XXXX 1759229414905, Thread 21339: XXXX 1759229414905, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229414911 XXXX 1759229414911, Thread 21339: XXXX 1759229414911, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229415006 XXXX 1759229415006, Thread 21339: XXXX 1759229415006, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229415012 XXXX 1759229415012, Thread 21339: XXXX 1759229415012, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229415108 XXXX 1759229415108, Thread 21339: XXXX 1759229415108, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229415114 XXXX 1759229415114, Thread 21339: XXXX 1759229415114, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229415208 XXXX 1759229415208, Thread 21339: XXXX 1759229415208, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229415214 XXXX 1759229415214, Thread 21339: XXXX 1759229415214, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229415310 XXXX 1759229415310, Thread 21339: XXXX 1759229415310, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229415316 XXXX 1759229415316, Thread 21339: XXXX 1759229415316, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229415412 XXXX 1759229415412, Thread 21339: XXXX 1759229415412, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229415418 XXXX 1759229415418, Thread 21339: XXXX 1759229415418, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229415515 XXXX 1759229415515, Thread 21339: XXXX 1759229415515, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229415522 XXXX 1759229415522, Thread 21339: XXXX 1759229415522, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229415616 XXXX 1759229415616, Thread 21339: XXXX 1759229415616, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229415622 XXXX 1759229415622, Thread 21339: XXXX 1759229415622, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229415717 XXXX 1759229415717, Thread 21339: XXXX 1759229415717, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229415723 XXXX 1759229415723, Thread 21339: XXXX 1759229415723, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229415818 XXXX 1759229415818, Thread 21339: XXXX 1759229415818, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229415824 XXXX 1759229415824, Thread 21339: XXXX 1759229415824, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229415918 XXXX 1759229415918, Thread 21339: XXXX 1759229415918, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229415925 XXXX 1759229415925, Thread 21339: XXXX 1759229415925, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229416020 XXXX 1759229416020, Thread 21339: XXXX 1759229416020, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229416025 XXXX 1759229416025, Thread 21339: XXXX 1759229416025, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229416122 XXXX 1759229416122, Thread 21339: XXXX 1759229416122, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229416127 XXXX 1759229416127, Thread 21339: XXXX 1759229416127, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229416224 XXXX 1759229416224, Thread 21339: XXXX 1759229416224, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229416229 XXXX 1759229416229, Thread 21339: XXXX 1759229416229, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229416324 XXXX 1759229416324, Thread 21339: XXXX 1759229416324, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229416329 XXXX 1759229416329, Thread 21339: XXXX 1759229416329, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229416424 XXXX 1759229416424, Thread 21339: XXXX 1759229416424, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229416431 XXXX 1759229416431, Thread 21339: XXXX 1759229416431, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229416527 XXXX 1759229416527, Thread 21339: XXXX 1759229416527, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229416533 XXXX 1759229416533, Thread 21339: XXXX 1759229416533, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229416628 XXXX 1759229416628, Thread 21339: XXXX 1759229416628, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229416633 XXXX 1759229416633, Thread 21339: XXXX 1759229416633, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229416728 XXXX 1759229416728, Thread 21339: XXXX 1759229416728, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229416734 XXXX 1759229416734, Thread 21339: XXXX 1759229416734, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229416828 XXXX 1759229416828, Thread 21339: XXXX 1759229416828, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229416835 XXXX 1759229416835, Thread 21339: XXXX 1759229416835, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229416930 XXXX 1759229416930, Thread 21339: XXXX 1759229416930, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229416935 XXXX 1759229416935, Thread 21339: XXXX 1759229416935, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229417029 XXXX 1759229417029, Thread 21339: XXXX 1759229417029, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229417035 XXXX 1759229417035, Thread 21339: XXXX 1759229417035, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229417131 XXXX 1759229417131, Thread 21339: XXXX 1759229417131, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229417137 XXXX 1759229417137, Thread 21339: XXXX 1759229417137, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229417232 XXXX 1759229417232, Thread 21339: XXXX 1759229417232, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229417238 XXXX 1759229417238, Thread 21339: XXXX 1759229417238, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229417333 XXXX 1759229417333, Thread 21339: XXXX 1759229417333, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229417338 XXXX 1759229417338, Thread 21339: XXXX 1759229417338, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229417434 XXXX 1759229417434, Thread 21339: XXXX 1759229417434, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229417439 XXXX 1759229417439, Thread 21339: XXXX 1759229417439, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229417536 XXXX 1759229417536, Thread 21339: XXXX 1759229417536, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229417541 XXXX 1759229417541, Thread 21339: XXXX 1759229417541, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229417636 XXXX 1759229417636, Thread 21339: XXXX 1759229417636, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229417641 XXXX 1759229417641, Thread 21339: XXXX 1759229417641, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229417736 XXXX 1759229417736, Thread 21339: XXXX 1759229417736, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229417742 XXXX 1759229417742, Thread 21339: XXXX 1759229417742, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229417837 XXXX 1759229417837, Thread 21339: XXXX 1759229417837, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229417844 XXXX 1759229417844, Thread 21339: XXXX 1759229417844, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229417939 XXXX 1759229417939, Thread 21339: XXXX 1759229417939, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229417947 XXXX 1759229417947, Thread 21339: XXXX 1759229417947, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229418043 XXXX 1759229418043, Thread 21339: XXXX 1759229418043, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229418048 XXXX 1759229418048, Thread 21339: XXXX 1759229418048, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229418145 XXXX 1759229418145, Thread 21339: XXXX 1759229418145, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229418151 XXXX 1759229418151, Thread 21339: XXXX 1759229418151, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229418245 XXXX 1759229418245, Thread 21339: XXXX 1759229418245, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229418251 XXXX 1759229418251, Thread 21339: XXXX 1759229418251, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229418365 XXXX 1759229418365, Thread 21339: XXXX 1759229418365, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229418371 XXXX 1759229418371, Thread 21339: XXXX 1759229418371, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229418465 XXXX 1759229418465, Thread 21339: XXXX 1759229418465, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229418470 XXXX 1759229418470, Thread 21339: XXXX 1759229418470, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229418568 XXXX 1759229418568, Thread 21339: XXXX 1759229418568, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229418575 XXXX 1759229418575, Thread 21339: XXXX 1759229418575, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229418671 XXXX 1759229418671, Thread 21339: XXXX 1759229418671, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229418676 XXXX 1759229418676, Thread 21339: XXXX 1759229418676, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229418771 XXXX 1759229418771, Thread 21339: XXXX 1759229418771, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229418777 XXXX 1759229418777, Thread 21339: XXXX 1759229418777, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229418873 XXXX 1759229418873, Thread 21339: XXXX 1759229418873, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229418879 XXXX 1759229418879, Thread 21339: XXXX 1759229418879, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229418975 XXXX 1759229418975, Thread 21339: XXXX 1759229418975, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229418981 XXXX 1759229418981, Thread 21339: XXXX 1759229418981, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229419076 XXXX 1759229419076, Thread 21339: XXXX 1759229419076, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229419082 XXXX 1759229419082, Thread 21339: XXXX 1759229419082, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229419179 XXXX 1759229419179, Thread 21339: XXXX 1759229419179, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229419184 XXXX 1759229419184, Thread 21339: XXXX 1759229419184, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229419282 XXXX 1759229419282, Thread 21339: XXXX 1759229419282, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229419288 XXXX 1759229419288, Thread 21339: XXXX 1759229419288, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229419384 XXXX 1759229419384, Thread 21339: XXXX 1759229419384, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229419390 XXXX 1759229419390, Thread 21339: XXXX 1759229419390, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229419485 XXXX 1759229419485, Thread 21339: XXXX 1759229419485, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229419491 XXXX 1759229419491, Thread 21339: XXXX 1759229419491, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229419587 XXXX 1759229419587, Thread 21339: XXXX 1759229419587, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229419593 XXXX 1759229419593, Thread 21339: XXXX 1759229419593, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229419687 XXXX 1759229419687, Thread 21339: XXXX 1759229419687, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229419693 XXXX 1759229419693, Thread 21339: XXXX 1759229419693, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229419789 XXXX 1759229419789, Thread 21339: XXXX 1759229419789, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229419795 XXXX 1759229419795, Thread 21339: XXXX 1759229419795, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229419890 XXXX 1759229419890, Thread 21339: XXXX 1759229419890, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229419896 XXXX 1759229419896, Thread 21339: XXXX 1759229419896, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229419993 XXXX 1759229419993, Thread 21339: XXXX 1759229419993, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229419999 XXXX 1759229419999, Thread 21339: XXXX 1759229419999, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229420095 XXXX 1759229420095, Thread 21339: XXXX 1759229420095, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229420100 XXXX 1759229420100, Thread 21339: XXXX 1759229420100, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229420195 XXXX 1759229420195, Thread 21339: XXXX 1759229420195, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229420201 XXXX 1759229420201, Thread 21339: XXXX 1759229420201, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229420298 XXXX 1759229420298, Thread 21339: XXXX 1759229420298, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229420303 XXXX 1759229420303, Thread 21339: XXXX 1759229420303, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229420398 XXXX 1759229420398, Thread 21339: XXXX 1759229420398, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229420404 XXXX 1759229420404, Thread 21339: XXXX 1759229420404, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229420499 XXXX 1759229420499, Thread 21339: XXXX 1759229420499, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229420505 XXXX 1759229420505, Thread 21339: XXXX 1759229420505, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229420600 XXXX 1759229420600, Thread 21339: XXXX 1759229420600, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229420606 XXXX 1759229420606, Thread 21339: XXXX 1759229420606, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229420701 XXXX 1759229420701, Thread 21339: XXXX 1759229420701, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229420707 XXXX 1759229420707, Thread 21339: XXXX 1759229420707, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229420803 XXXX 1759229420803, Thread 21339: XXXX 1759229420803, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229420809 XXXX 1759229420809, Thread 21339: XXXX 1759229420809, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229420903 XXXX 1759229420903, Thread 21339: XXXX 1759229420903, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229420908 XXXX 1759229420908, Thread 21339: XXXX 1759229420908, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229421005 XXXX 1759229421005, Thread 21339: XXXX 1759229421005, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229421011 XXXX 1759229421011, Thread 21339: XXXX 1759229421011, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229421107 XXXX 1759229421107, Thread 21339: XXXX 1759229421107, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229421112 XXXX 1759229421112, Thread 21339: XXXX 1759229421112, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229421208 XXXX 1759229421208, Thread 21339: XXXX 1759229421208, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229421214 XXXX 1759229421214, Thread 21339: XXXX 1759229421214, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229421309 XXXX 1759229421309, Thread 21339: XXXX 1759229421309, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229421315 XXXX 1759229421315, Thread 21339: XXXX 1759229421315, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229421411 XXXX 1759229421411, Thread 21339: XXXX 1759229421411, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229421418 XXXX 1759229421418, Thread 21339: XXXX 1759229421418, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229421511 XXXX 1759229421511, Thread 21339: XXXX 1759229421511, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229421517 XXXX 1759229421517, Thread 21339: XXXX 1759229421517, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229421612 XXXX 1759229421612, Thread 21339: XXXX 1759229421612, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229421618 XXXX 1759229421618, Thread 21339: XXXX 1759229421618, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229421712 XXXX 1759229421712, Thread 21339: XXXX 1759229421712, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229421718 XXXX 1759229421718, Thread 21339: XXXX 1759229421718, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229421814 XXXX 1759229421814, Thread 21339: XXXX 1759229421814, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229421820 XXXX 1759229421820, Thread 21339: XXXX 1759229421820, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229421915 XXXX 1759229421915, Thread 21339: XXXX 1759229421915, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229421920 XXXX 1759229421920, Thread 21339: XXXX 1759229421920, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229422016 XXXX 1759229422016, Thread 21339: XXXX 1759229422016, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229422022 XXXX 1759229422022, Thread 21339: XXXX 1759229422022, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229422117 XXXX 1759229422117, Thread 21339: XXXX 1759229422117, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229422122 XXXX 1759229422122, Thread 21339: XXXX 1759229422122, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229422220 XXXX 1759229422220, Thread 21339: XXXX 1759229422220, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229422225 XXXX 1759229422225, Thread 21339: XXXX 1759229422225, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229422321 XXXX 1759229422321, Thread 21339: XXXX 1759229422321, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229422327 XXXX 1759229422327, Thread 21339: XXXX 1759229422327, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229422423 XXXX 1759229422423, Thread 21339: XXXX 1759229422423, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229422430 XXXX 1759229422430, Thread 21339: XXXX 1759229422430, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229422529 XXXX 1759229422529, Thread 21339: XXXX 1759229422529, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229422535 XXXX 1759229422535, Thread 21339: XXXX 1759229422535, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229422631 XXXX 1759229422631, Thread 21339: XXXX 1759229422631, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229422636 XXXX 1759229422636, Thread 21339: XXXX 1759229422636, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229422732 XXXX 1759229422732, Thread 21339: XXXX 1759229422732, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229422738 XXXX 1759229422738, Thread 21339: XXXX 1759229422738, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229422835 XXXX 1759229422835, Thread 21339: XXXX 1759229422835, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229422841 XXXX 1759229422841, Thread 21339: XXXX 1759229422841, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229422936 XXXX 1759229422936, Thread 21339: XXXX 1759229422936, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229422942 XXXX 1759229422942, Thread 21339: XXXX 1759229422942, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229423042 XXXX 1759229423042, Thread 21339: XXXX 1759229423042, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229423047 XXXX 1759229423047, Thread 21339: XXXX 1759229423047, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229423144 XXXX 1759229423144, Thread 21339: XXXX 1759229423144, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229423149 XXXX 1759229423149, Thread 21339: XXXX 1759229423149, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229423245 XXXX 1759229423245, Thread 21339: XXXX 1759229423245, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229423251 XXXX 1759229423251, Thread 21339: XXXX 1759229423251, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229423345 XXXX 1759229423345, Thread 21339: XXXX 1759229423345, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229423351 XXXX 1759229423351, Thread 21339: XXXX 1759229423351, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229423447 XXXX 1759229423447, Thread 21339: XXXX 1759229423447, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229423455 XXXX 1759229423455, Thread 21339: XXXX 1759229423455, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229423548 XXXX 1759229423548, Thread 21339: XXXX 1759229423548, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229423554 XXXX 1759229423554, Thread 21339: XXXX 1759229423554, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229423649 XXXX 1759229423649, Thread 21339: XXXX 1759229423649, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229423655 XXXX 1759229423655, Thread 21339: XXXX 1759229423655, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229423750 XXXX 1759229423750, Thread 21339: XXXX 1759229423750, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229423756 XXXX 1759229423756, Thread 21339: XXXX 1759229423756, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229423853 XXXX 1759229423853, Thread 21339: XXXX 1759229423853, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229423858 XXXX 1759229423858, Thread 21339: XXXX 1759229423858, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229423955 XXXX 1759229423955, Thread 21339: XXXX 1759229423955, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229423961 XXXX 1759229423961, Thread 21339: XXXX 1759229423961, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229424058 XXXX 1759229424058, Thread 21339: XXXX 1759229424058, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229424064 XXXX 1759229424064, Thread 21339: XXXX 1759229424064, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229424158 XXXX 1759229424158, Thread 21339: XXXX 1759229424158, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229424164 XXXX 1759229424164, Thread 21339: XXXX 1759229424164, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229424259 XXXX 1759229424259, Thread 21339: XXXX 1759229424259, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229424265 XXXX 1759229424265, Thread 21339: XXXX 1759229424265, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229424360 XXXX 1759229424360, Thread 21339: XXXX 1759229424360, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229424366 XXXX 1759229424366, Thread 21339: XXXX 1759229424366, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229424462 XXXX 1759229424462, Thread 21339: XXXX 1759229424462, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229424468 XXXX 1759229424468, Thread 21339: XXXX 1759229424468, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229424564 XXXX 1759229424564, Thread 21339: XXXX 1759229424564, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229424570 XXXX 1759229424570, Thread 21339: XXXX 1759229424570, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229424665 XXXX 1759229424665, Thread 21339: XXXX 1759229424665, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229424671 XXXX 1759229424671, Thread 21339: XXXX 1759229424671, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229424766 XXXX 1759229424766, Thread 21339: XXXX 1759229424766, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229424771 XXXX 1759229424771, Thread 21339: XXXX 1759229424771, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229424867 XXXX 1759229424867, Thread 21339: XXXX 1759229424867, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229424873 XXXX 1759229424873, Thread 21339: XXXX 1759229424873, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229424970 XXXX 1759229424970, Thread 21339: XXXX 1759229424970, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229424976 XXXX 1759229424976, Thread 21339: XXXX 1759229424976, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229425070 XXXX 1759229425070, Thread 21339: XXXX 1759229425070, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229425076 XXXX 1759229425076, Thread 21339: XXXX 1759229425076, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229425172 XXXX 1759229425172, Thread 21339: XXXX 1759229425172, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229425178 XXXX 1759229425178, Thread 21339: XXXX 1759229425178, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229425274 XXXX 1759229425274, Thread 21339: XXXX 1759229425274, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229425279 XXXX 1759229425279, Thread 21339: XXXX 1759229425279, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229425378 XXXX 1759229425378, Thread 21339: XXXX 1759229425378, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229425383 XXXX 1759229425383, Thread 21339: XXXX 1759229425383, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229425477 XXXX 1759229425477, Thread 21339: XXXX 1759229425477, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229425483 XXXX 1759229425483, Thread 21339: XXXX 1759229425483, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229425580 XXXX 1759229425580, Thread 21339: XXXX 1759229425580, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229425586 XXXX 1759229425586, Thread 21339: XXXX 1759229425586, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229425681 XXXX 1759229425681, Thread 21339: XXXX 1759229425681, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229425687 XXXX 1759229425687, Thread 21339: XXXX 1759229425687, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229425782 XXXX 1759229425782, Thread 21339: XXXX 1759229425782, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229425788 XXXX 1759229425788, Thread 21339: XXXX 1759229425788, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229425882 XXXX 1759229425882, Thread 21339: XXXX 1759229425882, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229425889 XXXX 1759229425889, Thread 21339: XXXX 1759229425889, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229425984 XXXX 1759229425984, Thread 21339: XXXX 1759229425984, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229425988 XXXX 1759229425988, Thread 21339: XXXX 1759229425988, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229426084 XXXX 1759229426084, Thread 21339: XXXX 1759229426084, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229426090 XXXX 1759229426090, Thread 21339: XXXX 1759229426090, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229426185 XXXX 1759229426185, Thread 21339: XXXX 1759229426185, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229426191 XXXX 1759229426191, Thread 21339: XXXX 1759229426191, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229426286 XXXX 1759229426286, Thread 21339: XXXX 1759229426286, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229426292 XXXX 1759229426292, Thread 21339: XXXX 1759229426292, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229426389 XXXX 1759229426389, Thread 21339: XXXX 1759229426389, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229426394 XXXX 1759229426394, Thread 21339: XXXX 1759229426394, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229426489 XXXX 1759229426489, Thread 21339: XXXX 1759229426489, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229426495 XXXX 1759229426495, Thread 21339: XXXX 1759229426495, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229426590 XXXX 1759229426590, Thread 21339: XXXX 1759229426590, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229426596 XXXX 1759229426596, Thread 21339: XXXX 1759229426596, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229426691 XXXX 1759229426691, Thread 21339: XXXX 1759229426691, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229426697 XXXX 1759229426697, Thread 21339: XXXX 1759229426697, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229426793 XXXX 1759229426793, Thread 21339: XXXX 1759229426793, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229426799 XXXX 1759229426799, Thread 21339: XXXX 1759229426799, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229426894 XXXX 1759229426894, Thread 21339: XXXX 1759229426894, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229426900 XXXX 1759229426900, Thread 21339: XXXX 1759229426900, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229426995 XXXX 1759229426995, Thread 21339: XXXX 1759229426995, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229427001 XXXX 1759229427001, Thread 21339: XXXX 1759229427001, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229427098 XXXX 1759229427098, Thread 21339: XXXX 1759229427098, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229427104 XXXX 1759229427104, Thread 21339: XXXX 1759229427104, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229427200 XXXX 1759229427200, Thread 21339: XXXX 1759229427200, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229427206 XXXX 1759229427206, Thread 21339: XXXX 1759229427206, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229427302 XXXX 1759229427302, Thread 21339: XXXX 1759229427302, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229427307 XXXX 1759229427307, Thread 21339: XXXX 1759229427307, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229427403 XXXX 1759229427403, Thread 21339: XXXX 1759229427403, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229427409 XXXX 1759229427409, Thread 21339: XXXX 1759229427409, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229427505 XXXX 1759229427505, Thread 21339: XXXX 1759229427505, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229427511 XXXX 1759229427511, Thread 21339: XXXX 1759229427511, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229427607 XXXX 1759229427607, Thread 21339: XXXX 1759229427607, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229427612 XXXX 1759229427612, Thread 21339: XXXX 1759229427612, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229427708 XXXX 1759229427708, Thread 21339: XXXX 1759229427708, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229427714 XXXX 1759229427714, Thread 21339: XXXX 1759229427714, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229427810 XXXX 1759229427810, Thread 21339: XXXX 1759229427810, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229427816 XXXX 1759229427816, Thread 21339: XXXX 1759229427816, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229427911 XXXX 1759229427911, Thread 21339: XXXX 1759229427911, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229427917 XXXX 1759229427917, Thread 21339: XXXX 1759229427917, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229428014 XXXX 1759229428014, Thread 21339: XXXX 1759229428014, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229428021 XXXX 1759229428021, Thread 21339: XXXX 1759229428021, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229428115 XXXX 1759229428115, Thread 21339: XXXX 1759229428115, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229428120 XXXX 1759229428120, Thread 21339: XXXX 1759229428120, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229428215 XXXX 1759229428215, Thread 21339: XXXX 1759229428215, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229428220 XXXX 1759229428220, Thread 21339: XXXX 1759229428220, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229428316 XXXX 1759229428316, Thread 21339: XXXX 1759229428316, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229428322 XXXX 1759229428322, Thread 21339: XXXX 1759229428322, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229428417 XXXX 1759229428417, Thread 21339: XXXX 1759229428417, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229428423 XXXX 1759229428423, Thread 21339: XXXX 1759229428423, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229428517 XXXX 1759229428517, Thread 21339: XXXX 1759229428517, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229428523 XXXX 1759229428523, Thread 21339: XXXX 1759229428523, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229428617 XXXX 1759229428617, Thread 21339: XXXX 1759229428617, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229428622 XXXX 1759229428622, Thread 21339: XXXX 1759229428622, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229428719 XXXX 1759229428719, Thread 21339: XXXX 1759229428719, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229428725 XXXX 1759229428725, Thread 21339: XXXX 1759229428725, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229428821 XXXX 1759229428821, Thread 21339: XXXX 1759229428821, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229428826 XXXX 1759229428826, Thread 21339: XXXX 1759229428826, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229428928 XXXX 1759229428928, Thread 21339: XXXX 1759229428928, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229428934 XXXX 1759229428934, Thread 21339: XXXX 1759229428934, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229429028 XXXX 1759229429028, Thread 21339: XXXX 1759229429028, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229429035 XXXX 1759229429035, Thread 21339: XXXX 1759229429035, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229429128 XXXX 1759229429128, Thread 21339: XXXX 1759229429128, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229429134 XXXX 1759229429134, Thread 21339: XXXX 1759229429134, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229429230 XXXX 1759229429230, Thread 21339: XXXX 1759229429230, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229429236 XXXX 1759229429236, Thread 21339: XXXX 1759229429236, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229429332 XXXX 1759229429332, Thread 21339: XXXX 1759229429332, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229429338 XXXX 1759229429338, Thread 21339: XXXX 1759229429338, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229429432 XXXX 1759229429432, Thread 21339: XXXX 1759229429432, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229429438 XXXX 1759229429438, Thread 21339: XXXX 1759229429438, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229429533 XXXX 1759229429533, Thread 21339: XXXX 1759229429533, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229429539 XXXX 1759229429539, Thread 21339: XXXX 1759229429539, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229429635 XXXX 1759229429635, Thread 21339: XXXX 1759229429635, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229429640 XXXX 1759229429640, Thread 21339: XXXX 1759229429640, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229429737 XXXX 1759229429737, Thread 21339: XXXX 1759229429737, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229429742 XXXX 1759229429742, Thread 21339: XXXX 1759229429742, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229429838 XXXX 1759229429838, Thread 21339: XXXX 1759229429838, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229429844 XXXX 1759229429844, Thread 21339: XXXX 1759229429844, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229429938 XXXX 1759229429938, Thread 21339: XXXX 1759229429938, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229429943 XXXX 1759229429943, Thread 21339: XXXX 1759229429943, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229430039 XXXX 1759229430039, Thread 21339: XXXX 1759229430039, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229430046 XXXX 1759229430046, Thread 21339: XXXX 1759229430046, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229430142 XXXX 1759229430142, Thread 21339: XXXX 1759229430142, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229430147 XXXX 1759229430147, Thread 21339: XXXX 1759229430147, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229430244 XXXX 1759229430244, Thread 21339: XXXX 1759229430244, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229430249 XXXX 1759229430249, Thread 21339: XXXX 1759229430249, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229430348 XXXX 1759229430348, Thread 21339: XXXX 1759229430348, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229430354 XXXX 1759229430354, Thread 21339: XXXX 1759229430354, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229430449 XXXX 1759229430449, Thread 21339: XXXX 1759229430449, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229430454 XXXX 1759229430454, Thread 21339: XXXX 1759229430454, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229430570 XXXX 1759229430570, Thread 21339: XXXX 1759229430570, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229430578 XXXX 1759229430578, Thread 21339: XXXX 1759229430578, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229430670 XXXX 1759229430670, Thread 21339: XXXX 1759229430670, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229430676 XXXX 1759229430676, Thread 21339: XXXX 1759229430676, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229430771 XXXX 1759229430771, Thread 21339: XXXX 1759229430771, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229430776 XXXX 1759229430776, Thread 21339: XXXX 1759229430776, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229430872 XXXX 1759229430872, Thread 21339: XXXX 1759229430872, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229430878 XXXX 1759229430878, Thread 21339: XXXX 1759229430878, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229430974 XXXX 1759229430974, Thread 21339: XXXX 1759229430974, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229430981 XXXX 1759229430981, Thread 21339: XXXX 1759229430981, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229431076 XXXX 1759229431076, Thread 21339: XXXX 1759229431076, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229431082 XXXX 1759229431082, Thread 21339: XXXX 1759229431082, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229431177 XXXX 1759229431177, Thread 21339: XXXX 1759229431177, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229431183 XXXX 1759229431183, Thread 21339: XXXX 1759229431183, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229431279 XXXX 1759229431279, Thread 21339: XXXX 1759229431279, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229431285 XXXX 1759229431285, Thread 21339: XXXX 1759229431285, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229431379 XXXX 1759229431379, Thread 21339: XXXX 1759229431379, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229431384 XXXX 1759229431384, Thread 21339: XXXX 1759229431384, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229431483 XXXX 1759229431483, Thread 21339: XXXX 1759229431483, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229431489 XXXX 1759229431489, Thread 21339: XXXX 1759229431489, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229431584 XXXX 1759229431584, Thread 21339: XXXX 1759229431584, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229431590 XXXX 1759229431590, Thread 21339: XXXX 1759229431590, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229431686 XXXX 1759229431686, Thread 21339: XXXX 1759229431686, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229431692 XXXX 1759229431692, Thread 21339: XXXX 1759229431692, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229431787 XXXX 1759229431787, Thread 21339: XXXX 1759229431787, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229431793 XXXX 1759229431793, Thread 21339: XXXX 1759229431793, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229431889 XXXX 1759229431889, Thread 21339: XXXX 1759229431889, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229431894 XXXX 1759229431894, Thread 21339: XXXX 1759229431894, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229431988 XXXX 1759229431988, Thread 21339: XXXX 1759229431988, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229431995 XXXX 1759229431995, Thread 21339: XXXX 1759229431995, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229432090 XXXX 1759229432090, Thread 21339: XXXX 1759229432090, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229432096 XXXX 1759229432096, Thread 21339: XXXX 1759229432096, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229432191 XXXX 1759229432191, Thread 21339: XXXX 1759229432191, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229432198 XXXX 1759229432198, Thread 21339: XXXX 1759229432198, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229432293 XXXX 1759229432293, Thread 21339: XXXX 1759229432293, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229432298 XXXX 1759229432298, Thread 21339: XXXX 1759229432298, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229432393 XXXX 1759229432393, Thread 21339: XXXX 1759229432393, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229432399 XXXX 1759229432399, Thread 21339: XXXX 1759229432399, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229432494 XXXX 1759229432494, Thread 21339: XXXX 1759229432494, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229432500 XXXX 1759229432500, Thread 21339: XXXX 1759229432500, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229432594 XXXX 1759229432594, Thread 21339: XXXX 1759229432594, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229432600 XXXX 1759229432600, Thread 21339: XXXX 1759229432600, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229432696 XXXX 1759229432696, Thread 21339: XXXX 1759229432696, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229432702 XXXX 1759229432702, Thread 21339: XXXX 1759229432702, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229432797 XXXX 1759229432797, Thread 21339: XXXX 1759229432797, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229432803 XXXX 1759229432803, Thread 21339: XXXX 1759229432803, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229432898 XXXX 1759229432898, Thread 21339: XXXX 1759229432898, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229432904 XXXX 1759229432904, Thread 21339: XXXX 1759229432904, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229432999 XXXX 1759229432999, Thread 21339: XXXX 1759229432999, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229433005 XXXX 1759229433005, Thread 21339: XXXX 1759229433005, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229433100 XXXX 1759229433100, Thread 21339: XXXX 1759229433100, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229433105 XXXX 1759229433105, Thread 21339: XXXX 1759229433105, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229433201 XXXX 1759229433201, Thread 21339: XXXX 1759229433201, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229433208 XXXX 1759229433208, Thread 21339: XXXX 1759229433208, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229433303 XXXX 1759229433303, Thread 21339: XXXX 1759229433303, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229433309 XXXX 1759229433309, Thread 21339: XXXX 1759229433309, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229433404 XXXX 1759229433404, Thread 21339: XXXX 1759229433404, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229433409 XXXX 1759229433409, Thread 21339: XXXX 1759229433409, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229433505 XXXX 1759229433505, Thread 21339: XXXX 1759229433505, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229433512 XXXX 1759229433512, Thread 21339: XXXX 1759229433512, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229433607 XXXX 1759229433607, Thread 21339: XXXX 1759229433607, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229433612 XXXX 1759229433612, Thread 21339: XXXX 1759229433612, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229433709 XXXX 1759229433709, Thread 21339: XXXX 1759229433709, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229433715 XXXX 1759229433715, Thread 21339: XXXX 1759229433715, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229433812 XXXX 1759229433812, Thread 21339: XXXX 1759229433812, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229433817 XXXX 1759229433817, Thread 21339: XXXX 1759229433817, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229433913 XXXX 1759229433913, Thread 21339: XXXX 1759229433913, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229433918 XXXX 1759229433918, Thread 21339: XXXX 1759229433918, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229434013 XXXX 1759229434013, Thread 21339: XXXX 1759229434013, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229434019 XXXX 1759229434019, Thread 21339: XXXX 1759229434019, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229434115 XXXX 1759229434115, Thread 21339: XXXX 1759229434115, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229434121 XXXX 1759229434121, Thread 21339: XXXX 1759229434121, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229434215 XXXX 1759229434215, Thread 21339: XXXX 1759229434215, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229434221 XXXX 1759229434221, Thread 21339: XXXX 1759229434221, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229434315 XXXX 1759229434315, Thread 21339: XXXX 1759229434315, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229434320 XXXX 1759229434320, Thread 21339: XXXX 1759229434320, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229434416 XXXX 1759229434416, Thread 21339: XXXX 1759229434416, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229434422 XXXX 1759229434422, Thread 21339: XXXX 1759229434422, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229434518 XXXX 1759229434518, Thread 21339: XXXX 1759229434518, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229434524 XXXX 1759229434524, Thread 21339: XXXX 1759229434524, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229434619 XXXX 1759229434619, Thread 21339: XXXX 1759229434619, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229434624 XXXX 1759229434624, Thread 21339: XXXX 1759229434624, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229434721 XXXX 1759229434721, Thread 21339: XXXX 1759229434721, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229434727 XXXX 1759229434727, Thread 21339: XXXX 1759229434727, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229434823 XXXX 1759229434823, Thread 21339: XXXX 1759229434822, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229434828 XXXX 1759229434828, Thread 21339: XXXX 1759229434828, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229434923 XXXX 1759229434923, Thread 21339: XXXX 1759229434923, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229434928 XXXX 1759229434928, Thread 21339: XXXX 1759229434928, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229435025 XXXX 1759229435025, Thread 21339: XXXX 1759229435025, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229435031 XXXX 1759229435031, Thread 21339: XXXX 1759229435031, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229435133 XXXX 1759229435133, Thread 21339: XXXX 1759229435133, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229435139 XXXX 1759229435139, Thread 21339: XXXX 1759229435139, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229435234 XXXX 1759229435234, Thread 21339: XXXX 1759229435234, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229435240 XXXX 1759229435240, Thread 21339: XXXX 1759229435240, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229435335 XXXX 1759229435335, Thread 21339: XXXX 1759229435335, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229435342 XXXX 1759229435342, Thread 21339: XXXX 1759229435342, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229435436 XXXX 1759229435436, Thread 21339: XXXX 1759229435436, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229435442 XXXX 1759229435442, Thread 21339: XXXX 1759229435442, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229435538 XXXX 1759229435538, Thread 21339: XXXX 1759229435538, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229435545 XXXX 1759229435545, Thread 21339: XXXX 1759229435545, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229435638 XXXX 1759229435638, Thread 21339: XXXX 1759229435638, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229435645 XXXX 1759229435645, Thread 21339: XXXX 1759229435645, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229435739 XXXX 1759229435739, Thread 21339: XXXX 1759229435739, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229435744 XXXX 1759229435744, Thread 21339: XXXX 1759229435744, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229435840 XXXX 1759229435840, Thread 21339: XXXX 1759229435840, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229435846 XXXX 1759229435846, Thread 21339: XXXX 1759229435846, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759229435943 XXXX 1759229435943, Thread 21339: XXXX 1759229435943, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759229435949 XXXX 1759229435949, Thread 21339: XXXX 1759229435949, Exiting Thread 21339: Commands::runScriptBasic  
+21339 1759230712799 XXXX 1759230712799, Thread 21339: XXXX 1759230712799, Entering Thread 21339: Commands::runScriptBasic, script name = GetHaltStatus, timeOut = -1 ms  
+21339 1759230712801 XXXX 1759230712801, Thread 21339: com.Send returned false 
+21339 1759230712801 XXXX 1759230712801, Thread 21339: transfer: exception after writeHeaderAndGetResult null 
+21339 1759230712801 XXXX 1759230712801, Thread 21339: XXXX 1759230712801, Entering Thread 21339: ToolCommUsb::recoverFromProtocolError, type = NO_SCRIPT  
+21339 1759230712801 XXXX 1759230712801, Thread 21339: Send Abort Script Engine Command 
+21339 1759230712801 XXXX 1759230712801, Thread 21339: XXXX 1759230712801, Entering Thread 21339: ToolCommUsb::killScriptEngine  
+21339 1759230712858 XXXX 1759230712858, Thread 21339: com.Send returned false 
+21339 1759230712858 XXXX 1759230712858, Thread 21339: Failed sending Abort Script Engine Command. Set nuclear option = true 
+21339 1759230712858 XXXX 1759230712858, Thread 21339: About to nuke 
+21339 1759230712858 XXXX 1759230712858, Thread 21339: XXXX 1759230712858, Entering Thread 21339: ToolCommUsb::nuclearOption  
+21339 1759230712859 XXXX 1759230712859, Thread 21339: com.Send returned false 

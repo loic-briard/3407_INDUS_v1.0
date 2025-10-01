@@ -18,7 +18,8 @@ build/default/debug/_ext/1472/CustomHTTPApp.o: ../CustomHTTPApp.c \
  ../TCPIP\ Stack/DHCP.h ../TCPIP\ Stack/DNS.h ../TCPIP\ Stack/MPFS2.h \
  ../TCPIP\ Stack/HTTP2.h ../TCPIP\ Stack/ICMP.h \
  ../TCPIP\ Stack/Announce.h ../TCPIP\ Stack/NBNS.h \
- ../TCPIP\ Stack/Reboot.h ../TCPIP\ Stack/SNTP.h ../MainDemo.h
+ ../TCPIP\ Stack/Reboot.h ../TCPIP\ Stack/SNTP.h ../MainDemo.h \
+ ../03_Variables.h ../EEPROM.h
 
 ../TCPIPConfig.h:
 
@@ -107,3 +108,7 @@ build/default/debug/_ext/1472/CustomHTTPApp.o: ../CustomHTTPApp.c \
 ../TCPIP\ Stack/SNTP.h:
 
 ../MainDemo.h:
+
+../03_Variables.h:
+
+../EEPROM.h:

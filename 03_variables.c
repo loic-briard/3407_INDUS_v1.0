@@ -67,7 +67,12 @@ unsigned int
     INIT,
     JOUR_PRECEDENT,
     NUM_JOUR_DCF,				//Numéro du jour de la semaine 1=Lundi et 7=Dimanche
-	DECAL_HORAIRE;				//Nombre d'heure de décalage horaire
+	DECAL_HORAIRE,				//Nombre d'heure de décalage horaire
+    
+    NB_Accidents,
+    NB_Jours_Sans_Accidents,
+    NB_Records_Jours;
+    
 short
 	S_TEMP_AVEC_OFFSET[16],					
 	S_TEMP_MES[16],
@@ -106,8 +111,6 @@ unsigned char
 	UC_TABLE_EMI_SONDE[2],	//Variables Capteurs temp,
 	UC_TABLE_REC_SONDE[10],
     
-        
-				
 	FIN_TRAME,				//Fin d'émission de trame DCF
 	DEC_HOR_NEG,			//flag décalage horaire négatif	
 	TRAME_OK,				//Flag si trame DCF à transmettre
@@ -132,8 +135,6 @@ unsigned char
     FORCAGE_ARRET,
     Trame_STOP[4],
     Trame_GO[4];
-    
-
 
 __attribute__ ((persistent))
 unsigned char * UC_PT_CHAINE_LCD;

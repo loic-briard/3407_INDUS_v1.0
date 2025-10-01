@@ -56,6 +56,7 @@ body {
 .cfg-field   { display: grid; gap: 6px; font-size: 16px; }
 .cfg-check   { display: grid; grid-auto-flow: column; align-items: center; gap: 8px; font-size: 16px; }
 .cfg-check-persistent   { display: grid; grid-auto-flow: column; align-items: center; gap: 8px; font-size: 16px; }
+.cfg-ip-adress   { display: grid; grid-auto-flow: column; align-items: center; gap: 8px; font-size: 16px; }
 .cfg-inline  { display: inline-flex; align-items: center; gap: 10px; }
 .cfg-stack   { display: grid; gap: 6px; font-size: 16px; }
 .cfg-actions { display: flex; gap: 8px; justify-content: space-between; }
@@ -157,8 +158,8 @@ body.edit-off .cfg-check,
 body.edit-off .id-handle,
 body.edit-off .sep-edit-on,
 body.edit-off .cfg-actions,
-body.edit-off .cfg-actions,
 body.edit-off .cfg-field,
+body.edit-off .cfg-ip-adress,
 body.edit-off .resize-handle,
 body.edit-off .color-picker { display: none !important; }
 

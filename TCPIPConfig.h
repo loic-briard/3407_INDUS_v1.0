@@ -336,8 +336,8 @@
 	#define MAX_HTTP_CONNECTIONS	(3u)
 
 	// Indicate what file to serve when no specific one is requested
-	#define HTTP_DEFAULT_FILE		"index.htm"
-	#define HTTPS_DEFAULT_FILE		"index.htm"
+	#define HTTP_DEFAULT_FILE		"index_indu.htm"
+	#define HTTPS_DEFAULT_FILE		"index_indu.htm"
 	#define HTTP_DEFAULT_LEN		(10u)		// For buffer overrun protection.
 												// Set to longest length of above two strings.
 

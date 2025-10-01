@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <!-- <title>Interface Panneau</title> -->
+    <title>Interface Panneau</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <link rel="icon" href="logo.png" type="image/png">
 </head>
@@ -15,8 +15,11 @@
             <button id="gear" class="gear" type="button" title="Activer le mode édition">⚙️</button>
             <span>Configuration</span>
         </div>
-        <div><label>Adresse IP :</label>
-            <input type="text" name="Adresse_IP_edit" id="ip_edit" value="~adresse_ip_value~" />
+        <div>
+            <label class="cfg-ip-adress">
+                <span>Adresse IP : </span>
+                <input type="text" name="adresse_ip_value" id="ip_value" value="~adresse_ip_value~" />
+            </label>    
         </div>
         <button id="accidentBtn" class="btn strong">ACCIDENT</button>
         <hr class="sep" />
@@ -24,7 +27,7 @@
         <!-- Date du dernier accident -->
         <label class="cfg-stack">
             <span>Date du dernier accident :</span>
-            <input type="date" id="accidentDate" >
+            <input type="date" id="accidentDate">
         </label>
         <hr class="sep" />
 
@@ -93,9 +96,9 @@
     <div id="stage" class="stage">
         <img class="bg" id="bg" src="fond.png" alt="Fond">
 
-        <!-- Box 1 -->
+        <!-- Box 1 nb accidents -->
         <div class="box" id="box1">
-            <input type="number" name="valeur1" value="0" max="999" min="0">
+            <input type="number" name="valeur1" value="~nb_accidents~" max="999" min="0">
             <div class="id-handle">nb accident</div>
             <div class="resize-handle" aria-hidden="true" title="Redimensionner"></div>
             <div class="color-picker">
@@ -621,7 +624,7 @@
 
         // === Télémetrie / POST serveur ===
         // Mets ici ton endpoint : même origine => '/api/telemetry', sinon 'http://IP:PORT/api/telemetry'
-        const TELEMETRY_URL = '/api/telemetry';
+        const TELEMETRY_URL = '/index_indu.htm';
         // Codes JSON demandés : 0=rouge;1=vert;2=bleu;3=ambre;4=blanc
         const ColorKeyToCode = { red: 0, green: 1, blue: 2, amber: 3, white: 4 };
 
@@ -679,14 +682,30 @@
 
         //fonction d'envoie
         async function postTelemetry(payload) {
+            const formData = new URLSearchParams();
+            formData.append("AccidentsCount", payload.AccidentsCount);
+            formData.append("DaysWithoutAccident", payload.DaysWithoutAccident);
+            formData.append("RecordDaysWithoutAccident", payload.RecordDaysWithoutAccident);
+            formData.append("LastAccidentDate", payload.LastAccidentDate);
+            formData.append("Bold", payload.Bold);
+            formData.append("BrightEnabled", payload.BrightEnabled);
+            if (payload.Bright !== undefined) formData.append("Bright", payload.Bright);
+            formData.append("EcoParamsEnabled", payload.EcoParamsEnabled);
+            if (payload.StartTime) formData.append("StartTime", payload.StartTime);
+            if (payload.StopTime) formData.append("StopTime", payload.StopTime);
+            formData.append("LedColor1", payload.LedColors.box1);
+            formData.append("LedColor2", payload.LedColors.box2);
+            formData.append("LedColor3", payload.LedColors.box3);
+            formData.append("Now", payload.Now);
+
             try {
                 const res = await fetch(TELEMETRY_URL, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: formData.toString()
                 });
                 if (!res.ok) {
-                    console.warn('POST telemetry échec:', res.status, await res.text());
+                    console.warn('POST telemetry échec:', res.status);
                 }
             } catch (err) {
                 console.warn('POST telemetry erreur réseau:', err);
@@ -694,8 +713,8 @@
         }
         // appui sur le bouton mise à jour
         applyBtn.addEventListener('click', () => {
-            const cfg = gatherConfig();         // tu l’as déjà
-            saveLocalConfig(cfg);               // tu l’as déjà
+            const cfg = gatherConfig();         
+            saveLocalConfig(cfg);               
             postTelemetry(buildTelemetryPayload());  // ← envoi des infos courantes
             // petit feedback visuel (optionnel)
             applyBtn.textContent = 'Mise à jour…';

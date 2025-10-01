@@ -13,6 +13,7 @@
 #include "app_init.h"
 #include "net_tasks.h"
 #include "time_sync.h"
+#include "EEPROM.h"
 
 /*** Configuration Bits (laisser ici uniquement) ***/
 #pragma config POSCMOD = HS

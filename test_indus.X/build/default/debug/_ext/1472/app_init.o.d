@@ -20,8 +20,7 @@ build/default/debug/_ext/1472/app_init.o: ../app_init.c \
  ../TCPIP\ Stack/HTTP2.h ../TCPIP\ Stack/ICMP.h \
  ../TCPIP\ Stack/Announce.h ../TCPIP\ Stack/NBNS.h \
  ../TCPIP\ Stack/Reboot.h ../TCPIP\ Stack/SNTP.h ../02_Constantes.h \
- ../03_Variables.h ../04_Fonctions.h ../board_init.h ../nv_mem.h \
- ../net_tasks.h
+ ../04_Fonctions.h ../board_init.h ../EEPROM.h ../net_tasks.h
 
 ../TCPIP\ Stack/TCPIP.h:
 
@@ -109,12 +108,10 @@ build/default/debug/_ext/1472/app_init.o: ../app_init.c \
 
 ../02_Constantes.h:
 
-../03_Variables.h:
-
 ../04_Fonctions.h:
 
 ../board_init.h:
 
-../nv_mem.h:
+../EEPROM.h:
 
 ../net_tasks.h:

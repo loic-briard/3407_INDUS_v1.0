@@ -1,15 +1,14 @@
 build/default/debug/_ext/1472/net_tasks.o: ../net_tasks.c \
- ../TCPIP\ Stack/TCPIP.h ../TCPIP\ Stack/string.h \
- ../TCPIP\ Stack/stddef.h ../TCPIP\ Stack/stdlib.h \
- ../TCPIP\ Stack/..\GenericTypeDefs.h ../TCPIP\ Stack/..\Compiler.h \
- ../TCPIP\ Stack/p24Fxxxx.h ../TCPIP\ Stack/p24FJ256GB108.h \
+ ../TCPIPConfig.h ../GenericTypeDefs.h ../TCPIP\ Stack/stddef.h \
+ ../Compiler.h ../TCPIP\ Stack/p24Fxxxx.h ../TCPIP\ Stack/p24FJ256GB108.h \
  ../TCPIP\ Stack/stdio.h ../TCPIP\ Stack/stdarg.h \
- ../TCPIP\ Stack/..\HardwareProfile.h \
+ ../TCPIP\ Stack/stdlib.h ../TCPIP\ Stack/string.h \
+ ../TCPIP\ Stack/TCPIP.h ../TCPIP\ Stack/..\GenericTypeDefs.h \
+ ../TCPIP\ Stack/..\Compiler.h ../TCPIP\ Stack/..\HardwareProfile.h \
  ../TCPIP\ Stack/..\/HWP\ EX16_ENC28\ XC16.h \
  ../TCPIP\ Stack/..\/Compiler.h \
  ../TCPIP\ Stack/..\/HWP\ EX16_ENC28\ XC16.h \
- ../TCPIP\ Stack/..\TCPIPConfig.h ../TCPIP\ Stack/..\/GenericTypeDefs.h \
- ../TCPIP\ Stack/..\/Compiler.h ../TCPIP\ Stack/StackTsk.h \
+ ../TCPIP\ Stack/..\TCPIPConfig.h ../TCPIP\ Stack/StackTsk.h \
  ../TCPIP\ Stack/Helpers.h ../TCPIP\ Stack/Delay.h ../TCPIP\ Stack/Tick.h \
  ../TCPIP\ Stack/TCPIP.h ../TCPIP\ Stack/MAC.h \
  ../TCPIP\ Stack/ENCX24J600.h ../TCPIP\ Stack/IP.h ../TCPIP\ Stack/ARP.h \
@@ -22,17 +21,13 @@ build/default/debug/_ext/1472/net_tasks.o: ../net_tasks.c \
  ../TCPIP\ Stack/Reboot.h ../TCPIP\ Stack/SNTP.h ../02_Constantes.h \
  ../03_Variables.h ../04_Fonctions.h
 
-../TCPIP\ Stack/TCPIP.h:
+../TCPIPConfig.h:
 
-../TCPIP\ Stack/string.h:
+../GenericTypeDefs.h:
 
 ../TCPIP\ Stack/stddef.h:
 
-../TCPIP\ Stack/stdlib.h:
-
-../TCPIP\ Stack/..\GenericTypeDefs.h:
-
-../TCPIP\ Stack/..\Compiler.h:
+../Compiler.h:
 
 ../TCPIP\ Stack/p24Fxxxx.h:
 
@@ -41,6 +36,16 @@ build/default/debug/_ext/1472/net_tasks.o: ../net_tasks.c \
 ../TCPIP\ Stack/stdio.h:
 
 ../TCPIP\ Stack/stdarg.h:
+
+../TCPIP\ Stack/stdlib.h:
+
+../TCPIP\ Stack/string.h:
+
+../TCPIP\ Stack/TCPIP.h:
+
+../TCPIP\ Stack/..\GenericTypeDefs.h:
+
+../TCPIP\ Stack/..\Compiler.h:
 
 ../TCPIP\ Stack/..\HardwareProfile.h:
 
@@ -51,10 +56,6 @@ build/default/debug/_ext/1472/net_tasks.o: ../net_tasks.c \
 ../TCPIP\ Stack/..\/HWP\ EX16_ENC28\ XC16.h:
 
 ../TCPIP\ Stack/..\TCPIPConfig.h:
-
-../TCPIP\ Stack/..\/GenericTypeDefs.h:
-
-../TCPIP\ Stack/..\/Compiler.h:
 
 ../TCPIP\ Stack/StackTsk.h:
 

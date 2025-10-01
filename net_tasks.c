@@ -1,7 +1,13 @@
+#include "TCPIPConfig.h"
 #include "TCPIP Stack/TCPIP.h"
 #include "02_Constantes.h"
 #include "03_Variables.h"
 #include "04_Fonctions.h"
+
+#include "TCPIPConfig.h"
+#if defined(STACK_USE_ZEROCONF_MDNS_SD)
+  #include "TCPIP Stack/mDNS.h"
+#endif
 
 void Stack_Init_All(void)
 {
