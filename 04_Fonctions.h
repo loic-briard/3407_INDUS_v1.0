@@ -34,9 +34,10 @@ void DECALAGE_HORAIRE (void);
 void chamgement_heure_etehiver (void);
 void traite_24h (void);
 
-
-
-
+void SaveLastAccidentDate(struct last_Acc_Date *date_last_acc);
+BOOL LoadLastAccidentDate(struct last_Acc_Date *date_last_acc);
+unsigned int ParseDate(const char* s, struct last_Acc_Date* out);
+unsigned int DatesEqual(struct last_Acc_Date* a, struct last_Acc_Date* b);
 
 extern void Delay_10_microS(void);
 //

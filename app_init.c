@@ -4,12 +4,17 @@
 #include "04_Fonctions.h"
 
 #include "board_init.h"
-#include "EEPROM.h"
+#include "nv_mem.h"
 #include "net_tasks.h"
+#include "EEPROM.h"
 
 void App_Init(void)
 {
+    //initialisation de l'eeprom
+    InitSPIEEPROM();
+    //initialisation de variables
     Initialisations();      // ton init global (RAM, etc.)
+    //initialisation de la carte
     InitializeBoard();      // init matériel (ADC, UART, SPI, CS, etc.)
 
     RCONbits.SWDTEN = 1;    // Watchdog si voulu
@@ -18,10 +23,11 @@ void App_Init(void)
 
     TickInit();
     MPFSInit();
-    Stack_Init_All();       // StackInit + Zeroconf/mDNS si activés
 
-    //Initialisation de l'EEPROM avant lecture 
- 	EEPROM_Init();
+    InitNVMemContents();    // charge AppConfig/gPrefs depuis NVM (ou défauts si vide)
+    Stack_Init_All();       // StackInit + Zeroconf/mDNS si activés
     
+    
+
     ClrWdt();
 }

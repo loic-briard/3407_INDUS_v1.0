@@ -13,14 +13,15 @@ build/default/debug/_ext/1472/app_init.o: ../app_init.c \
  ../TCPIP\ Stack/Helpers.h ../TCPIP\ Stack/Delay.h ../TCPIP\ Stack/Tick.h \
  ../TCPIP\ Stack/TCPIP.h ../TCPIP\ Stack/MAC.h \
  ../TCPIP\ Stack/ENCX24J600.h ../TCPIP\ Stack/IP.h ../TCPIP\ Stack/ARP.h \
- ../TCPIP\ Stack/XEEPROM.h ../TCPIP\ Stack/SPIFlash.h \
- ../TCPIP\ Stack/SPIRAM.h ../TCPIP\ Stack/UDP.h ../TCPIP\ Stack/TCP.h \
+ ../TCPIP\ Stack/SPIFlash.h ../TCPIP\ Stack/SPIRAM.h \
+ ../TCPIP\ Stack/UDP.h ../TCPIP\ Stack/TCP.h \
  ../TCPIP\ Stack/UART2TCPBridge.h ../TCPIP\ Stack/UART.h \
  ../TCPIP\ Stack/DHCP.h ../TCPIP\ Stack/DNS.h ../TCPIP\ Stack/MPFS2.h \
  ../TCPIP\ Stack/HTTP2.h ../TCPIP\ Stack/ICMP.h \
  ../TCPIP\ Stack/Announce.h ../TCPIP\ Stack/NBNS.h \
  ../TCPIP\ Stack/Reboot.h ../TCPIP\ Stack/SNTP.h ../02_Constantes.h \
- ../04_Fonctions.h ../board_init.h ../EEPROM.h ../net_tasks.h
+ ../03_Variables.h ../GenericTypeDefs.h ../04_Fonctions.h ../board_init.h \
+ ../nv_mem.h ../net_tasks.h ../EEPROM.h
 
 ../TCPIP\ Stack/TCPIP.h:
 
@@ -74,8 +75,6 @@ build/default/debug/_ext/1472/app_init.o: ../app_init.c \
 
 ../TCPIP\ Stack/ARP.h:
 
-../TCPIP\ Stack/XEEPROM.h:
-
 ../TCPIP\ Stack/SPIFlash.h:
 
 ../TCPIP\ Stack/SPIRAM.h:
@@ -108,10 +107,16 @@ build/default/debug/_ext/1472/app_init.o: ../app_init.c \
 
 ../02_Constantes.h:
 
+../03_Variables.h:
+
+../GenericTypeDefs.h:
+
 ../04_Fonctions.h:
 
 ../board_init.h:
 
-../EEPROM.h:
+../nv_mem.h:
 
 ../net_tasks.h:
+
+../EEPROM.h:

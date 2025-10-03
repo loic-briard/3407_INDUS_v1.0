@@ -1,7 +1,7 @@
 #define THIS_IS_STACK_APPLICATION
 
 #include <xc.h>
-
+#include "p24FJ256GB108.h"
 #include <stdlib.h>
 #include "03_Variables.h"
 #include "TCPIP Stack/TCPIP.h"

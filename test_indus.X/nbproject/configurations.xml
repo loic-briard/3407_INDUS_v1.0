@@ -50,7 +50,6 @@
         <itemPath>../TCPIP Stack/UART2TCPBridge.h</itemPath>
         <itemPath>../TCPIP Stack/UDP.h</itemPath>
         <itemPath>../TCPIP Stack/UDPPerformanceTest.h</itemPath>
-        <itemPath>../TCPIP Stack/XEEPROM.h</itemPath>
         <itemPath>../TCPIP Stack/ENCX24J600.h</itemPath>
         <itemPath>../TCPIP Stack/ENC28J60.h</itemPath>
         <itemPath>../TCPIP Stack/p24Fxxxx.h</itemPath>
@@ -331,6 +330,9 @@
         <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
       </C30Global>
+      <ICD5Tool>
+        <property key="debugoptions.useswbreakpoints" value="true"/>
+      </ICD5Tool>
       <Tool>
         <property key="ADC 1" value="true"/>
         <property key="AutoSelectMemRanges" value="auto"/>

@@ -15,6 +15,7 @@
 #include "02_Constantes.h"
 #include "03_Variables.h"
 #include "04_Fonctions.h"
+#include "EEPROM.h"
 
 unsigned char BusyXLCDstr(void);
 
@@ -103,6 +104,7 @@ void Initialisations(void)
 	Init_Broches_Remappables();
 	
     attente_synchro = 0;
+    UC_TEST = 0;
     
 	AD1PCFG = 0xFFFB;
 
@@ -241,7 +243,21 @@ void Initialisations(void)
 	CNPU3bits.CN43PUE = 1;          // Pull up
 
 	ClrWdt();                       // Mise à jour du watchdog
-
+    
+    //eeprom configuration
+	RCONbits.SWDTEN = 1;
+	AD1PCFG = 0xFFFF; // toutes les pats numeriques
+	//Liaison SPI2 EEPROM
+	TRISBbits.TRISB2 = SORTIE;	// SDO2
+	TRISBbits.TRISB5 = ENTREE;	// SDI2
+	TRISBbits.TRISB4 = SORTIE;	// SCK2
+	TRISBbits.TRISB3 = SORTIE;	//CS
+	
+	//Broches_Remappables
+	RPINR22bits.SDI2R = 18;	// SDI2 etait 18
+	RPOR6bits.RP13R = 10;	// SDO2
+	RPOR14bits.RP28R = 11;	// SCK2
+    
 	//Initialisation TIMER2 100ms
 	T2CONbits.TCS=0;                // Fosc/2
 	T2CONbits.TCKPS1 = 0;           // Prescaler de 1/64
@@ -410,6 +426,31 @@ void Initialisations(void)
 	buf_heure_GMT[17]= '2';
 	buf_heure_GMT[18]= '2';
 	buf_heure_GMT[19]= 0;
+    
+    //initialisation des variables lies aux accidents
+    NB_Accidents = EEPROMReadByte(ADR_NB_ACCIDENTS);
+    if(NB_Accidents == 0xFF)
+        NB_Accidents = 0;
+    NB_Jours_Sans_Accidents = EEPROMReadByte(ADR_NB_JOURS_SANS_ACCIDENTS);
+    if(NB_Jours_Sans_Accidents == 0xFF)
+        NB_Jours_Sans_Accidents = 0;
+    NB_Records_Jours = EEPROMReadByte(ADR_NB_RECORDS_JOURS);
+    if(NB_Records_Jours == 0xFF)
+        NB_Records_Jours = 0;    
+    
+    Bold = EEPROMReadByte(ADR_BOLD);
+    if(Bold == 0xFF)
+        Bold = 0;    
+    Bright_Enabled = EEPROMReadByte(ADR_BRIGHT_ENABLED);
+    if(Bright_Enabled == 0xFF)
+        Bright_Enabled = 0;    
+    
+    Led_Color_1 = EEPROMReadByte(ADR_LED_COLOR_1);
+    if(Led_Color_1 == 0xFF)
+        Led_Color_1 = 0;
+    
+    LoadLastAccidentDate(&Last_Accident_Date);
+    
 }
 
 // ENTREES		: valeur à écrire sur le port data du LCD
@@ -1307,4 +1348,68 @@ void Test_Weekend(void)
         WEEKEND = 1;
     else if ((NUM_JOUR_DCF == 1) && (WEEKEND == 1))
         WEEKEND = 1;
+}
+// ---------------------------------------- fonction piur indus sécurité ----------------------------------------
+void SaveLastAccidentDate(struct last_Acc_Date *date_last_acc)//unsigned int year, unsigned int month, unsigned int day
+{
+    // bornes simples
+    if(date_last_acc->year < 2000) date_last_acc->year = 2000;
+    if(date_last_acc->month < 1 || date_last_acc->month > 12) date_last_acc->month = 1;
+    if(date_last_acc->day   < 1 || date_last_acc->day   > 31) date_last_acc->day   = 1;
+
+    unsigned int y = (unsigned int)(date_last_acc->year - 2000);
+
+    EEPROMWriteByte(y,     ADR_LAST_ACCIDENT_DATE + 0);
+    EEPROMWriteByte(date_last_acc->month, ADR_LAST_ACCIDENT_DATE + 1);
+    EEPROMWriteByte(date_last_acc->day,   ADR_LAST_ACCIDENT_DATE + 2);
+}
+BOOL LoadLastAccidentDate(struct last_Acc_Date *date_last_acc)//unsigned int *year, unsigned int *month, unsigned int *day
+{
+    unsigned int y = EEPROMReadByte(ADR_LAST_ACCIDENT_DATE + 0);
+    unsigned int m = EEPROMReadByte(ADR_LAST_ACCIDENT_DATE + 1);
+    unsigned int d = EEPROMReadByte(ADR_LAST_ACCIDENT_DATE + 2);
+
+    // EEPROM neuve / non écrite
+    if (y == 0xFF && m == 0xFF && d == 0xFF)
+        return 0;
+
+    // Sanity check simple
+    if (m < 1 || m > 12 || d < 1 || d > 31)
+        return 0;
+
+    if (date_last_acc->year)  date_last_acc->year  = 2000u + y;//2000u + (uint16_t)y
+    if (date_last_acc->month) date_last_acc->month = m;
+    if (date_last_acc->day)   date_last_acc->day   = d;
+        
+    return 1;
+}
+//void ParseDate(const char *str, struct last_Acc_Date *d)
+//{
+//    sscanf(str, "%4u-%2u-%2u", &d->year, &d->month, &d->day);
+//}
+unsigned int ParseDate(const char* s, struct last_Acc_Date* out)
+{
+    unsigned int y, m, d;
+    if(!s || !out) return 0;
+    /* attend exactement "YYYY-MM-DD" (10 char) */
+    if(strlen(s) != 10) return 0;
+    if(s[4] != '-' || s[7] != '-') return 0;
+
+    y = (unsigned int)( (s[0]-'0')*1000u + (s[1]-'0')*100u + (s[2]-'0')*10u + (s[3]-'0') );
+    m = (unsigned int)( (s[5]-'0')*10u + (s[6]-'0') );
+    d = (unsigned int)( (s[8]-'0')*10u + (s[9]-'0') );
+
+    if(y < 2000u || y > 2099u) return 0;
+    if(m < 1u || m > 12u) return 0;
+    if(d < 1u || d > 31u) return 0;
+
+    out->year  = y;
+    out->month = (unsigned char)m;
+    out->day   = (unsigned char)d;
+    return 1;
+}
+
+unsigned int DatesEqual(struct last_Acc_Date* a, struct last_Acc_Date* b)
+{
+    return (a->year==b->year) && (a->month==b->month) && (a->day==b->day);
 }

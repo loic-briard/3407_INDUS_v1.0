@@ -11,9 +11,8 @@ build/default/debug/_ext/1563683617/DHCP.o: ../TCPIP\ Stack/DHCP.c \
  ../TCPIP\ Stack/..\/HWP\ EX16_ENC28\ XC16.h ../TCPIP\ Stack/StackTsk.h \
  ../TCPIP\ Stack/Helpers.h ../TCPIP\ Stack/Delay.h ../TCPIP\ Stack/Tick.h \
  ../TCPIP\ Stack/MAC.h ../TCPIP\ Stack/ENCX24J600.h ../TCPIP\ Stack/IP.h \
- ../TCPIP\ Stack/ARP.h ../TCPIP\ Stack/XEEPROM.h \
- ../TCPIP\ Stack/SPIFlash.h ../TCPIP\ Stack/SPIRAM.h \
- ../TCPIP\ Stack/UDP.h ../TCPIP\ Stack/TCP.h \
+ ../TCPIP\ Stack/ARP.h ../TCPIP\ Stack/SPIFlash.h \
+ ../TCPIP\ Stack/SPIRAM.h ../TCPIP\ Stack/UDP.h ../TCPIP\ Stack/TCP.h \
  ../TCPIP\ Stack/UART2TCPBridge.h ../TCPIP\ Stack/UART.h \
  ../TCPIP\ Stack/DHCP.h ../TCPIP\ Stack/DNS.h ../TCPIP\ Stack/MPFS2.h \
  ../TCPIP\ Stack/HTTP2.h ../TCPIP\ Stack/ICMP.h \
@@ -69,8 +68,6 @@ build/default/debug/_ext/1563683617/DHCP.o: ../TCPIP\ Stack/DHCP.c \
 ../TCPIP\ Stack/IP.h:
 
 ../TCPIP\ Stack/ARP.h:
-
-../TCPIP\ Stack/XEEPROM.h:
 
 ../TCPIP\ Stack/SPIFlash.h:
 

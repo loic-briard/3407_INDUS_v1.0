@@ -1,148 +1,142 @@
+////////////////////////////////////////////////////////////////////////////////
+// SUJET		: Gestion de l'eeprom
+// AUTEUR 		: BLIN Y
+// VERSION		: A
+// CREATION		: 22/03/2012
+// DER. MODIF	: 
+// Note         : Marque de l'EEPROM : ST M95256   (32 Kbytes, pages de 64 octets)
+////////////////////////////////////////////////////////////////////////////////
+#include "p24FJ256GB108.h"
 #include "EEPROM.h"
 
-/* ===== Sélection du module SPI ===== */
-#if (EEPROM_USE_SPI==1)
-  #define SPIxBUF       SPI1BUF
-  #define SPIxSTAT      SPI1STAT
-  #define SPIxCON1      SPI1CON1
-  #define SPIxCON2      SPI1CON2
-  #define SPIxSTATbits  SPI1STATbits
-#elif (EEPROM_USE_SPI==2)
-  #define SPIxBUF       SPI2BUF
-  #define SPIxSTAT      SPI2STAT
-  #define SPIxCON1      SPI2CON1
-  #define SPIxCON2      SPI2CON2
-  #define SPIxSTATbits  SPI2STATbits
-#else
-  #error "EEPROM_USE_SPI doit valoir 1 ou 2"
-#endif
-
-/* ===== Helpers ===== */
-static inline void CS_Low(void)  { EEPROM_CS_LAT = 0; }
-static inline void CS_High(void) { EEPROM_CS_LAT = 1; }
-
-static uint8_t SPI_Transfer(uint8_t v)
+void InitSPIEEPROM()
 {
-    SPIxBUF = v;
-    while(!SPIxSTATbits.SPIRBF);
-    return (uint8_t)SPIxBUF;
+	// vitesse de la SPI : 666.667 KHz => Fcy/3/4 = Fosc/2/3/4 = 16 MHz/2 / 3 / 4
+    SPI2CON1 = 0x0136;  // SDO fonctionne sur front montant de la clock, 
+    					// Mode Master
+    					// Secondary prescaler 3:1
+    					// Primary prescaler 4:1
+    					
+    SPI2STAT = 0x8000;  // enable the peripheral
+
+    // Set IOs directions for EEPROM SPI
+    EEPROM_SS_PORT = 1;
+    EEPROM_SS_TRIS = 0;
+} 
+
+unsigned char writeSPIEEPROM( unsigned char i )
+{
+    SPI2BUF = i;					// write to buffer for TX
+    while(!SPI2STATbits.SPIRBF);	// wait for transfer to complete
+    return SPI2BUF;    				// read the received value
 }
 
-void EEPROM_Init(void)
-{
-    // Configure la broche CS
-    CS_High();
-    EEPROM_CS_TRIS = 0;
+/////////////////////////////////////////////////////////////////////////
+// Function: EEPROMWriteByte()                                           
+// Preconditions: SPI module must be configured to operate with  EEPROM. 
+// Overview: This function writes a new value to address specified.      
+// Input: Data to be written and address.                              
+// Output: None.                                                         
+/////////////////////////////////////////////////////////////////////////
 
-    // Si ce SPI est déjà utilisé ailleurs (ex: ENC28), ne reconfigure pas.
-    // Sinon, configuration ?safe? : maître, CKP=0, CKE=1 (mode 0), 8 bits,
-    // prescalers modestes (à ajuster si besoin).
-    // Attention: enlève ces lignes si ton SPI est déjà initialisé.
-    SPIxSTAT = 0;                  // disable pour config
-    SPIxCON1 = 0
-        | (0b00 << 14)             // SMP=0 (ignore en maître 8bit)
-        | (1 << 8)                 // CKE=1 : data changent au front descendant, échantillonnées au montant
-        | (0 << 6)                 // CKP=0
-        | (0b01 << 4)              // MSTEN=1 (maître)
-        | (0b10 << 2)              // Primary prescaler 4:1
-        | (0b10 << 0);             // Secondary prescaler 4:1  => F_SPI = Fcy / 16
-    SPIxCON2 = 0;                  // mode simple
-    SPIxSTAT = 0x8000;             // ON
+void EEPROMWriteByte(unsigned char Data, unsigned long Address)
+{
+	unsigned char Local_8;
+    EEPROMWriteEnable();
+    mEEPROMSSLow();
+
+    Local_8 = writeSPIEEPROM(EEPROM_CMD_WRITE);
+
+    Local_8 = writeSPIEEPROM(Hi(Address));
+    Local_8 = writeSPIEEPROM(Lo(Address));
+
+    Local_8 = writeSPIEEPROM(Data);
+
+    mEEPROMSSHigh();
+
+    // wait for completion of previous write operation
+    while(EEPROMReadStatus().Bits.WIP);
+    
+    EEPROMWriteDisable();
 }
 
-void EEPROM_WriteEnable(void)
+/////////////////////////////////////////////////////////////////////////
+// Function: EEPROMReadByte()                                            
+// Preconditions: SPI module must be configured to operate with  EEPROM. 
+// Overview: This function reads a value from address specified.         
+// Input   : Address.                                                       
+// Output  : Data read.                                                    
+/////////////////////////////////////////////////////////////////////////
+
+unsigned char EEPROMReadByte(unsigned int Address)
 {
-    CS_Low();
-    SPI_Transfer(EEPROM_CMD_WREN);
-    CS_High();
+	unsigned char Local_8,var1,var2;
+
+    mEEPROMSSLow();
+
+    Local_8 = writeSPIEEPROM(EEPROM_CMD_READ);
+	var1 = Hi(Address);
+	var2 = Lo(Address);
+    Local_8 = writeSPIEEPROM(var1);
+    Local_8 = writeSPIEEPROM(var2);
+
+    Local_8 = writeSPIEEPROM(0);
+
+    mEEPROMSSHigh();
+    return Local_8;
 }
 
-void EEPROM_WriteDisable(void)
+/////////////////////////////////////////////////////////////////////////
+//Function: EEPROMWriteEnable()                                         
+//Preconditions: SPI module must be configured to operate with EEPROM.  
+//Overview: This function allows a writing into EEPROM. Must be called  
+//before every writing command.                                         
+//Input: None.                                                          
+//Output: None.                                                         
+/////////////////////////////////////////////////////////////////////////
+void EEPROMWriteEnable()
 {
-    CS_Low();
-    SPI_Transfer(EEPROM_CMD_WRDI);
-    CS_High();
+	unsigned char Local_8;
+    mEEPROMSSLow();
+    Local_8 = writeSPIEEPROM(EEPROM_CMD_WREN);
+    mEEPROMSSHigh();
 }
 
-EEPROMStatus_t EEPROM_ReadStatus(void)
+void EEPROMWriteDisable()
 {
-    EEPROMStatus_t st;
-    CS_Low();
-    SPI_Transfer(EEPROM_CMD_RDSR);
-    st.Val = SPI_Transfer(0);
-    CS_High();
-    return st;
+	unsigned char Local_8;
+    mEEPROMSSLow();
+    Local_8 = writeSPIEEPROM(EEPROM_CMD_WRDI);
+    mEEPROMSSHigh();
 }
 
-static void EEPROM_WaitWriteComplete(void)
+/////////////////////////////////////////////////////////////////////////
+//Function: EEPROMReadStatus()                                          
+//Preconditions: SPI module must be configured to operate with  EEPROM. 
+//Overview: This function reads status register from EEPROM.            
+//Input: None.                                                          
+//Output: Status register value.                                        
+/////////////////////////////////////////////////////////////////////////
+union _EEPROMStatus_ EEPROMReadStatus()
 {
-    // Poll WIP
-    EEPROMStatus_t st;
-    do {
-        st = EEPROM_ReadStatus();
-    } while (st.Bits.WIP);
+	unsigned char Local_8;
+
+    mEEPROMSSLow();
+    Local_8 = writeSPIEEPROM(EEPROM_CMD_RDSR);
+    Local_8 = writeSPIEEPROM(0);
+    mEEPROMSSHigh();
+
+    return (union _EEPROMStatus_)Local_8;
 }
 
-/* ==== Accès octet ==== */
-void EEPROM_WriteByte(uint8_t data, uint16_t addr)
+
+void DataWriteEEPROM(unsigned int dat, unsigned int ad)
 {
-    EEPROM_WriteEnable();
-
-    CS_Low();
-    SPI_Transfer(EEPROM_CMD_WRITE);
-    SPI_Transfer((uint8_t)(addr >> 8));
-    SPI_Transfer((uint8_t)(addr & 0xFF));
-    SPI_Transfer(data);
-    CS_High();
-
-    EEPROM_WaitWriteComplete();
-    EEPROM_WriteDisable();
-}
-
-uint8_t EEPROM_ReadByte(uint16_t addr)
-{
-    uint8_t v;
-    CS_Low();
-    SPI_Transfer(EEPROM_CMD_READ);
-    SPI_Transfer((uint8_t)(addr >> 8));
-    SPI_Transfer((uint8_t)(addr & 0xFF));
-    v = SPI_Transfer(0);
-    CS_High();
-    return v;
-}
-
-/* ==== Accès buffer ==== */
-void EEPROM_ReadArray(uint16_t addr, uint8_t *buf, uint16_t len)
-{
-    CS_Low();
-    SPI_Transfer(EEPROM_CMD_READ);
-    SPI_Transfer((uint8_t)(addr >> 8));
-    SPI_Transfer((uint8_t)(addr & 0xFF));
-    while (len--) *buf++ = SPI_Transfer(0);
-    CS_High();
-}
-
-void EEPROM_WriteArray(uint16_t addr, const uint8_t *buf, uint16_t len)
-{
-    while (len) {
-        // borne à la frontière de page
-        uint16_t pageRemain = EEPROM_PAGE_SIZE - (addr % EEPROM_PAGE_SIZE);
-        uint16_t chunk = (len < pageRemain) ? len : pageRemain;
-
-        EEPROM_WriteEnable();
-        CS_Low();
-        SPI_Transfer(EEPROM_CMD_WRITE);
-        SPI_Transfer((uint8_t)(addr >> 8));
-        SPI_Transfer((uint8_t)(addr & 0xFF));
-        for (uint16_t i = 0; i < chunk; i++) {
-            SPI_Transfer(buf[i]);
-        }
-        CS_High();
-        EEPROM_WaitWriteComplete();
-        EEPROM_WriteDisable();
-
-        addr += chunk;
-        buf  += chunk;
-        len  -= chunk;
-    }
-}
+	unsigned char lect;
+	
+	lect = 0;
+	lect = EEPROMReadByte(ad);
+	
+	if (dat != lect)
+		EEPROMWriteByte(dat,ad);
+}	

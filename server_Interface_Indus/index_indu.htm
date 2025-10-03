@@ -27,14 +27,14 @@
         <!-- Date du dernier accident -->
         <label class="cfg-stack">
             <span>Date du dernier accident :</span>
-            <input type="date" id="accidentDate">
+            <input type="date" id="accidentDate" value="~last_accident_date~">
         </label>
         <hr class="sep" />
 
         <!-- Caractères gras -->
         <label class="cfg-check-persistent">
             <span>Caractères gras</span>
-            <input type="checkbox" id="boldToggle">
+            <input type="checkbox" id="boldToggle" ~bold~>
         </label>
         <hr class="sep" />
 
@@ -49,7 +49,7 @@
         <!-- Luminosité (case + jauge) -->
         <label class="cfg-check">
             <span>Luminosité activée</span>
-            <input type="checkbox" id="brightEnabled">
+            <input type="checkbox" id="brightEnabled" ~bright_enabled~>
         </label>
         <div id="brightRow" class="cfg-inline hidden">
             <label for="brightLevel">Luminosité :</label>
@@ -111,9 +111,9 @@
             </div>
         </div>
 
-        <!-- Box 2 -->
+        <!-- Box 2 jours sans accidents de travail -->
         <div class="box" id="box2">
-            <input type="number" name="valeur2" value="0" max="9999" min="0">
+            <input type="number" name="valeur2" value="~nb_jours_sans_accidents~" max="9999" min="0">
             <div class="id-handle">jours sans accident</div>
             <div class="resize-handle" aria-hidden="true" title="Redimensionner"></div>
             <div class="color-picker">
@@ -126,9 +126,9 @@
             </div>
         </div>
 
-        <!-- Box 3 -->
+        <!-- Box 3 record jours sans accidents -->
         <div class="box" id="box3">
-            <input type="number" name="valeur3" value="0" max="9999" min="0">
+            <input type="number" name="valeur3" value="~nb_records_jours~" max="9999" min="0">
             <div class="id-handle">record</div>
             <div class="resize-handle" aria-hidden="true" title="Redimensionner"></div>
             <div class="color-picker">
@@ -448,9 +448,9 @@
                     box2: readBoxState("box2"),
                     box3: readBoxState("box3")
                 },
-                fontVariant: boldToggle.checked ? "1" : "0",
-                accidentDate: accidentDate.value || "",
-                BrightEnabled: brightEnabled.checked ? 1 : 0,
+                // fontVariant: boldToggle.checked ? "1" : "0",
+                // accidentDate: accidentDate.value || "",
+                // BrightEnabled: brightEnabled.checked ? 1 : 0,
                 Bright: levelToBright(parseInt(brightLevel.value, 10)),
                 EcoParamsEnabled: ecoEnabled.checked ? 1 : 0,
                 StartTime: startTime.value || "00:00:00",
@@ -467,7 +467,7 @@
             b.style.height = ((cfg.height ?? 44)) + "px";
             adjustFontSize(b);
 
-            inp.value = Number(cfg.value ?? 0);
+            // inp.value = Number(cfg.value ?? 0);
             const uiColor = ColorFromCode[String(cfg.color ?? "4")] || "white";
             applyColorToInput(inp, uiColor);
             localStorage.setItem(COLOR_PREFIX + id, uiColor);
@@ -500,7 +500,7 @@
             if (cfg.StopTime) stopTime.value = cfg.StopTime;
 
             refreshVisibility();
-            saveLocalConfig(cfg); // persiste localement
+            // saveLocalConfig(cfg); // persiste localement
         }
 
         function saveLocalConfig(cfg) {
@@ -545,7 +545,7 @@
         }
         boldToggle.addEventListener('change', () => {
             applyFontVariant(boldToggle.checked ? 'bold' : 'regular');
-            saveLocalConfig(gatherConfig());
+            // saveLocalConfig(gatherConfig());
         });
 
         // Image de fond (local preview)
@@ -567,7 +567,7 @@
             box1.value = v + 1;         // +1
             box2.value = 0;             // reset jours sans accident
             accidentDate.value = todayISO();
-            saveLocalConfig(gatherConfig());
+            // saveLocalConfig(gatherConfig());
             //envoie des infos au panneau
             console.log('POST payload', buildTelemetryPayload());
             postTelemetry(buildTelemetryPayload());
@@ -595,13 +595,13 @@
 
             ecoRows.classList.toggle('hidden', !ecoEnabled.checked);
         }
-        brightEnabled.addEventListener('change', () => { refreshVisibility(); saveLocalConfig(gatherConfig()); });
-        ecoEnabled.addEventListener('change', () => { refreshVisibility(); saveLocalConfig(gatherConfig()); });
-        startTime.addEventListener('change', () => saveLocalConfig(gatherConfig()));
-        stopTime.addEventListener('change', () => saveLocalConfig(gatherConfig()));
+        brightEnabled.addEventListener('change', () => { refreshVisibility(); /*saveLocalConfig(gatherConfig());*/ });
+        ecoEnabled.addEventListener('change', () => { refreshVisibility(); /*saveLocalConfig(gatherConfig()); */});
+        // startTime.addEventListener('change', () => saveLocalConfig(gatherConfig()));
+        // stopTime.addEventListener('change', () => saveLocalConfig(gatherConfig()));
         brightLevel.addEventListener('input', () => {
             updateBrightLabelFromLevel();
-            saveLocalConfig(gatherConfig());
+            // saveLocalConfig(gatherConfig());
         });
 
         // Applique la valeur Bright (10..255) sur le slider (0..6)
@@ -714,7 +714,7 @@
         // appui sur le bouton mise à jour
         applyBtn.addEventListener('click', () => {
             const cfg = gatherConfig();         
-            saveLocalConfig(cfg);               
+            // saveLocalConfig(cfg);               
             postTelemetry(buildTelemetryPayload());  // ← envoi des infos courantes
             // petit feedback visuel (optionnel)
             applyBtn.textContent = 'Mise à jour…';

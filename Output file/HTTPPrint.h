@@ -54,6 +54,11 @@ extern BYTE curHTTPID;
 void HTTPPrint(DWORD callbackID);
 void HTTPPrint_adresse_ip_value(void);
 void HTTPPrint_nb_accidents(void);
+void HTTPPrint_nb_jours_sans_accidents(void);
+void HTTPPrint_nb_records_jours(void);
+void HTTPPrint_bold(void);
+void HTTPPrint_last_accident_date(void);
+void HTTPPrint_bright_enabled(void);
 
 void HTTPPrint(DWORD callbackID)
 {
@@ -64,6 +69,21 @@ void HTTPPrint(DWORD callbackID)
 			break;
         case 0x00000079:
 			HTTPPrint_nb_accidents();
+			break;
+        case 0x0000007a:
+			HTTPPrint_nb_jours_sans_accidents();
+			break;
+        case 0x0000007b:
+			HTTPPrint_nb_records_jours();
+			break;
+        case 0x0000007c:
+			HTTPPrint_bold();
+			break;
+        case 0x0000007d:
+			HTTPPrint_last_accident_date();
+			break;
+        case 0x0000007e:
+			HTTPPrint_bright_enabled();
 			break;
 		default:
 			// Output notification for undefined values

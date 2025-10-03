@@ -120,3 +120,8 @@ parametre_fin(0)
 parametre_fin(1)
 test_date
 +nb_accidents
++nb_jours_sans_accidents
++nb_records_jours
++bold
++last_accident_date
++bright_enabled

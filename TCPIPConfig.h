@@ -363,7 +363,7 @@
 	#define HTTPS_PORT				(443u)
 	
     // Define the maximum data length for reading cookie and GET/POST arguments (bytes)
-	#define HTTP_MAX_DATA_LEN		(512u)
+	#define HTTP_MAX_DATA_LEN		(1024u)
 	
     // Define the minimum number of bytes free in the TX FIFO before executing callbacks
 	#define HTTP_MIN_CALLBACK_FREE	(16u)

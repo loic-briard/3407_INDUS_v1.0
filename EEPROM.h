@@ -1,57 +1,63 @@
-#pragma once
 #include <xc.h>
-#include <stdint.h>
-#include <stdbool.h>
 
-/* ====== À CONFIGURER POUR TA CARTE ====== */
-// Choisis le module SPI à utiliser (1 ou 2)
-#define EEPROM_USE_SPI        2   // 1 => SPI1, 2 => SPI2
+void EEPROMWriteEnable();
+void EEPROMWriteDisable();
+union _EEPROMStatus_ EEPROMReadStatus();
 
-// Broche Chip Select de l?EEPROM (CS#)
-#define EEPROM_CS_LAT         LATDbits.LATD6
-#define EEPROM_CS_TRIS        TRISDbits.TRISD6
 
-/* ====== Commandes / Paramètres ====== */
-#define EEPROM_PAGE_SIZE      (uint16_t)64      // pages de 64 octets
-#define EEPROM_SIZE_BYTES     (uint32_t)32768   // 256 kbit = 32 kB
+// Mapping memoire de l'eeprom
+#define ADR_NB_ACCIDENTS    		0x00
+#define ADR_NB_JOURS_SANS_ACCIDENTS	0x01
+#define ADR_NB_RECORDS_JOURS		0x02
+#define ADR_BOLD                    0x03
+#define ADR_LAST_ACCIDENT_DATE      0x04 // jusquà 0x06
+#define ADR_BRIGHT_ENABLED          0x07
+#define ADR_LED_COLOR_1             0x08
 
-#define EEPROM_CMD_WREN       0x06
-#define EEPROM_CMD_WRDI       0x04
-#define EEPROM_CMD_RDSR       0x05
-#define EEPROM_CMD_WRSR       0x01
-#define EEPROM_CMD_READ       0x03
-#define EEPROM_CMD_WRITE      0x02
+#define DEBUT_MEM	0x200
+#define TAILLE_MEM_SAUV		60
+#define TYPE_SPORT			28
+#define VAR_SPORT			29
+#define NB_SAUVEGARDE		10
 
-#define EEPROM_NB_ACCIDENT_ADS 0x00
+#define MEMOIRE_1		DEBUT_MEM
 
-typedef union {
-    struct {
-        unsigned WIP:1; // Write In Progress
-        unsigned WEL:1; // Write Enable Latch
-        unsigned BP0:1;
-        unsigned BP1:1;
-        unsigned RESERVED:3;
-        unsigned WPEN:1;
-    } Bits;
-    uint8_t Val;
-} EEPROMStatus_t;
 
-/* ====== API ====== */
-void     EEPROM_Init(void);                          // Configure SPI + CS
-void     EEPROM_WriteEnable(void);
-void     EEPROM_WriteDisable(void);
-EEPROMStatus_t EEPROM_ReadStatus(void);
+// EEPROM Commands
+#define EEPROM_PAGE_SIZE    (unsigned)64
+#define EEPROM_CMD_WREN     (unsigned)0b00000110
+#define EEPROM_CMD_WRDI     (unsigned)0b00000100
+#define EEPROM_CMD_RDSR     (unsigned)0b00000101
+#define EEPROM_CMD_READ     (unsigned)0b00000011
+#define EEPROM_CMD_WRITE    (unsigned)0b00000010
 
-void     EEPROM_WriteByte(uint8_t data, uint16_t addr);
-uint8_t  EEPROM_ReadByte(uint16_t addr);
+#define EEPROM_SS_TRIS      TRISBbits.TRISB3
+#define EEPROM_SS_PORT      LATBbits.LATB3
 
-// Écrit un buffer arbitraire (gère automatiquement les frontières de page)
-void     EEPROM_WriteArray(uint16_t addr, const uint8_t *buf, uint16_t len);
-// Lit un buffer arbitraire
-void     EEPROM_ReadArray(uint16_t addr, uint8_t *buf, uint16_t len);
+#define mEEPROMSSLow()      EEPROM_SS_PORT = 0;
+#define mEEPROMSSHigh()     EEPROM_SS_PORT = 1;
 
-// Écriture ?sécurisée? (n?écrit que si la valeur change)
-static inline void EEPROM_DataWriteIfDiff(uint8_t data, uint16_t addr)
-{
-    if (EEPROM_ReadByte(addr) != data) EEPROM_WriteByte(data, addr);
-}
+#define Lo(X)   (unsigned char)(X&0x00ff)
+#define Hi(X)   (unsigned char)((X>>8)&0x00ff)
+
+	struct  STATREG{
+	unsigned    WIP:1;
+	unsigned    WEL:1;
+	unsigned    BP0:1;
+	unsigned    BP1:1;
+	unsigned    RESERVED:3;
+	unsigned    WPEN:1;
+};
+
+union _EEPROMStatus_{
+	struct  STATREG Bits;
+	unsigned char	Char;
+};
+
+void InitSPIEEPROM();
+unsigned char writeSPIEEPROM( unsigned char i );
+void EEPROMWriteByte(unsigned char Data, unsigned long Address);
+unsigned char EEPROMReadByte(unsigned int Address);
+void EEPROMWriteEnable();
+union _EEPROMStatus_ EEPROMReadStatus();
+void DataWriteEEPROM(unsigned int dat, unsigned int ad);

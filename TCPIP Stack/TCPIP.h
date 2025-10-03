@@ -316,7 +316,6 @@
 	#include "TCPIP Stack/Hashes.h"
 #endif
 
-	#include "XEEPROM.h"
 	#include "SPIFlash.h"
 	#include "SPIRAM.h"
 

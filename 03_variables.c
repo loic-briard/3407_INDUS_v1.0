@@ -7,6 +7,7 @@
 // DER. MODIF	: 
 ////////////////////////////////////////////////////////////////////////////////
 #include "03_Variables.h"
+#include "GenericTypeDefs.h"
 __attribute__ ((persistent))
 unsigned char
 	B_RAM_NON_EFFACEE1;
@@ -48,6 +49,9 @@ long	DIZ_HEURE_DCF,					//Dizaine heure locale
 unsigned char T_DCF[60]= {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
 
 __attribute__ ((persistent))
+
+struct last_Acc_Date Last_Accident_Date;
+
 unsigned int
     JOURS_OK,           //Valide si le jour selectionné correspond au jour actuel
     PLAGE_OK,           //Valaide si l'heure actuelle se trouve dans la plage horaire défini
@@ -71,7 +75,14 @@ unsigned int
     
     NB_Accidents,
     NB_Jours_Sans_Accidents,
-    NB_Records_Jours;
+    NB_Records_Jours,
+    Bold,
+    Bright_Enabled,
+    Led_Color_1,
+    Led_Color_2,
+    Led_Color_3;
+
+
     
 short
 	S_TEMP_AVEC_OFFSET[16],					
@@ -110,6 +121,8 @@ unsigned char
 	UC_INDEX_SONDE,
 	UC_TABLE_EMI_SONDE[2],	//Variables Capteurs temp,
 	UC_TABLE_REC_SONDE[10],
+        
+    UC_TEST,
     
 	FIN_TRAME,				//Fin d'émission de trame DCF
 	DEC_HOR_NEG,			//flag décalage horaire négatif	

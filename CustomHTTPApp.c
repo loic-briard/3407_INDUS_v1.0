@@ -60,6 +60,7 @@
 #include "MainDemo.h"       // Needed for SaveAppConfig() prototype
 #include "03_Variables.h"
 #include "EEPROM.h"
+#include "04_Fonctions.h"
 
 static HTTP_IO_RESULT HTTPPostConfig(void);
 
@@ -112,7 +113,8 @@ static BOOL lastFailure = FALSE;
 	Authorization Handlers
   ***************************************************************************/
  extern unsigned char 	buf_heure_GMT[21];
- 
+
+ //!\\ envoyé que des caracteres ascii sinon probleme de lecture coter navigateur
 void HTTPPrint_adresse_ip_value(void)
 {
     char buf[16];
@@ -126,7 +128,8 @@ void HTTPPrint_adresse_ip_value(void)
     *p++ = '.';
     p += sprintf(p, "%u", AppConfig.MyIPAddr.v[3]);
     *p = '\0';
-
+    
+//    EEPROMWriteByte(AppConfig.MyIPAddr.v[3],ADR_TEST);
     TCPPutString(sktHTTP, (BYTE*)buf);
 //    unsigned char var[4] = { AppConfig.MyIPAddr.v[0],AppConfig.MyIPAddr.v[1],AppConfig.MyIPAddr.v[2],AppConfig.MyIPAddr.v[3]};
  //   TCPPutArray(sktHTTP, var, sizeof(var));  // écrit exactement 4 octets 
@@ -137,21 +140,51 @@ void HTTPPrint_adresse_ip_value(void)
 
 void HTTPPrint_nb_accidents(void)
 {
-    unsigned int var = 0;
-    var = EEPROM_ReadByte(EEPROM_NB_ACCIDENT_ADS);
-    if(var != 0)
-        Nop();
-    TCPPut(sktHTTP,NB_Accidents);
-//    TCPPutArray(sktHTTP, var, sizeof(var));
+    BYTE buf[6];                   // assez pour 0..65535 + '\0'
+    itoa2((int)NB_Accidents, buf); // convertit en ASCII + '\0'
+    TCPPutString(sktHTTP, buf);    // envoie la chaîne "123" etc.
 }
-void HTTPPrint_marche(void)
+
+void HTTPPrint_nb_jours_sans_accidents(void)
 {
-
+    BYTE buf[6];                   // assez pour 0..65535 + '\0'
+    itoa2((int)NB_Jours_Sans_Accidents, buf); // convertit en ASCII + '\0'
+    TCPPutString(sktHTTP, buf);    // envoie la chaîne "123" etc.
 }
-
-void HTTPPrint_arret(void)
-{  
-
+void HTTPPrint_nb_records_jours(void)
+{
+    BYTE buf[6];                   // assez pour 0..65535 + '\0'
+    itoa2((int)NB_Records_Jours, buf); // convertit en ASCII + '\0'
+    TCPPutString(sktHTTP, buf);    // envoie la chaîne "123" etc.
+}
+void HTTPPrint_bold(void)
+{
+    if (Bold)
+        TCPPutString(sktHTTP, (BYTE*)"checked");
+    else
+        TCPPutString(sktHTTP, (BYTE*)"");
+}
+void HTTPPrint_bright_enabled(void)
+{
+    if (Bright_Enabled)
+        TCPPutString(sktHTTP, (BYTE*)"checked");
+    else
+        TCPPutString(sktHTTP, (BYTE*)"");
+}
+void HTTPPrint_last_accident_date(void)
+{
+    char buf[11]; // "YYYY-MM-DD" + '\0'
+    if(Last_Accident_Date.year==0) {
+        // pas de valeur -> mettre vide ou une date par défaut
+        TCPPutString(sktHTTP, (BYTE*)"");
+        return;
+    }
+    // format
+    sprintf(buf, "%04u-%02u-%02u",
+            Last_Accident_Date.year,
+            Last_Accident_Date.month,
+            Last_Accident_Date.day);
+    TCPPutString(sktHTTP, (BYTE*)buf);
 }
 
 void HTTPPrint_color(WORD index)
@@ -489,12 +522,12 @@ static HTTP_IO_RESULT HTTPPostConfig(void)
 	
 	
 	#define ACCIDENTSCOUNT				1
-//	#define ETE_HIVER 					2
-	#define SERVER_NTP 					3
-	#define ADRESSE_IP_AUTO 			4
-	#define ADRESSE_IP_EDIT 			5
-	#define SERVER_LIST_IP_SECONDAIRES 	6
-	#define ADRESSE_IP_AUTO_SECONDAIRES 7
+	#define DAYWITHOUTACCIDENTS			2
+	#define RECORDDAYWITHOUTACCIDENTS 	3
+	#define BOLDSELECT             		4
+	#define LASTACCIDENTEDATE 			5
+	#define BRIGHTENABLED            	6
+	#define LEDCOLOR1                   7
 	#define ADRESSE_IP_EDIT_SECONDAIRES 8
 	#define NOM_EDIT_SECONDAIRES 		9
 	#define CORRECTION_TEMP				10
@@ -512,21 +545,41 @@ static HTTP_IO_RESULT HTTPPostConfig(void)
 			// Search for a parameter name in POST data
 			if(HTTPReadPostName(curHTTP.data, HTTP_MAX_DATA_LEN) == HTTP_READ_INCOMPLETE)
 				return HTTP_IO_NEED_DATA;
-            
+            Nop();
 			// Try to match the name value
 			if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"AccidentsCount"))
 			{
 				index_param = ACCIDENTSCOUNT;
 				curHTTP.smPost = SM_READ_VALUE;
 			}
-            else if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"Val_Marche"))        
+            else if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"DaysWithoutAccident"))        
 			{
-				index_param = MODE_MARCHE;
+				index_param = DAYWITHOUTACCIDENTS;
 				curHTTP.smPost = SM_READ_VALUE;
 			}
-            else if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"Val_Arret"))      
+            else if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"RecordDaysWithoutAccident"))      
 			{
-				index_param = MODE_ARRET;
+				index_param = RECORDDAYWITHOUTACCIDENTS;
+				curHTTP.smPost = SM_READ_VALUE;
+			}
+            else if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"LastAccidentDate"))      
+			{
+				index_param = LASTACCIDENTEDATE;
+				curHTTP.smPost = SM_READ_VALUE;
+			}
+//            else if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"Bold"))
+//			{
+//				index_param = BOLDSELECT;
+//				curHTTP.smPost = SM_READ_VALUE;
+//			}
+//            else if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"BrightEnabled"))
+//			{
+//				index_param = BRIGHTENABLED;
+//				curHTTP.smPost = SM_READ_VALUE;
+//			}
+            else if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"LedColor1"))
+			{
+				index_param = LEDCOLOR1;
 				curHTTP.smPost = SM_READ_VALUE;
 			}
             else if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"jour_semaine_1")) 
@@ -584,16 +637,11 @@ static HTTP_IO_RESULT HTTPPostConfig(void)
 //           				index_param = SERVER_NTP;
 //				curHTTP.smPost = SM_READ_VALUE;
 //			}
-			else if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"adresse_ip_auto"))
-			{
-				index_param = ADRESSE_IP_AUTO;
-				curHTTP.smPost = SM_READ_VALUE;
-			}
-            else if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"Adresse_IP_edit"))
-			{
-				index_param = ADRESSE_IP_EDIT;
-				curHTTP.smPost = SM_READ_VALUE;
-			}
+//            else if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"Adresse_IP_edit"))
+//			{
+//				index_param = ADRESSE_IP_EDIT;
+//				curHTTP.smPost = SM_READ_VALUE;
+//			}
 			else //if(!strcmppgm2ram((char*)curHTTP.data, (ROM char*)"adresse_ip_edit_0"))
 			{
 				if(	(curHTTP.data[0]== 'n')&&
@@ -705,21 +753,6 @@ static HTTP_IO_RESULT HTTPPostConfig(void)
 
 			switch(index_param)
 			{
-				case SERVER_LIST_IP_SECONDAIRES :
-                    
-                    //BYTE var[] = "IPChildren.push(\"192.168.100.70\");NameChildren.push(\"\");IPChildren.push(\"192.168.100.75\");NameChildren.push(\"\");IPChildren.push(\"192.168.100.80\");NameChildren.push(\"zerfezf\");";
-                    memset(CODE_ADR_IP_HORL_SECONDAIRE[index_horloge_secondaire], 0x00, 30);
-                    for (i = 0; i < 30; i++)
-                    {
-                        if(*(curHTTP.data+i) != 0x00)
-                            CODE_ADR_IP_HORL_SECONDAIRE[index_horloge_secondaire][i] = *(curHTTP.data+i);
-                        else
-                            break;
-                    }
-                    index_param = 0;
-                    curHTTP.smPost = SM_READ_NAME;
-                    break;
-                    
 				case NOM_EDIT_SECONDAIRES :
                     
                     memset(CODE_NOM_HORL_SECONDAIRE[index_horloge_secondaire], 0x00, 20);
@@ -794,27 +827,96 @@ static HTTP_IO_RESULT HTTPPostConfig(void)
                         SYNCHRO =1;
                     }
                     index_param = 0;
-                    curHTTP.smPost = SM_READ_FINISHING; //SM_READ_NAME; 
+//                    curHTTP.smPost = SM_READ_FINISHING; //SM_READ_NAME; 
                     break;
                     
 				case ACCIDENTSCOUNT :
                     
-                    NB_Accidents = (unsigned int)atoi((const char*)curHTTP.data);
-                    EEPROM_WriteByte(NB_Accidents, EEPROM_NB_ACCIDENT_ADS);        
+                    if(NB_Accidents != (unsigned int)atoi((const char*)curHTTP.data))
+                    {
+                        NB_Accidents = (unsigned int)atoi((const char*)curHTTP.data);
+                        EEPROMWriteByte(NB_Accidents, ADR_NB_ACCIDENTS);
+                    }
+                    index_param = 0;
+                    curHTTP.smPost = SM_READ_NAME;
+                    break;
+                case DAYWITHOUTACCIDENTS :
+                    
+                    if(NB_Jours_Sans_Accidents != (unsigned int)atoi((const char*)curHTTP.data))
+                    {
+                        NB_Jours_Sans_Accidents = (unsigned int)atoi((const char*)curHTTP.data);
+                        EEPROMWriteByte(NB_Jours_Sans_Accidents, ADR_NB_JOURS_SANS_ACCIDENTS);
+                    }
+                    index_param = 0;
+                    curHTTP.smPost = SM_READ_NAME;
+                    break;    
+                case RECORDDAYWITHOUTACCIDENTS :
+                    
+                    if(NB_Records_Jours != (unsigned int)atoi((const char*)curHTTP.data))
+                    {
+                        NB_Records_Jours = (unsigned int)atoi((const char*)curHTTP.data);
+                        EEPROMWriteByte(NB_Records_Jours, ADR_NB_RECORDS_JOURS);
+                    }
+                    index_param = 0;
+                    curHTTP.smPost = SM_READ_NAME;
+                    break;   
+                case LASTACCIDENTEDATE:
+                {
+                    struct last_Acc_Date lastAccident;
+                    /* init explicite (C89) */
+                    lastAccident.year = 0u;
+                    lastAccident.month = 0u;
+                    lastAccident.day = 0u;
+
+                    /* curHTTP.data doit pointer sur la valeur "YYYY-MM-DD" */
+                    if (ParseDate((const char*) curHTTP.data, &lastAccident)) {
+                        if (!DatesEqual(&Last_Accident_Date, &lastAccident)) {
+                            /* l?affectation de struct est autorisée en C */
+                            Last_Accident_Date = lastAccident;
+
+                            /* si ta fonction prend un pointeur (recommandé) */
+                            SaveLastAccidentDate(&Last_Accident_Date);
+                        }
+                    }
+                    
                     index_param = 0;
                     curHTTP.smPost = SM_READ_FINISHING;
 //                    curHTTP.smPost = SM_READ_NAME;
                     break;
+                }
+                case BOLDSELECT :
                     
-				case CORRECTION_TEMP :
-                    
-                    if(curHTTP.data[0] == '-')
-                        S_CORREC_TEMP[index_horloge_secondaire] = -((curHTTP.data[1] - 0x30) * 10);
-                    else
-                        S_CORREC_TEMP[index_horloge_secondaire] = (curHTTP.data[0] - 0x30) * 10;
+                    if(Bold != (unsigned int)atoi((const char*)curHTTP.data))
+                    {
+                        Bold = (unsigned int)atoi((const char*)curHTTP.data);
+                        EEPROMWriteByte(Bold, ADR_BOLD);
+                    }
                     index_param = 0;
+//                    curHTTP.smPost = SM_READ_FINISHING;
                     curHTTP.smPost = SM_READ_NAME;
-                    break;
+                    break;   
+                case BRIGHTENABLED :
+                    
+                    if(Bright_Enabled != (unsigned int)atoi((const char*)curHTTP.data))
+                    {
+                        Bright_Enabled = (unsigned int)atoi((const char*)curHTTP.data);
+                        EEPROMWriteByte(Bright_Enabled, ADR_BRIGHT_ENABLED);
+                    }
+                    index_param = 0;
+//                    curHTTP.smPost = SM_READ_FINISHING;
+                    curHTTP.smPost = SM_READ_NAME;
+                    break;   
+                case LEDCOLOR1 :
+                    
+                    if(Led_Color_1 != (unsigned int)atoi((const char*)curHTTP.data))
+                    {
+                        Led_Color_1 = (unsigned int)atoi((const char*)curHTTP.data);
+                        EEPROMWriteByte(Led_Color_1, ADR_LED_COLOR_1);
+                    }
+                    index_param = 0;
+//                    curHTTP.smPost = SM_READ_FINISHING;
+                    curHTTP.smPost = SM_READ_NAME;
+                    break;   
                     
 //				case ETE_HIVER :
 //                    
@@ -838,59 +940,52 @@ static HTTP_IO_RESULT HTTPPostConfig(void)
 //                    curHTTP.smPost = SM_READ_NAME;
 //                    break;
                     
-				case ADRESSE_IP_AUTO :
-                    
-                    CODE_IP_AUTO = curHTTP.data[0] - 0x30;
-                    index_param = 0;
-                    curHTTP.smPost = SM_READ_NAME; 
-                    break;
-                    
-				case ADRESSE_IP_AUTO_SECONDAIRES :
-                    
-                    CODE_IP_AUTO_SECONDAIRE = curHTTP.data[0] - 0x30;
-                    index_param = 0;
-                    curHTTP.smPost = SM_READ_NAME;
-                    break;
+//				case ADRESSE_IP_AUTO_SECONDAIRES :
+//                    
+//                    CODE_IP_AUTO_SECONDAIRE = curHTTP.data[0] - 0x30;
+//                    index_param = 0;
+//                    curHTTP.smPost = SM_READ_NAME;
+//                    break;
                      
-				case ADRESSE_IP_EDIT :
-                    
-                    //Converti l'adresse IP en int
-                    memset(CODE_ADR_IP_WEB, 0x00, sizeof(CODE_ADR_IP_WEB));
-                    for (i = 0; i < 30; i++)
-                    {
-                        if(curHTTP.data[i] != 0x00)
-                            CODE_ADR_IP_WEB[i] = curHTTP.data[i];
-                        else
-                            break;
-                    }
-                    index_pts = 0;
-                    for(f = 0; f < 4; f++)
-                    {
-                        if((CODE_ADR_IP_WEB[1 + index_pts] == '.')||(CODE_ADR_IP_WEB[1 + index_pts] == 0x00))
-                        {
-                            AppConfig.MyIPAddr.v[f] = (CODE_ADR_IP_WEB[index_pts] - 0x30);
-                            index_pts += 2;			
-                        }
-                        else
-                        {
-                            if((CODE_ADR_IP_WEB[2 + index_pts] == '.')||(CODE_ADR_IP_WEB[2 + index_pts] == 0x00))
-                            {
-                                AppConfig.MyIPAddr.v[f] =(CODE_ADR_IP_WEB[index_pts] - 0x30) * 10 + (CODE_ADR_IP_WEB[index_pts + 1] - 0x30);
-                                index_pts += 3;			
-                            }
-                            else
-                            {	
-                                if((CODE_ADR_IP_WEB[3 + index_pts] == '.')||(CODE_ADR_IP_WEB[3 + index_pts] == 0x00))
-                                {
-                                    AppConfig.MyIPAddr.v[f] = (CODE_ADR_IP_WEB[index_pts] - 0x30) * 100 + (CODE_ADR_IP_WEB[index_pts + 1] - 0x30) * 10 + (CODE_ADR_IP_WEB[index_pts + 2] - 0x30);
-                                    index_pts += 4;
-                                }
-                            }
-                        }	
-                    }
-                    index_param = 0;
-                    curHTTP.smPost = SM_READ_NAME;
-                    break;
+//				case ADRESSE_IP_EDIT :
+//                    
+//                    //Converti l'adresse IP en int
+//                    memset(CODE_ADR_IP_WEB, 0x00, sizeof(CODE_ADR_IP_WEB));
+//                    for (i = 0; i < 30; i++)
+//                    {
+//                        if(curHTTP.data[i] != 0x00)
+//                            CODE_ADR_IP_WEB[i] = curHTTP.data[i];
+//                        else
+//                            break;
+//                    }
+//                    index_pts = 0;
+//                    for(f = 0; f < 4; f++)
+//                    {
+//                        if((CODE_ADR_IP_WEB[1 + index_pts] == '.')||(CODE_ADR_IP_WEB[1 + index_pts] == 0x00))
+//                        {
+//                            AppConfig.MyIPAddr.v[f] = (CODE_ADR_IP_WEB[index_pts] - 0x30);
+//                            index_pts += 2;			
+//                        }
+//                        else
+//                        {
+//                            if((CODE_ADR_IP_WEB[2 + index_pts] == '.')||(CODE_ADR_IP_WEB[2 + index_pts] == 0x00))
+//                            {
+//                                AppConfig.MyIPAddr.v[f] =(CODE_ADR_IP_WEB[index_pts] - 0x30) * 10 + (CODE_ADR_IP_WEB[index_pts + 1] - 0x30);
+//                                index_pts += 3;			
+//                            }
+//                            else
+//                            {	
+//                                if((CODE_ADR_IP_WEB[3 + index_pts] == '.')||(CODE_ADR_IP_WEB[3 + index_pts] == 0x00))
+//                                {
+//                                    AppConfig.MyIPAddr.v[f] = (CODE_ADR_IP_WEB[index_pts] - 0x30) * 100 + (CODE_ADR_IP_WEB[index_pts + 1] - 0x30) * 10 + (CODE_ADR_IP_WEB[index_pts + 2] - 0x30);
+//                                    index_pts += 4;
+//                                }
+//                            }
+//                        }	
+//                    }
+//                    index_param = 0;
+//                    curHTTP.smPost = SM_READ_NAME;
+//                    break;
                     
 				case ADRESSE_IP_EDIT_SECONDAIRES :
                     //Converti l'adresse IP en int
@@ -943,12 +1038,13 @@ static HTTP_IO_RESULT HTTPPostConfig(void)
                     curHTTP.smPost = SM_READ_NAME; 
                     break;
 			}		
+			curHTTP.smPost = SM_READ_FINISHING;	
+            
 			return HTTP_IO_WAITING;
 //			// Move past the data that was just read
 //			ptrData += strlen((char*)ptrData);
 //			if(ptrData < curHTTP.data + HTTP_MAX_DATA_LEN - 1)
 //                ptrData += 1;
-				
 			case SM_READ_FINISHING:			
 				// Try reading the next parameter
 				Demande_heure_page_web = 1;

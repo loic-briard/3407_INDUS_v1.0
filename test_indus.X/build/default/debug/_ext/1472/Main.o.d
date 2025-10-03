@@ -1,9 +1,9 @@
 build/default/debug/_ext/1472/Main.o: ../Main.c ../TCPIP\ Stack/stdlib.h \
- ../TCPIP\ Stack/stddef.h ../03_Variables.h ../TCPIP\ Stack/TCPIP.h \
- ../TCPIP\ Stack/string.h ../TCPIP\ Stack/..\GenericTypeDefs.h \
- ../TCPIP\ Stack/..\Compiler.h ../TCPIP\ Stack/p24Fxxxx.h \
- ../TCPIP\ Stack/stdio.h ../TCPIP\ Stack/stdarg.h \
- ../TCPIP\ Stack/..\HardwareProfile.h \
+ ../TCPIP\ Stack/stddef.h ../03_Variables.h ../GenericTypeDefs.h \
+ ../TCPIP\ Stack/TCPIP.h ../TCPIP\ Stack/string.h \
+ ../TCPIP\ Stack/..\GenericTypeDefs.h ../TCPIP\ Stack/..\Compiler.h \
+ ../TCPIP\ Stack/p24Fxxxx.h ../TCPIP\ Stack/stdio.h \
+ ../TCPIP\ Stack/stdarg.h ../TCPIP\ Stack/..\HardwareProfile.h \
  ../TCPIP\ Stack/..\/HWP\ EX16_ENC28\ XC16.h \
  ../TCPIP\ Stack/..\/Compiler.h \
  ../TCPIP\ Stack/..\/HWP\ EX16_ENC28\ XC16.h \
@@ -12,8 +12,8 @@ build/default/debug/_ext/1472/Main.o: ../Main.c ../TCPIP\ Stack/stdlib.h \
  ../TCPIP\ Stack/Helpers.h ../TCPIP\ Stack/Delay.h ../TCPIP\ Stack/Tick.h \
  ../TCPIP\ Stack/TCPIP.h ../TCPIP\ Stack/MAC.h \
  ../TCPIP\ Stack/ENCX24J600.h ../TCPIP\ Stack/IP.h ../TCPIP\ Stack/ARP.h \
- ../TCPIP\ Stack/XEEPROM.h ../TCPIP\ Stack/SPIFlash.h \
- ../TCPIP\ Stack/SPIRAM.h ../TCPIP\ Stack/UDP.h ../TCPIP\ Stack/TCP.h \
+ ../TCPIP\ Stack/SPIFlash.h ../TCPIP\ Stack/SPIRAM.h \
+ ../TCPIP\ Stack/UDP.h ../TCPIP\ Stack/TCP.h \
  ../TCPIP\ Stack/UART2TCPBridge.h ../TCPIP\ Stack/UART.h \
  ../TCPIP\ Stack/DHCP.h ../TCPIP\ Stack/DNS.h ../TCPIP\ Stack/MPFS2.h \
  ../TCPIP\ Stack/HTTP2.h ../TCPIP\ Stack/ICMP.h \
@@ -27,6 +27,8 @@ build/default/debug/_ext/1472/Main.o: ../Main.c ../TCPIP\ Stack/stdlib.h \
 ../TCPIP\ Stack/stddef.h:
 
 ../03_Variables.h:
+
+../GenericTypeDefs.h:
 
 ../TCPIP\ Stack/TCPIP.h:
 
@@ -73,8 +75,6 @@ build/default/debug/_ext/1472/Main.o: ../Main.c ../TCPIP\ Stack/stdlib.h \
 ../TCPIP\ Stack/IP.h:
 
 ../TCPIP\ Stack/ARP.h:
-
-../TCPIP\ Stack/XEEPROM.h:
 
 ../TCPIP\ Stack/SPIFlash.h:
 
