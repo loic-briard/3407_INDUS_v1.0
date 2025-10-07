@@ -3,6 +3,7 @@
 #include <xc.h>
 #include "p24FJ256GB108.h"
 #include <stdlib.h>
+#include <stdbool.h>
 #include "03_Variables.h"
 #include "TCPIP Stack/TCPIP.h"
 #include "TCPIP Stack/UART.h"
@@ -42,7 +43,6 @@ int main(void)
 
         Network_CoreTasks();        // stack + apps + zeroconf/mdns
         ApplyDHCPMode_IfChanged();  // bascule DHCP si flag changé
-        TimeSync_Task();            // SNTP -> BCD -> locale
 
         // Réactive ces deux-là si besoin :
         // Sensors_Task();          

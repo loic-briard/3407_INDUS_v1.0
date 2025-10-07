@@ -21,7 +21,7 @@ build/default/debug/_ext/1472/app_init.o: ../app_init.c \
  ../TCPIP\ Stack/Announce.h ../TCPIP\ Stack/NBNS.h \
  ../TCPIP\ Stack/Reboot.h ../TCPIP\ Stack/SNTP.h ../02_Constantes.h \
  ../03_Variables.h ../GenericTypeDefs.h ../04_Fonctions.h ../board_init.h \
- ../nv_mem.h ../net_tasks.h ../EEPROM.h
+ ../nv_mem.h ../net_tasks.h ../EEPROM.h ../time_sync.h
 
 ../TCPIP\ Stack/TCPIP.h:
 
@@ -120,3 +120,5 @@ build/default/debug/_ext/1472/app_init.o: ../app_init.c \
 ../net_tasks.h:
 
 ../EEPROM.h:
+
+../time_sync.h:

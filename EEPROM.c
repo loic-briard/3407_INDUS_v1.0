@@ -8,6 +8,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "p24FJ256GB108.h"
 #include "EEPROM.h"
+#include "GenericTypeDefs.h"
 
 void InitSPIEEPROM()
 {
@@ -140,3 +141,18 @@ void DataWriteEEPROM(unsigned int dat, unsigned int ad)
 	if (dat != lect)
 		EEPROMWriteByte(dat,ad);
 }	
+
+void EEP_WriteU32(uint16_t adr, uint32_t v) {
+    EEPROMWriteByte((uint8_t)( v        & 0xFF), (uint16_t)(adr + 0));
+    EEPROMWriteByte((uint8_t)((v >>  8) & 0xFF), (uint16_t)(adr + 1));
+    EEPROMWriteByte((uint8_t)((v >> 16) & 0xFF), (uint16_t)(adr + 2));
+    EEPROMWriteByte((uint8_t)((v >> 24) & 0xFF), (uint16_t)(adr + 3));
+}
+
+uint32_t EEP_ReadU32(uint16_t adr) {
+    uint32_t v  =  (uint32_t)EEPROMReadByte((uint16_t)(adr + 0));
+    v |= (uint32_t)EEPROMReadByte((uint16_t)(adr + 1)) << 8;
+    v |= (uint32_t)EEPROMReadByte((uint16_t)(adr + 2)) << 16;
+    v |= (uint32_t)EEPROMReadByte((uint16_t)(adr + 3)) << 24;
+    return v;
+}

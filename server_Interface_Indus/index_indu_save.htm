@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Interface Panneau — Optimisée (positions seules)</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="logo.png" type="image/png" />
+</head>
+<body class="edit-off">
+  <!-- Panneau de configuration (toujours visible) -->
+  <aside class="config-panel">
+    <div class="panel-header">
+      <button id="gear" class="gear" type="button" title="Activer le mode édition">⚙️</button>
+      <span>Configuration</span>
+    </div>
+
+    <label class="cfg-ip-adress">
+      <span>Adresse IP :</span>
+      <input type="text" name="adresse_ip_value" id="ip_value" value="~adresse_ip_value~" />
+    </label>
+
+    <button id="accidentBtn" class="btn strong">ACCIDENT</button>
+    <hr class="sep" />
+
+    <!-- Debug facultatif
+    <label>
+      <span>test :</span>
+      <input type="text" id="test" />
+    </label> -->
+
+    <!-- États injectés par le firmware -->
+    <input type="hidden" id="ledColor1" value="~led_color_1~" />
+    <input type="hidden" id="ledColor2" value="~led_color_2~" />
+    <input type="hidden" id="ledColor3" value="~led_color_3~" />
+
+    <label class="cfg-stack">
+      <span>Date du dernier accident :</span>
+      <input type="date" id="accidentDate" value="~last_accident_date~" />
+    </label>
+    <hr class="sep" />
+
+    <label class="cfg-check-persistent">
+      <span>Caractères gras</span>
+      <input type="checkbox" id="boldToggle" ~bold~ />
+    </label>
+    <hr class="sep" />
+
+    <label class="cfg-field">
+      <span>Image de fond :</span>
+      <input type="file" id="bgFile" accept="image/*" />
+      <small class="hint">Choisir une image locale pour l’arrière-plan</small>
+      <hr class="sep" />
+    </label>
+
+    <label class="cfg-check">
+      <span>Luminosité activée</span>
+      <input type="checkbox" id="brightEnabled" ~bright_enabled~ />
+    </label>
+    <input type="hidden" id="brightServer" value="~bright~" />
+    <div id="brightRow" class="cfg-inline hidden">
+      <label for="brightLevel">Luminosité :</label>
+      <input type="range" id="brightLevel" min="0" max="6" step="1" value="3" />
+      <span id="brightLabel" class="mono">3</span>
+    </div>
+
+    <hr id="brightSep" class="sep" />
+
+    <label class="cfg-check">
+      <span>Horaires d’extinction (Eco)</span>
+      <input type="checkbox" id="ecoEnabled" ~eco_enabled~ />
+    </label>
+    <div id="ecoRows" class="eco-rows hidden">
+      <label class="cfg-inline"><span>Début :</span> <input type="time" id="startTime" step="60" value="~start_time~" /></label>
+      <label class="cfg-inline"><span>Fin :</span> <input type="time" id="stopTime" step="60" value="~stop_time~" /></label>
+      <hr class="sep" />
+    </div>
+
+    <div class="cfg-actions">
+      <button id="exportLayout" class="btn">Exporter positions</button>
+      <input type="file" id="importLayout" accept="application/json" style="display:none" />
+      <button id="importBtn" class="btn">Charger positions</button>
+      <hr class="sep" />
+    </div>
+
+    <hr class="sep-edit-on" />
+
+    <button id="applyBtn" class="btn primary">Mise à jour panneau</button>
+  </aside>
+
+  <!-- Scène (fond + éléments) -->
+  <div id="stage" class="stage">
+    <img class="bg" id="bg" src="fond.png" alt="Fond" />
+
+    <!-- Box 1 nb accidents -->
+    <div class="box" id="box1" data-color="white">
+      <input type="number" name="valeur1" value="~nb_accidents~" max="999" min="0" />
+      <div class="id-handle">nb accident</div>
+      <div class="resize-handle" aria-hidden="true" title="Redimensionner"></div>
+      <div class="color-picker">
+        <span>Couleur</span>
+        <div class="color-swatch" data-color="white" style="background:#ffffff"></div>
+        <div class="color-swatch" data-color="red"   style="background:#ff2a2a"></div>
+        <div class="color-swatch" data-color="green" style="background:#00ff66"></div>
+        <div class="color-swatch" data-color="blue"  style="background:#33aaff"></div>
+        <div class="color-swatch" data-color="amber" style="background:#ffb000"></div>
+      </div>
+    </div>
+
+    <!-- Box 2 jours sans accidents -->
+    <div class="box" id="box2" data-color="white">
+      <input type="number" name="valeur2" value="~nb_jours_sans_accidents~" max="99999" min="0" />
+      <div class="id-handle">jours sans accident</div>
+      <div class="resize-handle" aria-hidden="true" title="Redimensionner"></div>
+      <div class="color-picker">
+        <span>Couleur</span>
+        <div class="color-swatch" data-color="white" style="background:#ffffff"></div>
+        <div class="color-swatch" data-color="red"   style="background:#ff2a2a"></div>
+        <div class="color-swatch" data-color="green" style="background:#00ff66"></div>
+        <div class="color-swatch" data-color="blue"  style="background:#33aaff"></div>
+        <div class="color-swatch" data-color="amber" style="background:#ffb000"></div>
+      </div>
+    </div>
+
+    <!-- Box 3 record -->
+    <div class="box" id="box3" data-color="white">
+      <input type="number" name="valeur3" value="~nb_records_jours~" max="99999" min="0" />
+      <div class="id-handle">record</div>
+      <div class="resize-handle" aria-hidden="true" title="Redimensionner"></div>
+      <div class="color-picker">
+        <span>Couleur</span>
+        <div class="color-swatch" data-color="white" style="background:#ffffff"></div>
+        <div class="color-swatch" data-color="red"   style="background:#ff2a2a"></div>
+        <div class="color-swatch" data-color="green" style="background:#00ff66"></div>
+        <div class="color-swatch" data-color="blue"  style="background:#33aaff"></div>
+        <div class="color-swatch" data-color="amber" style="background:#ffb000"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Login -->
+  <div id="loginModal" class="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <h3 id="loginTitle">Connexion administrateur</h3>
+      <div class="error" id="loginError"></div>
+      <label>Identifiant (par défaut : administrateur)
+        <input type="text" id="loginUser" placeholder="administrateur" value="administrateur" />
+      </label>
+      <label>Mot de passe (par défaut : stramatel)
+        <input type="password" id="loginPass" />
+      </label>
+      <div class="modal-actions">
+        <button class="btn" id="loginCancel">Annuler</button>
+        <button class="btn primary" id="loginOk">Se connecter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Confirmation Accident -->
+  <div id="accidentModal" class="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <h3>Confirmer l'accident</h3>
+      <p>Confirmez-vous vraiment l'accident ?</p>
+      <div class="modal-actions">
+        <button class="btn" id="accidentNo">Non</button>
+        <button class="btn primary" id="accidentYes">Oui</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =========================
+       Constantes & éléments
+       ========================= */
+    const SCALE = 1.5; // doit matcher :root { --scale: 1.5 }
+    const LAYOUT_KEY = 'panneauBoxLayout'; // on ne stocke QUE les positions/taille
+    const BOX_IDS = ['box1','box2','box3'];
+
+    const stage = document.getElementById('stage');
+    const bg = document.getElementById('bg');
+
+    // Panneau config
+    const accidentBtn = document.getElementById('accidentBtn');
+    const accidentModal = document.getElementById('accidentModal');
+    const accidentYes = document.getElementById('accidentYes');
+    const accidentNo = document.getElementById('accidentNo');
+    const accidentDate = document.getElementById('accidentDate');
+
+    const boldToggle = document.getElementById('boldToggle');
+    const bgFile = document.getElementById('bgFile');
+
+    const brightEnabled = document.getElementById('brightEnabled');
+    const brightRow = document.getElementById('brightRow');
+    const brightLevel = document.getElementById('brightLevel');
+    const brightLabel = document.getElementById('brightLabel');
+
+    const ecoEnabled = document.getElementById('ecoEnabled');
+    const ecoRows = document.getElementById('ecoRows');
+    const startTime = document.getElementById('startTime');
+    const stopTime = document.getElementById('stopTime');
+
+    const gear = document.getElementById('gear');
+    const modal = document.getElementById('loginModal');
+    const loginOk = document.getElementById('loginOk');
+    const loginCancel = document.getElementById('loginCancel');
+    const loginUser = document.getElementById('loginUser');
+    const loginPass = document.getElementById('loginPass');
+    const loginError = document.getElementById('loginError');
+
+    const exportLayoutBtn = document.getElementById('exportLayout');
+    const importBtn = document.getElementById('importBtn');
+    const importLayoutInp = document.getElementById('importLayout');
+
+    const applyBtn = document.getElementById('applyBtn');
+
+    const box1Input = document.querySelector('#box1 input[type="number"]');
+    const box2Input = document.querySelector('#box2 input[type="number"]');
+    const box3Input = document.querySelector('#box3 input[type="number"]');
+
+    /* =========================
+       Utilitaires visuels
+       ========================= */
+    function sizeStageToImage() {
+      const w = bg.naturalWidth || bg.width;
+      const h = bg.naturalHeight || bg.height;
+      stage.style.width = w + 'px';
+      stage.style.height = h + 'px';
+    }
+    if (bg.complete) sizeStageToImage(); else bg.addEventListener('load', sizeStageToImage);
+
+    function todayISO() {
+      const d = new Date();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${d.getFullYear()}-${m}-${day}`;
+    }
+
+    function adjustFontSize(box) {
+      const input = box.querySelector('input[type="number"]');
+      const h = box.clientHeight;
+      input.style.fontSize = (h * 0.8) + 'px';
+    }
+
+    // Couleurs LED (pas de persistance; dataset + outline seulement)
+    function applyColorToInput(input, colorKey) {
+      const map = {
+        white: { color: '#ffffff', glow: 'rgba(255,255,255,0.55)' },
+        red:   { color: '#ff2a2a', glow: 'rgba(255,42,42,0.55)' },
+        green: { color: '#00ff66', glow: 'rgba(0,255,102,0.55)' },
+        blue:  { color: '#33aaff', glow: 'rgba(51,170,255,0.55)' },
+        amber: { color: '#ffb000', glow: 'rgba(255,176,0,0.55)' },
+      };
+      const c = map[colorKey] || map.white;
+      input.style.color = c.color;
+      input.style.textShadow = `0 0 6px ${c.glow}`;
+      input.dataset.color = colorKey || 'white';
+    }
+
+    function selectSwatch(picker, colorKey) {
+      picker.querySelectorAll('.color-swatch').forEach(s => {
+        s.style.outline = (s.dataset.color === colorKey) ? '2px solid #333' : 'none';
+      });
+    }
+
+    /* =========================
+       Persistance: UNIQUEMENT positions/taille
+       ========================= */
+    function getCurrentLayout() {
+      const layout = {};
+      for (const id of BOX_IDS) {
+        const box = document.getElementById(id);
+        const cs = getComputedStyle(box);
+        layout[id] = {
+          left: parseFloat(cs.left) || 0,
+          top: parseFloat(cs.top) || 0,
+          width: parseFloat(cs.width) || 120,
+          height: parseFloat(cs.height) || 44,
+        };
+      }
+      return layout;
+    }
+
+    function saveLayout(layout) {
+      try { localStorage.setItem(LAYOUT_KEY, JSON.stringify(layout)); } catch {}
+    }
+
+    function saveCurrentLayout() {
+      saveLayout(getCurrentLayout());
+    }
+
+    function loadLayout() {
+      try {
+        const raw = localStorage.getItem(LAYOUT_KEY);
+        if (!raw) return null;
+        return JSON.parse(raw);
+      } catch { return null; }
+    }
+
+    // Migration simple depuis anciens keys boxState:*
+    function migrateLegacyLayout() {
+      const out = {};
+      let found = false;
+      for (const id of BOX_IDS) {
+        const raw = localStorage.getItem('boxState:' + id);
+        if (!raw) continue;
+        try {
+          const s = JSON.parse(raw);
+          const toNum = (v, def) => (typeof v === 'string' && v.endsWith('px')) ? parseFloat(v) : (parseFloat(v) || def);
+          out[id] = {
+            left: toNum(s.left, 0),
+            top: toNum(s.top, 0),
+            width: toNum(s.width, 120),
+            height: toNum(s.height, 44)
+          };
+          found = true;
+        } catch {}
+      }
+      if (found) {
+        saveLayout(out);
+        // nettoyage facultatif des anciennes clés
+        for (const id of BOX_IDS) localStorage.removeItem('boxState:' + id);
+      }
+      return found;
+    }
+
+    function applyLayout(layout) {
+      if (!layout) return;
+      for (const id of BOX_IDS) {
+        const box = document.getElementById(id);
+        const cfg = layout[id];
+        if (!cfg) continue;
+        box.style.left = (cfg.left ?? 0) + 'px';
+        box.style.top = (cfg.top ?? 0) + 'px';
+        box.style.width = (cfg.width ?? 120) + 'px';
+        box.style.height = (cfg.height ?? 44) + 'px';
+        adjustFontSize(box);
+      }
+    }
+
+    /* =========================
+       Drag / Resize (scale-aware)
+       ========================= */
+    function makeDraggable(box) {
+      const handle = box.querySelector('.id-handle');
+      handle.addEventListener('mousedown', (e) => {
+        if (!document.body.classList.contains('edit-on')) return;
+        e.preventDefault();
+        const startX = e.pageX, startY = e.pageY;
+        const startLeft = parseFloat(box.style.left) || 0;
+        const startTop = parseFloat(box.style.top) || 0;
+        function onMove(ev) {
+          const dx = (ev.pageX - startX) / SCALE;
+          const dy = (ev.pageY - startY) / SCALE;
+          box.style.left = (startLeft + dx) + 'px';
+          box.style.top = (startTop + dy) + 'px';
+        }
+        function onUp() {
+          saveCurrentLayout();
+          document.removeEventListener('mousemove', onMove);
+          document.removeEventListener('mouseup', onUp);
+        }
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onUp);
+      });
+    }
+
+    function makeResizable(box, opt = { minW: 80, minH: 36, maxW: 600, maxH: 240 }) {
+      const handle = box.querySelector('.resize-handle');
+      handle.addEventListener('mousedown', (e) => {
+        if (!document.body.classList.contains('edit-on')) return;
+        e.preventDefault(); e.stopPropagation();
+        const startX = e.pageX, startY = e.pageY;
+        const startW = parseFloat(getComputedStyle(box).width);
+        const startH = parseFloat(getComputedStyle(box).height);
+        function onMove(ev) {
+          const newW = Math.min(opt.maxW, Math.max(opt.minW, startW + (ev.pageX - startX) / SCALE));
+          const newH = Math.min(opt.maxH, Math.max(opt.minH, startH + (ev.pageY - startY) / SCALE));
+          box.style.width = newW + 'px';
+          box.style.height = newH + 'px';
+          adjustFontSize(box);
+        }
+        function onUp() {
+          saveCurrentLayout();
+          document.removeEventListener('mousemove', onMove);
+          document.removeEventListener('mouseup', onUp);
+        }
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onUp);
+      });
+    }
+
+    /* =========================
+       Mode édition & login
+       ========================= */
+    let isAuthenticated = false;
+    function setEditMode(on) {
+      document.body.classList.toggle('edit-on', on);
+      document.body.classList.toggle('edit-off', !on);
+      gear.textContent = on ? '✖️' : '⚙️';
+      gear.title = on ? 'Quitter le mode édition' : 'Activer le mode édition';
+    }
+    setEditMode(false);
+
+    gear.addEventListener('click', () => {
+      if (document.body.classList.contains('edit-on')) { setEditMode(false); return; }
+      if (isAuthenticated) setEditMode(true);
+      else {
+        loginError.textContent = '';
+        loginPass.value = '';
+        modal.classList.add('active');
+        setTimeout(() => loginUser.focus(), 50);
+      }
+    });
+    loginCancel.addEventListener('click', () => modal.classList.remove('active'));
+    loginOk.addEventListener('click', tryLogin);
+    modal.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') tryLogin();
+      if (e.key === 'Escape') modal.classList.remove('active');
+    });
+    function tryLogin() {
+      const u = (loginUser.value || '').trim();
+      const p = (loginPass.value || '').trim();
+      if (u === 'administrateur' && p === 'stramatel') { isAuthenticated = true; modal.classList.remove('active'); setEditMode(true); }
+      else { loginError.textContent = 'Identifiants invalides.'; }
+    }
+
+    /* =========================
+       Jauge de luminosité
+       ========================= */
+    const BRIGHT_LUT = [10, 49, 88, 127, 169, 212, 255];
+    const ColorKeyToCode = { red: 0, green: 1, blue: 2, amber: 3, white: 4 };
+    const CodeToColorKey = { 0: 'red', 1: 'green', 2: 'blue', 3: 'amber', 4: 'white' };
+
+    function levelToBright(lvl) { return BRIGHT_LUT[lvl] ?? 127; }
+    function brightToLevel(val) {
+      let idx = 0, best = Infinity; const v = parseInt(val ?? 127, 10);
+      for (let i = 0; i < BRIGHT_LUT.length; i++) { const d = Math.abs(BRIGHT_LUT[i] - v); if (d < best) { best = d; idx = i; } }
+      return idx;
+    }
+    function updateBrightLabelFromLevel() {
+      const lvl = parseInt(brightLevel.value, 10);
+      const val = levelToBright(lvl);
+      brightLabel.textContent = `${lvl}`; // (val) si besoin
+    }
+    function applyBrightnessFromConfigValue(val) {
+      const lvl = brightToLevel(val);
+      brightLevel.value = String(lvl);
+      updateBrightLabelFromLevel();
+    }
+
+    /* =========================
+       Import / Export des POSITIONS UNIQUEMENT
+       ========================= */
+    exportLayoutBtn.addEventListener('click', () => {
+      const data = JSON.stringify(getCurrentLayout(), null, 2);
+      const blob = new Blob([data], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'panneau-layout.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+    importBtn.addEventListener('click', () => importLayoutInp.click());
+    importLayoutInp.addEventListener('change', async (e) => {
+      const f = e.target.files?.[0]; if (!f) return;
+      try {
+        const layout = JSON.parse(await f.text());
+        applyLayout(layout);
+        saveLayout(layout);
+      } catch { alert('Fichier JSON invalide.'); }
+      finally { importLayoutInp.value = ''; }
+    });
+
+    // Bascule police (pas de persistance demandée)
+    function applyFontVariant(variant) {
+      document.body.classList.toggle('led-bold', variant === 'bold');
+    }
+    document.getElementById('boldToggle').addEventListener('change', () => {
+      applyFontVariant(boldToggle.checked ? 'bold' : 'regular');
+    });
+
+    // Image de fond (local preview)
+    bgFile.addEventListener('change', (e) => {
+      const file = e.target.files?.[0]; if (!file) return;
+      const url = URL.createObjectURL(file);
+      bg.src = url; bg.onload = () => { sizeStageToImage(); URL.revokeObjectURL(url); };
+    });
+
+    // Accident (confirmation)
+    accidentBtn.addEventListener('click', () => accidentModal.classList.add('active'));
+    accidentNo.addEventListener('click', () => accidentModal.classList.remove('active'));
+    accidentYes.addEventListener('click', () => {
+      const v = Number.isFinite(box1Input.valueAsNumber) ? box1Input.valueAsNumber : 0;
+      box1Input.value = v + 1; // +1
+      box2Input.value = 0;     // reset jours sans accident
+      accidentDate.value = todayISO();
+      postTelemetry(buildTelemetryPayload());
+      accidentModal.classList.remove('active');
+    });
+
+    // Cohérence box2 -> box3 (record)
+    box2Input.addEventListener('input', (e) => {
+      const n = e.target.valueAsNumber; const val2 = Number.isFinite(n) ? n : 0;
+      const val3 = parseInt(box3Input.value, 10) || 0;
+      if (val2 > val3) box3Input.value = val2;
+    });
+
+    // Éco / Luminosité : affichage conditionnel
+    function refreshVisibility() {
+      brightRow.classList.toggle('hidden', !brightEnabled.checked);
+      const brightSep = document.getElementById('brightSep');
+      if (brightSep) brightSep.classList.toggle('hidden', !brightEnabled.checked);
+      ecoRows.classList.toggle('hidden', !ecoEnabled.checked);
+    }
+    brightEnabled.addEventListener('change', refreshVisibility);
+    ecoEnabled.addEventListener('change', refreshVisibility);
+    brightLevel.addEventListener('input', updateBrightLabelFromLevel);
+
+    // Couleurs: init pickers (non persistées)
+    function initColorPicker(box) {
+      const picker = box.querySelector('.color-picker');
+      const input = box.querySelector('input[type="number"]');
+      picker.addEventListener('click', (e) => {
+        const sw = e.target.closest('.color-swatch'); if (!sw) return;
+        const colorKey = sw.dataset.color;
+        box.dataset.color = colorKey; // trace couleur courante
+        applyColorToInput(input, colorKey);
+        selectSwatch(picker, colorKey);
+      });
+    }
+
+    function applyColorFromCode(boxId, codeStr) {
+      const input = document.querySelector(`#${boxId} input[type="number"]`);
+      const picker = document.querySelector(`#${boxId} .color-picker`);
+      const key = CodeToColorKey[String(codeStr)] || 'white';
+      document.getElementById(boxId).dataset.color = key;
+      applyColorToInput(input, key);
+      selectSwatch(picker, key);
+    }
+
+    // === Télémetrie / POST serveur ===
+    const TELEMETRY_URL = '/index_indu.htm'; // même ressource (HTTP2)
+
+    function getLedCodeForBox(boxId) {
+      const input = document.querySelector(`#${boxId} input[type="number"]`);
+      const key = input?.dataset?.color || document.getElementById(boxId)?.dataset?.color || 'white';
+      return ColorKeyToCode[key] ?? 4;
+    }
+
+    function nowISODate() {
+      const d = new Date();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${d.getFullYear()}-${m}-${day}`;
+    }
+    function nowISODateTime() { return new Date().toISOString(); }
+
+    function buildTelemetryPayload() {
+      const box1 = box1Input.valueAsNumber || 0;
+      const box2 = box2Input.valueAsNumber || 0;
+      const box3 = box3Input.valueAsNumber || 0;
+
+      const brightEnabledFlag = brightEnabled.checked ? 1 : 0;
+      const brightValue = levelToBright(parseInt(brightLevel.value, 10));
+      const ecoEnabledFlag = ecoEnabled.checked ? 1 : 0;
+
+      return {
+        AccidentsCount: box1,
+        DaysWithoutAccident: box2,
+        RecordDaysWithoutAccident: box3,
+        LastAccidentDate: accidentDate.value || nowISODate(),
+        Bold: boldToggle.checked ? 1 : 0,
+        BrightEnabled: brightEnabledFlag,
+        ...(brightEnabledFlag ? { Bright: brightValue } : {}),
+        EcoParamsEnabled: ecoEnabledFlag,
+        ...(ecoEnabledFlag ? { StartTime: startTime.value, StopTime: stopTime.value } : {}),
+        LedColors: {
+          box1: getLedCodeForBox('box1'),
+          box2: getLedCodeForBox('box2'),
+          box3: getLedCodeForBox('box3'),
+        },
+        Now: nowISODate(),
+      };
+    }
+
+    async function postTelemetry(payload) {
+      const formData = new URLSearchParams();
+      formData.append('accidents_count', payload.AccidentsCount);
+      formData.append('days_without_accident', payload.DaysWithoutAccident);
+      formData.append('record_days_without_accident', payload.RecordDaysWithoutAccident);
+      formData.append('last_accident_date', payload.LastAccidentDate);
+      formData.append('bold', payload.Bold);
+      formData.append('bright_enabled', payload.BrightEnabled);
+      if (payload.Bright !== undefined) formData.append('bright', payload.Bright);
+      formData.append('eco_params_enabled', payload.EcoParamsEnabled);
+      if (payload.StartTime) formData.append('start_time', payload.StartTime);
+      if (payload.StopTime) formData.append('stop_time', payload.StopTime);
+      formData.append('led_color_1', payload.LedColors.box1);
+      formData.append('led_color_2', payload.LedColors.box2);
+      formData.append('led_color_3', payload.LedColors.box3);
+      formData.append('now', payload.Now);
+
+      try {
+        const res = await fetch(TELEMETRY_URL, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: formData.toString() });
+        if (!res.ok) console.warn('POST telemetry échec:', res.status);
+      } catch (err) { console.warn('POST telemetry erreur réseau:', err); }
+    }
+
+    applyBtn.addEventListener('click', () => {
+      postTelemetry(buildTelemetryPayload());
+      applyBtn.textContent = 'Mise à jour…';
+      setTimeout(() => applyBtn.textContent = 'Mise à jour panneau', 400);
+    });
+
+    /* =========================
+       Initialisation
+       ========================= */
+    // Prépare interactions sur les 3 boxes
+    document.querySelectorAll('.box').forEach((box) => {
+      makeDraggable(box);
+      makeResizable(box);
+      initColorPicker(box);
+      adjustFontSize(box);
+    });
+
+    // Charger ancien format puis nouveau format (positions uniquement)
+    if (!loadLayout()) migrateLegacyLayout();
+    applyLayout(loadLayout());
+
+    // Appliquer couleurs depuis le firmware (pas de persistance)
+    window.addEventListener('DOMContentLoaded', () => {
+      const mapCode = { '0':'red', '1':'green', '2':'blue', '3':'amber', '4':'white' };
+      const c1 = document.getElementById('ledColor1')?.value; if (c1 !== undefined) applyColorFromCode('box1', c1);
+      const c2 = document.getElementById('ledColor2')?.value; if (c2 !== undefined) applyColorFromCode('box2', c2);
+      const c3 = document.getElementById('ledColor3')?.value; if (c3 !== undefined) applyColorFromCode('box3', c3);
+
+      const brightServerEl = document.getElementById('brightServer');
+      const srvBright = parseInt(brightServerEl?.value, 10);
+      if (!Number.isNaN(srvBright)) applyBrightnessFromConfigValue(srvBright);
+      applyFontVariant(boldToggle.checked ? 'bold' : 'regular');
+
+    //   const testEl = document.getElementById('test');
+    //   if (testEl && !Number.isNaN(srvBright)) testEl.value = String(srvBright);
+
+      refreshVisibility();
+      updateBrightLabelFromLevel();
+    });
+  </script>
+</body>
+</html>

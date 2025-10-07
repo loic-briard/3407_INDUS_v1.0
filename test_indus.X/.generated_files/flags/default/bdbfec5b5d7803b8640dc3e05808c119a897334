@@ -1,0 +1,1 @@
+ -c -mcpu=$(MP_PROCESSOR_OPTION)      -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD5=1    -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mlarge-code -mlarge-data -O0 -I".." -I"../Output file" -I"../TCPIP Stack" -I"." -msmart-io=1 -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"C:\Loic\0_INDUSTRIE\0_PROGRAMME_MPLAB\3407\Interface_securite_3407_v3\TCPIP Stack\TCPPerformanceTest.c

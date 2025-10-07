@@ -7,12 +7,19 @@ union _EEPROMStatus_ EEPROMReadStatus();
 
 // Mapping memoire de l'eeprom
 #define ADR_NB_ACCIDENTS    		0x00
-#define ADR_NB_JOURS_SANS_ACCIDENTS	0x01
-#define ADR_NB_RECORDS_JOURS		0x02
-#define ADR_BOLD                    0x03
-#define ADR_LAST_ACCIDENT_DATE      0x04 // jusquà 0x06
-#define ADR_BRIGHT_ENABLED          0x07
-#define ADR_LED_COLOR_1             0x08
+#define ADR_BOLD                    0x01
+#define ADR_LAST_ACCIDENT_DATE      0x02 // jusquà 0x04
+#define ADR_BRIGHT_ENABLED          0x05
+#define ADR_LED_COLOR_1             0x06
+#define ADR_LED_COLOR_2             0x07
+#define ADR_LED_COLOR_3             0x08
+#define ADR_BRIGHT                  0x09
+#define ADR_ECO_ENABLED             0x10
+#define ADR_NB_JOURS_SANS_ACCIDENTS	0x11
+#define ADR_NB_RECORDS_JOURS		0x15 //jusquà 18
+#define ADR_HORAIRE_ALLUMAGE        0x19 //jusquà 20
+#define ADR_HORAIRE_EXTINCTION      0x21 //jusquà 22
+#define ADR_AUTRE                   0x23 
 
 #define DEBUT_MEM	0x200
 #define TAILLE_MEM_SAUV		60
@@ -61,3 +68,5 @@ unsigned char EEPROMReadByte(unsigned int Address);
 void EEPROMWriteEnable();
 union _EEPROMStatus_ EEPROMReadStatus();
 void DataWriteEEPROM(unsigned int dat, unsigned int ad);
+void EEP_WriteU32(uint16_t adr, uint32_t v);
+uint32_t EEP_ReadU32(uint16_t adr);

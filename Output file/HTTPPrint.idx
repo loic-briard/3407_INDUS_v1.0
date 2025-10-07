@@ -125,3 +125,10 @@ test_date
 +bold
 +last_accident_date
 +bright_enabled
++led_color_1
++led_color_2
++led_color_3
++bright
++eco_enabled
++start_time
++stop_time

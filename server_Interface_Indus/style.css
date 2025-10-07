@@ -24,7 +24,14 @@ body {
 /* =======================
    Panneau de configuration
    ======================= */
+:root {
+  --panel-scale: 0.8;     /* 80 % */
+  --panel-base-gap: 260px; /* valeur actuelle du décalage */
+}
+
 .config-panel {
+  transform: scale(var(--panel-scale));
+  transform-origin: top left;
   position: fixed;
   left: 0;
   top: 0;
@@ -77,7 +84,7 @@ body {
 /* =======================
    Scène (fond+éléments)
    ======================= */
-:root { --scale: 1.5; }          /* facteur de zoom global du stage */
+:root { --scale: 1.0; }          /* facteur de zoom global du stage */
 .stage {
   position: fixed;
   top: 0;
@@ -85,7 +92,8 @@ body {
   transform: translateX(-50%) scale(var(--scale));
   transform-origin: top center;
   z-index: 0;
-  margin-left: 260px;            /* espace pour le panneau */
+  margin-left: calc(var(--panel-base-gap) * var(--panel-scale));
+  /*margin-left: 260px;            /* espace pour le panneau */
 }
 .bg {
   display: block;

@@ -1,731 +1,693 @@
 <!doctype html>
 <html lang="fr">
-
 <head>
-    <meta charset="utf-8">
-    <title>Interface Panneau</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link rel="icon" href="logo.png" type="image/png">
+  <meta charset="utf-8" />
+  <title>Interface Panneau — Optimisée (positions seules)</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="logo.png" type="image/png" />
 </head>
-
 <body class="edit-off">
-    <!-- Panneau de configuration (toujours visible) -->
-    <aside class="config-panel">
-        <div class="panel-header">
-            <button id="gear" class="gear" type="button" title="Activer le mode édition">⚙️</button>
-            <span>Configuration</span>
-        </div>
-        <div>
-            <label class="cfg-ip-adress">
-                <span>Adresse IP : </span>
-                <input type="text" name="adresse_ip_value" id="ip_value" value="~adresse_ip_value~" />
-            </label>    
-        </div>
-        <button id="accidentBtn" class="btn strong">ACCIDENT</button>
-        <hr class="sep" />
-
-        <!-- Date du dernier accident -->
-        <label class="cfg-stack">
-            <span>Date du dernier accident :</span>
-            <input type="date" id="accidentDate" value="~last_accident_date~">
-        </label>
-        <hr class="sep" />
-
-        <!-- Caractères gras -->
-        <label class="cfg-check-persistent">
-            <span>Caractères gras</span>
-            <input type="checkbox" id="boldToggle" ~bold~>
-        </label>
-        <hr class="sep" />
-
-        <!-- Image de fond -->
-        <label class="cfg-field">
-            <span>Image de fond :</span>
-            <input type="file" id="bgFile" accept="image/*">
-            <small class="hint">Choisir une image locale pour l’arrière-plan</small>
-            <hr class="sep" />
-        </label>
-
-        <!-- Luminosité (case + jauge) -->
-        <label class="cfg-check">
-            <span>Luminosité activée</span>
-            <input type="checkbox" id="brightEnabled" ~bright_enabled~>
-        </label>
-        <div id="brightRow" class="cfg-inline hidden">
-            <label for="brightLevel">Luminosité :</label>
-            <input type="range" id="brightLevel" min="0" max="6" step="1" value="3">
-            <!-- 0 = 10, 3 = 127, 6 = 255 -->
-            <span id="brightLabel" class="mono">3</span>
-        </div>
-
-        <!-- ligne qui se cache en meme temps quela luminosité -->
-        <hr id="brightSep" class="sep" />
-
-        <!-- Eco (extinction : début / fin) -->
-        <label class="cfg-check">
-            <span>Horaires d’extinction (Eco)</span>
-            <input type="checkbox" id="ecoEnabled">
-        </label>
-        <div id="ecoRows" class="eco-rows hidden">
-            <label class="cfg-inline">
-                <span>Début :</span>
-                <input type="time" id="startTime" step="1" value="00:00:00">
-            </label>
-            <label class="cfg-inline">
-                <span>Fin :</span>
-                <input type="time" id="stopTime" step="1" value="23:59:00">
-            </label>
-            <hr class="sep" />
-        </div>
-
-        <!-- Import / Export -->
-        <div class="cfg-actions">
-            <button id="exportCfg" class="btn">Exporter config</button>
-            <input type="file" id="importCfg" accept="application/json" style="display:none">
-            <button id="importBtn" class="btn">Charger config</button>
-            <hr class="sep" />
-        </div>
-
-        <!-- ligne qui se cache en meme temps quela luminosité -->
-        <hr class="sep-edit-on" />
-
-        <button id="applyBtn" class="btn primary">Mise à jour panneau</button>
-    </aside>
-
-    <!-- Scène (fond + éléments), scalée 1.5 -->
-    <div id="stage" class="stage">
-        <img class="bg" id="bg" src="fond.png" alt="Fond">
-
-        <!-- Box 1 nb accidents -->
-        <div class="box" id="box1">
-            <input type="number" name="valeur1" value="~nb_accidents~" max="999" min="0">
-            <div class="id-handle">nb accident</div>
-            <div class="resize-handle" aria-hidden="true" title="Redimensionner"></div>
-            <div class="color-picker">
-                <span>Couleur</span>
-                <div class="color-swatch" data-color="white" style="background:#ffffff"></div>
-                <div class="color-swatch" data-color="red" style="background:#ff2a2a"></div>
-                <div class="color-swatch" data-color="green" style="background:#00ff66"></div>
-                <div class="color-swatch" data-color="blue" style="background:#33aaff"></div>
-                <div class="color-swatch" data-color="amber" style="background:#ffb000"></div>
-            </div>
-        </div>
-
-        <!-- Box 2 jours sans accidents de travail -->
-        <div class="box" id="box2">
-            <input type="number" name="valeur2" value="~nb_jours_sans_accidents~" max="9999" min="0">
-            <div class="id-handle">jours sans accident</div>
-            <div class="resize-handle" aria-hidden="true" title="Redimensionner"></div>
-            <div class="color-picker">
-                <span>Couleur</span>
-                <div class="color-swatch" data-color="white" style="background:#ffffff"></div>
-                <div class="color-swatch" data-color="red" style="background:#ff2a2a"></div>
-                <div class="color-swatch" data-color="green" style="background:#00ff66"></div>
-                <div class="color-swatch" data-color="blue" style="background:#33aaff"></div>
-                <div class="color-swatch" data-color="amber" style="background:#ffb000"></div>
-            </div>
-        </div>
-
-        <!-- Box 3 record jours sans accidents -->
-        <div class="box" id="box3">
-            <input type="number" name="valeur3" value="~nb_records_jours~" max="9999" min="0">
-            <div class="id-handle">record</div>
-            <div class="resize-handle" aria-hidden="true" title="Redimensionner"></div>
-            <div class="color-picker">
-                <span>Couleur</span>
-                <div class="color-swatch" data-color="white" style="background:#ffffff"></div>
-                <div class="color-swatch" data-color="red" style="background:#ff2a2a"></div>
-                <div class="color-swatch" data-color="green" style="background:#00ff66"></div>
-                <div class="color-swatch" data-color="blue" style="background:#33aaff"></div>
-                <div class="color-swatch" data-color="amber" style="background:#ffb000"></div>
-            </div>
-        </div>
+  <!-- Panneau de configuration (toujours visible) -->
+  <aside class="config-panel">
+    <div class="panel-header">
+      <button id="gear" class="gear" type="button" title="Activer le mode édition">⚙️</button>
+      <span>Configuration</span>
     </div>
 
-    <!-- Modal Login -->
-    <div id="loginModal" class="modal" aria-hidden="true">
-        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
-            <h3 id="loginTitle">Connexion administrateur</h3>
-            <div class="error" id="loginError"></div>
-            <label>
-                Identifiant (par défaut : administrateur)
-                <input type="text" id="loginUser" placeholder="administrateur" value="administrateur">
-            </label>
-            <label>
-                Mot de passe (par défaut : stramatel)
-                <input type="password" id="loginPass">
-            </label>
-            <div class="modal-actions">
-                <button class="btn" id="loginCancel">Annuler</button>
-                <button class="btn primary" id="loginOk">Se connecter</button>
-            </div>
-        </div>
+    <label class="cfg-ip-adress">
+      <span>Adresse IP :</span>
+      <input type="text" name="adresse_ip_value" id="ip_value" value="~adresse_ip_value~" />
+    </label>
+
+    <button id="accidentBtn" class="btn strong">ACCIDENT</button>
+    <hr class="sep" />
+
+    <!-- Debug facultatif
+    <label>
+      <span>test :</span>
+      <input type="text" id="test" />
+    </label> -->
+
+    <!-- États injectés par le firmware -->
+    <input type="hidden" id="ledColor1" value="~led_color_1~" />
+    <input type="hidden" id="ledColor2" value="~led_color_2~" />
+    <input type="hidden" id="ledColor3" value="~led_color_3~" />
+
+    <label class="cfg-stack">
+      <span>Date du dernier accident :</span>
+      <input type="date" id="accidentDate" value="~last_accident_date~" />
+    </label>
+    <hr class="sep" />
+
+    <label class="cfg-check-persistent">
+      <span>Caractères gras</span>
+      <input type="checkbox" id="boldToggle" ~bold~ />
+    </label>
+    <hr class="sep" />
+
+    <label class="cfg-field">
+      <span>Image de fond :</span>
+      <input type="file" id="bgFile" accept="image/*" />
+      <small class="hint">Choisir une image locale pour l’arrière-plan</small>
+      <div class="cfg-inline">
+        <button id="clearBg" class="btn">Effacer fond local</button>
+      </div>
+      <hr class="sep" />
+    </label>
+
+    <label class="cfg-check">
+      <span>Luminosité activée</span>
+      <input type="checkbox" id="brightEnabled" ~bright_enabled~ />
+    </label>
+    <input type="hidden" id="brightServer" value="~bright~" />
+    <div id="brightRow" class="cfg-inline hidden">
+      <label for="brightLevel">Luminosité :</label>
+      <input type="range" id="brightLevel" min="0" max="6" step="1" value="3" />
+      <span id="brightLabel" class="mono">3</span>
     </div>
 
-    <!-- Modal Confirmation Accident -->
-    <div id="accidentModal" class="modal" aria-hidden="true">
-        <div class="modal-card" role="dialog" aria-modal="true">
-            <h3>Confirmer l'accident</h3>
-            <p>Confirmez-vous vraiment l'accident ?</p>
-            <div class="modal-actions">
-                <button class="btn" id="accidentNo">Non</button>
-                <button class="btn primary" id="accidentYes">Oui</button>
-            </div>
-        </div>
+    <hr id="brightSep" class="sep" />
+
+    <label class="cfg-check">
+      <span>Horaires d’extinction (Eco)</span>
+      <input type="checkbox" id="ecoEnabled" ~eco_enabled~ />
+    </label>
+    <div id="ecoRows" class="eco-rows hidden">
+      <label class="cfg-inline"><span>Début :</span> <input type="time" id="startTime" step="60" value="~start_time~" /></label>
+      <label class="cfg-inline"><span>Fin :</span> <input type="time" id="stopTime" step="60" value="~stop_time~" /></label>
+      <hr class="sep" />
     </div>
 
-    <script>
-        /* =========================
-           Constantes & éléments
-           ========================= */
-        const CONFIG_STORAGE_KEY = 'panneauConfig';
-        const KEY_PREFIX = 'boxState:';
-        const COLOR_PREFIX = 'boxColor:';
-        const SCALE = 1.5; // doit matcher :root { --scale: 1.5 }
+    <div class="cfg-actions">
+      <button id="exportLayout" class="btn">Exporter positions</button>
+      <input type="file" id="importLayout" accept="application/json" style="display:none" />
+      <button id="importBtn" class="btn">Charger positions</button>
+      <hr class="sep" />
+    </div>
 
-        const stage = document.getElementById('stage');
-        const bg = document.getElementById('bg');
+    <hr class="sep-edit-on" />
 
-        // Panneau config
-        const accidentBtn = document.getElementById('accidentBtn');
-        const accidentModal = document.getElementById('accidentModal');
-        const accidentYes = document.getElementById('accidentYes');
-        const accidentNo = document.getElementById('accidentNo');
-        const accidentDate = document.getElementById('accidentDate');
+    <button id="applyBtn" class="btn primary">Mise à jour panneau</button>
+  </aside>
 
-        const boldToggle = document.getElementById('boldToggle');
-        const bgFile = document.getElementById('bgFile');
+  <!-- Scène (fond + éléments) -->
+  <div id="stage" class="stage">
+    <img class="bg" id="bg" src="fond.png" alt="Fond" data-bg-name="fond.png" />
 
-        const brightEnabled = document.getElementById('brightEnabled');
-        const brightRow = document.getElementById('brightRow');
-        const brightLevel = document.getElementById('brightLevel');
-        const brightLabel = document.getElementById('brightLabel');
+    <!-- Box 1 nb accidents -->
+    <div class="box" id="box1" data-color="white">
+      <input type="number" name="valeur1" value="~nb_accidents~" max="999" min="0" />
+      <div class="id-handle">nb accident</div>
+      <div class="resize-handle" aria-hidden="true" title="Redimensionner"></div>
+      <div class="color-picker">
+        <span>Couleur</span>
+        <div class="color-swatch" data-color="white" style="background:#ffffff"></div>
+        <div class="color-swatch" data-color="red"   style="background:#ff2a2a"></div>
+        <div class="color-swatch" data-color="green" style="background:#00ff66"></div>
+        <div class="color-swatch" data-color="blue"  style="background:#33aaff"></div>
+        <div class="color-swatch" data-color="amber" style="background:#ffb000"></div>
+      </div>
+    </div>
 
-        const ecoEnabled = document.getElementById('ecoEnabled');
-        const ecoRows = document.getElementById('ecoRows');
-        const startTime = document.getElementById('startTime');
-        const stopTime = document.getElementById('stopTime');
+    <!-- Box 2 jours sans accidents -->
+    <div class="box" id="box2" data-color="white">
+      <input type="number" name="valeur2" value="~nb_jours_sans_accidents~" max="99999" min="0" />
+      <div class="id-handle">jours sans accident</div>
+      <div class="resize-handle" aria-hidden="true" title="Redimensionner"></div>
+      <div class="color-picker">
+        <span>Couleur</span>
+        <div class="color-swatch" data-color="white" style="background:#ffffff"></div>
+        <div class="color-swatch" data-color="red"   style="background:#ff2a2a"></div>
+        <div class="color-swatch" data-color="green" style="background:#00ff66"></div>
+        <div class="color-swatch" data-color="blue"  style="background:#33aaff"></div>
+        <div class="color-swatch" data-color="amber" style="background:#ffb000"></div>
+      </div>
+    </div>
 
-        const gear = document.getElementById('gear');
-        const modal = document.getElementById('loginModal');
-        const loginOk = document.getElementById('loginOk');
-        const loginCancel = document.getElementById('loginCancel');
-        const loginUser = document.getElementById('loginUser');
-        const loginPass = document.getElementById('loginPass');
-        const loginError = document.getElementById('loginError');
+    <!-- Box 3 record -->
+    <div class="box" id="box3" data-color="white">
+      <input type="number" name="valeur3" value="~nb_records_jours~" max="99999" min="0" />
+      <div class="id-handle">record</div>
+      <div class="resize-handle" aria-hidden="true" title="Redimensionner"></div>
+      <div class="color-picker">
+        <span>Couleur</span>
+        <div class="color-swatch" data-color="white" style="background:#ffffff"></div>
+        <div class="color-swatch" data-color="red"   style="background:#ff2a2a"></div>
+        <div class="color-swatch" data-color="green" style="background:#00ff66"></div>
+        <div class="color-swatch" data-color="blue"  style="background:#33aaff"></div>
+        <div class="color-swatch" data-color="amber" style="background:#ffb000"></div>
+      </div>
+    </div>
+  </div>
 
-        const exportBtn = document.getElementById('exportCfg');
-        const importBtn = document.getElementById('importBtn');
-        const importInp = document.getElementById('importCfg');
-        const applyBtn = document.getElementById('applyBtn');
+  <!-- Modal Login -->
+  <div id="loginModal" class="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <h3 id="loginTitle">Connexion administrateur</h3>
+      <div class="error" id="loginError"></div>
+      <label>Identifiant (par défaut : administrateur)
+        <input type="text" id="loginUser" placeholder="administrateur" value="administrateur" />
+      </label>
+      <label>Mot de passe (par défaut : stramatel)
+        <input type="password" id="loginPass" />
+      </label>
+      <div class="modal-actions">
+        <button class="btn" id="loginCancel">Annuler</button>
+        <button class="btn primary" id="loginOk">Se connecter</button>
+      </div>
+    </div>
+  </div>
 
-        // box
-        //box2
-        const box1Input = document.querySelector('#box1 input[type="number"]');
-        const box2Input = document.querySelector('#box2 input[type="number"]');
-        const box3Input = document.querySelector('#box3 input[type="number"]');
+  <!-- Modal Confirmation Accident -->
+  <div id="accidentModal" class="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <h3>Confirmer l'accident</h3>
+      <p>Confirmez-vous vraiment l'accident ?</p>
+      <div class="modal-actions">
+        <button class="btn" id="accidentNo">Non</button>
+        <button class="btn primary" id="accidentYes">Oui</button>
+      </div>
+    </div>
+  </div>
 
-        /* =========================
-           Utilitaires
-           ========================= */
-        function sizeStageToImage() {
-            const w = bg.naturalWidth || bg.width;
-            const h = bg.naturalHeight || bg.height;
-            stage.style.width = w + 'px';
-            stage.style.height = h + 'px';
+  <script>
+    /* =========================
+       Constantes & éléments
+       ========================= */
+    const SCALE = 1.5; // doit matcher :root { --scale: 1.5 }
+    const LAYOUT_KEY = 'panneauBoxLayout'; // on ne stocke QUE les positions/taille
+    const BOX_IDS = ['box1','box2','box3'];
+    const BG_IMAGE_KEY = 'panneauBgImage'; // stockage image de fond (base64) + nom
+
+    const stage = document.getElementById('stage');
+    const bg = document.getElementById('bg');
+
+    // Panneau config
+    const accidentBtn = document.getElementById('accidentBtn');
+    const accidentModal = document.getElementById('accidentModal');
+    const accidentYes = document.getElementById('accidentYes');
+    const accidentNo = document.getElementById('accidentNo');
+    const accidentDate = document.getElementById('accidentDate');
+
+    const boldToggle = document.getElementById('boldToggle');
+    const bgFile = document.getElementById('bgFile');
+
+    const brightEnabled = document.getElementById('brightEnabled');
+    const brightRow = document.getElementById('brightRow');
+    const brightLevel = document.getElementById('brightLevel');
+    const brightLabel = document.getElementById('brightLabel');
+
+    const ecoEnabled = document.getElementById('ecoEnabled');
+    const ecoRows = document.getElementById('ecoRows');
+    const startTime = document.getElementById('startTime');
+    const stopTime = document.getElementById('stopTime');
+
+    const gear = document.getElementById('gear');
+    const modal = document.getElementById('loginModal');
+    const loginOk = document.getElementById('loginOk');
+    const loginCancel = document.getElementById('loginCancel');
+    const loginUser = document.getElementById('loginUser');
+    const loginPass = document.getElementById('loginPass');
+    const loginError = document.getElementById('loginError');
+
+    const exportLayoutBtn = document.getElementById('exportLayout');
+    const importBtn = document.getElementById('importBtn');
+    const importLayoutInp = document.getElementById('importLayout');
+
+    const applyBtn = document.getElementById('applyBtn');
+
+    const box1Input = document.querySelector('#box1 input[type="number"]');
+    const box2Input = document.querySelector('#box2 input[type="number"]');
+    const box3Input = document.querySelector('#box3 input[type="number"]');
+
+    /* =========================
+       Utilitaires visuels
+       ========================= */
+    function sizeStageToImage() {
+      const w = bg.naturalWidth || bg.width;
+      const h = bg.naturalHeight || bg.height;
+      stage.style.width = w + 'px';
+      stage.style.height = h + 'px';
+    }
+    if (bg.complete) sizeStageToImage(); else bg.addEventListener('load', sizeStageToImage);
+
+    function todayISO() {
+      const d = new Date();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${d.getFullYear()}-${m}-${day}`;
+    }
+
+    // Forcer HH:MM (sans secondes) depuis les <input type="time">
+    function normalizeHHMM(t) {
+      if (!t) return '00:00';
+      const [hh = '00', mm = '00'] = String(t).split(':');
+      return String(hh).padStart(2,'0') + ':' + String(mm).padStart(2,'0');
+    }
+
+    function adjustFontSize(box) {
+      const input = box.querySelector('input[type="number"]');
+      const h = box.clientHeight;
+      input.style.fontSize = (h * 0.8) + 'px';
+    }
+
+    // Couleurs LED (pas de persistance; dataset + outline seulement)
+    function applyColorToInput(input, colorKey) {
+      const map = {
+        white: { color: '#ffffff', glow: 'rgba(255,255,255,0.55)' },
+        red:   { color: '#ff2a2a', glow: 'rgba(255,42,42,0.55)' },
+        green: { color: '#00ff66', glow: 'rgba(0,255,102,0.55)' },
+        blue:  { color: '#33aaff', glow: 'rgba(51,170,255,0.55)' },
+        amber: { color: '#ffb000', glow: 'rgba(255,176,0,0.55)' },
+      };
+      const c = map[colorKey] || map.white;
+      input.style.color = c.color;
+      input.style.textShadow = `0 0 6px ${c.glow}`;
+      input.dataset.color = colorKey || 'white';
+    }
+
+    function selectSwatch(picker, colorKey) {
+      picker.querySelectorAll('.color-swatch').forEach(s => {
+        s.style.outline = (s.dataset.color === colorKey) ? '2px solid #333' : 'none';
+      });
+    }
+
+    /* =========================
+       Persistance: UNIQUEMENT positions/taille
+       ========================= */
+    function getCurrentLayout() {
+      const layout = {};
+      for (const id of BOX_IDS) {
+        const box = document.getElementById(id);
+        const cs = getComputedStyle(box);
+        layout[id] = {
+          left: parseFloat(cs.left) || 0,
+          top: parseFloat(cs.top) || 0,
+          width: parseFloat(cs.width) || 120,
+          height: parseFloat(cs.height) || 44,
+        };
+      }
+      return layout;
+    }
+
+    function saveLayout(layout) {
+      try { localStorage.setItem(LAYOUT_KEY, JSON.stringify(layout)); } catch {}
+    }
+
+    function saveCurrentLayout() {
+      saveLayout(getCurrentLayout());
+    }
+
+    function loadLayout() {
+      try {
+        const raw = localStorage.getItem(LAYOUT_KEY);
+        if (!raw) return null;
+        return JSON.parse(raw);
+      } catch { return null; }
+    }
+
+    // Migration simple depuis anciens keys boxState:*
+    function migrateLegacyLayout() {
+      const out = {};
+      let found = false;
+      for (const id of BOX_IDS) {
+        const raw = localStorage.getItem('boxState:' + id);
+        if (!raw) continue;
+        try {
+          const s = JSON.parse(raw);
+          const toNum = (v, def) => (typeof v === 'string' && v.endsWith('px')) ? parseFloat(v) : (parseFloat(v) || def);
+          out[id] = {
+            left: toNum(s.left, 0),
+            top: toNum(s.top, 0),
+            width: toNum(s.width, 120),
+            height: toNum(s.height, 44)
+          };
+          found = true;
+        } catch {}
+      }
+      if (found) {
+        saveLayout(out);
+        // nettoyage facultatif des anciennes clés
+        for (const id of BOX_IDS) localStorage.removeItem('boxState:' + id);
+      }
+      return found;
+    }
+
+    function applyLayout(layout) {
+      if (!layout) return;
+      for (const id of BOX_IDS) {
+        const box = document.getElementById(id);
+        const cfg = layout[id];
+        if (!cfg) continue;
+        box.style.left = (cfg.left ?? 0) + 'px';
+        box.style.top = (cfg.top ?? 0) + 'px';
+        box.style.width = (cfg.width ?? 120) + 'px';
+        box.style.height = (cfg.height ?? 44) + 'px';
+        adjustFontSize(box);
+      }
+    }
+
+    /* =========================
+       Drag / Resize (scale-aware)
+       ========================= */
+    function makeDraggable(box) {
+      const handle = box.querySelector('.id-handle');
+      handle.addEventListener('mousedown', (e) => {
+        if (!document.body.classList.contains('edit-on')) return;
+        e.preventDefault();
+        const startX = e.pageX, startY = e.pageY;
+        const startLeft = parseFloat(box.style.left) || 0;
+        const startTop = parseFloat(box.style.top) || 0;
+        function onMove(ev) {
+          const dx = (ev.pageX - startX) / SCALE;
+          const dy = (ev.pageY - startY) / SCALE;
+          box.style.left = (startLeft + dx) + 'px';
+          box.style.top = (startTop + dy) + 'px';
         }
-        if (bg.complete) sizeStageToImage(); else bg.addEventListener('load', sizeStageToImage);
-
-        function todayISO() {
-            const d = new Date();
-            const m = String(d.getMonth() + 1).padStart(2, '0');
-            const day = String(d.getDate()).padStart(2, '0');
-            return `${d.getFullYear()}-${m}-${day}`;
+        function onUp() {
+          saveCurrentLayout();
+          document.removeEventListener('mousemove', onMove);
+          document.removeEventListener('mouseup', onUp);
         }
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onUp);
+      });
+    }
 
-        function adjustFontSize(box) {
-            const input = box.querySelector('input[type="number"]');
-            const h = box.clientHeight;
-            input.style.fontSize = (h * 0.8) + "px";
+    function makeResizable(box, opt = { minW: 80, minH: 36, maxW: 600, maxH: 240 }) {
+      const handle = box.querySelector('.resize-handle');
+      handle.addEventListener('mousedown', (e) => {
+        if (!document.body.classList.contains('edit-on')) return;
+        e.preventDefault(); e.stopPropagation();
+        const startX = e.pageX, startY = e.pageY;
+        const startW = parseFloat(getComputedStyle(box).width);
+        const startH = parseFloat(getComputedStyle(box).height);
+        function onMove(ev) {
+          const newW = Math.min(opt.maxW, Math.max(opt.minW, startW + (ev.pageX - startX) / SCALE));
+          const newH = Math.min(opt.maxH, Math.max(opt.minH, startH + (ev.pageY - startY) / SCALE));
+          box.style.width = newW + 'px';
+          box.style.height = newH + 'px';
+          adjustFontSize(box);
         }
-
-        // Couleurs LED
-        function applyColorToInput(input, colorKey) {
-            const map = {
-                white: { color: '#ffffff', glow: 'rgba(255,255,255,0.55)' },
-                red: { color: '#ff2a2a', glow: 'rgba(255,42,42,0.55)' },
-                green: { color: '#00ff66', glow: 'rgba(0,255,102,0.55)' },
-                blue: { color: '#33aaff', glow: 'rgba(51,170,255,0.55)' },
-                amber: { color: '#ffb000', glow: 'rgba(255,176,0,0.55)' },
-            };
-            const c = map[colorKey] || map.white;
-            input.style.color = c.color;
-            input.style.textShadow = `0 0 6px ${c.glow}`;
+        function onUp() {
+          saveCurrentLayout();
+          document.removeEventListener('mousemove', onMove);
+          document.removeEventListener('mouseup', onUp);
         }
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('mouseup', onUp);
+      });
+    }
 
-        // Sauvegarde position/taille des boxes
-        function saveBoxState(box) {
-            const id = box.id;
-            const rect = box.getBoundingClientRect();
-            const state = {
-                left: box.style.left || rect.left + window.scrollX + 'px',
-                top: box.style.top || rect.top + window.scrollY + 'px',
-                width: box.style.width || rect.width + 'px',
-                height: box.style.height || rect.height + 'px'
-            };
-            localStorage.setItem(KEY_PREFIX + id, JSON.stringify(state));
+    /* =========================
+       Mode édition & login
+       ========================= */
+    let isAuthenticated = false;
+    function setEditMode(on) {
+      document.body.classList.toggle('edit-on', on);
+      document.body.classList.toggle('edit-off', !on);
+      gear.textContent = on ? '✖️' : '⚙️';
+      gear.title = on ? 'Quitter le mode édition' : 'Activer le mode édition';
+    }
+    setEditMode(false);
+
+    gear.addEventListener('click', () => {
+      if (document.body.classList.contains('edit-on')) { setEditMode(false); return; }
+      if (isAuthenticated) setEditMode(true);
+      else {
+        loginError.textContent = '';
+        loginPass.value = '';
+        modal.classList.add('active');
+        setTimeout(() => loginUser.focus(), 50);
+      }
+    });
+    loginCancel.addEventListener('click', () => modal.classList.remove('active'));
+    loginOk.addEventListener('click', tryLogin);
+    modal.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') tryLogin();
+      if (e.key === 'Escape') modal.classList.remove('active');
+    });
+    function tryLogin() {
+      const u = (loginUser.value || '').trim();
+      const p = (loginPass.value || '').trim();
+      if (u === 'administrateur' && p === 'stramatel') { isAuthenticated = true; modal.classList.remove('active'); setEditMode(true); }
+      else { loginError.textContent = 'Identifiants invalides.'; }
+    }
+
+    /* =========================
+       Jauge de luminosité
+       ========================= */
+    const BRIGHT_LUT = [10, 49, 88, 127, 169, 212, 255];
+    const ColorKeyToCode = { red: 0, green: 1, blue: 2, amber: 3, white: 4 };
+    const CodeToColorKey = { 0: 'red', 1: 'green', 2: 'blue', 3: 'amber', 4: 'white' };
+
+    function levelToBright(lvl) { return BRIGHT_LUT[lvl] ?? 127; }
+    function brightToLevel(val) {
+      let idx = 0, best = Infinity; const v = parseInt(val ?? 127, 10);
+      for (let i = 0; i < BRIGHT_LUT.length; i++) { const d = Math.abs(BRIGHT_LUT[i] - v); if (d < best) { best = d; idx = i; } }
+      return idx;
+    }
+    function updateBrightLabelFromLevel() {
+      const lvl = parseInt(brightLevel.value, 10);
+      const val = levelToBright(lvl);
+      brightLabel.textContent = `${lvl}`; // (val) si besoin
+    }
+    function applyBrightnessFromConfigValue(val) {
+      const lvl = brightToLevel(val);
+      brightLevel.value = String(lvl);
+      updateBrightLabelFromLevel();
+    }
+
+    /* =========================
+       Import / Export des POSITIONS UNIQUEMENT
+       ========================= */
+    exportLayoutBtn.addEventListener('click', () => {
+      const data = JSON.stringify(getCurrentLayout(), null, 2);
+      const blob = new Blob([data], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'panneau-layout.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+    importBtn.addEventListener('click', () => importLayoutInp.click());
+    importLayoutInp.addEventListener('change', async (e) => {
+      const f = e.target.files?.[0]; if (!f) return;
+      try {
+        const layout = JSON.parse(await f.text());
+        applyLayout(layout);
+        saveLayout(layout);
+      } catch { alert('Fichier JSON invalide.'); }
+      finally { importLayoutInp.value = ''; }
+    });
+
+    // Bascule police (pas de persistance demandée)
+    function applyFontVariant(variant) {
+      document.body.classList.toggle('led-bold', variant === 'bold');
+    }
+    document.getElementById('boldToggle').addEventListener('change', () => {
+      applyFontVariant(boldToggle.checked ? 'bold' : 'regular');
+    });
+
+    // Image de fond : stockage local + vérification du nom
+    function normalizeFileName(name){ return String(name||'').trim().toLowerCase(); }
+    function expectedBgName(){ return normalizeFileName(bg.dataset.bgName || 'fond.png'); }
+    function loadBgFromStorageIfNameMatches(){
+      try{
+        const raw = localStorage.getItem(BG_IMAGE_KEY);
+        if(!raw) return;
+        const rec = JSON.parse(raw);
+        if (normalizeFileName(rec?.name) === expectedBgName() && rec?.dataUrl){
+          bg.src = rec.dataUrl;
         }
-        function loadBoxState(box) {
-            const raw = localStorage.getItem(KEY_PREFIX + box.id);
-            if (!raw) return;
-            try {
-                const s = JSON.parse(raw);
-                if (s.left) box.style.left = s.left;
-                if (s.top) box.style.top = s.top;
-                if (s.width) box.style.width = s.width;
-                if (s.height) box.style.height = s.height;
-            } catch (e) { console.warn('State parse error for', box.id, e); }
-        }
+      }catch(e){ console.warn('Lecture fond local impossible', e); }
+    }
+    function storeBgFile(file){
+      const wanted = expectedBgName();
+      if (normalizeFileName(file.name) !== wanted){
+        alert(`Le nom du fichier (« ${file.name} ») ne correspond pas au fond attendu (« ${wanted} »). Renommez le fichier pour qu'il corresponde.`);
+        return false;
+      }
+      if (file.size > 2.5 * 1024 * 1024){ // ~2.5 Mo
+        alert('Image trop volumineuse pour le stockage local (> 2.5 Mo).');
+        return false;
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        const rec = { name: file.name, type: file.type, size: file.size, dataUrl: reader.result, ts: Date.now() };
+        try{ localStorage.setItem(BG_IMAGE_KEY, JSON.stringify(rec)); }
+        catch(e){ alert("Impossible d’enregistrer le fond (quota de stockage atteint)."); }
+        bg.src = rec.dataUrl;
+      };
+      reader.readAsDataURL(file);
+      return true;
+    }
+    bgFile.addEventListener('change', (e) => { const file = e.target.files?.[0]; if (!file) return; storeBgFile(file); });
+    const clearBgBtn = document.getElementById('clearBg');
+    if (clearBgBtn) clearBgBtn.addEventListener('click', () => { localStorage.removeItem(BG_IMAGE_KEY); bg.src = bg.dataset.bgName || 'fond.png'; });
 
-        // Palette couleurs par box
-        function initColorPicker(box) {
-            const picker = box.querySelector('.color-picker');
-            const input = box.querySelector('input[type="number"]');
-            picker.addEventListener('click', (e) => {
-                const sw = e.target.closest('.color-swatch');
-                if (!sw) return;
-                const colorKey = sw.dataset.color;
-                applyColorToInput(input, colorKey);
-                localStorage.setItem(COLOR_PREFIX + box.id, colorKey);
-                picker.querySelectorAll('.color-swatch').forEach(s => {
-                    s.style.outline = (s.dataset.color === colorKey) ? '2px solid #333' : 'none';
-                });
-            });
-        }
-        function loadBoxColor(box) {
-            const colorKey = localStorage.getItem(COLOR_PREFIX + box.id) || 'white';
-            const input = box.querySelector('input[type="number"]');
-            applyColorToInput(input, colorKey);
-            const swatches = box.querySelectorAll('.color-swatch');
-            swatches.forEach(s => s.style.outline = (s.dataset.color === colorKey) ? '2px solid #333' : 'none');
-        }
+    accidentBtn.addEventListener('click', () => accidentModal.classList.add('active'));
+    accidentNo.addEventListener('click', () => accidentModal.classList.remove('active'));
+    accidentYes.addEventListener('click', () => {
+      const v = Number.isFinite(box1Input.valueAsNumber) ? box1Input.valueAsNumber : 0;
+      box1Input.value = v + 1; // +1
+      box2Input.value = 0;     // reset jours sans accident
+      accidentDate.value = todayISO();
+      postTelemetry(buildTelemetryPayload());
+      accidentModal.classList.remove('active');
+    });
 
-        // Drag / Resize (scale-aware)
-        function makeDraggable(box) {
-            const handle = box.querySelector('.id-handle');
-            handle.addEventListener('mousedown', (e) => {
-                if (!document.body.classList.contains('edit-on')) return;
-                e.preventDefault();
-                const startX = e.pageX, startY = e.pageY;
-                const startLeft = parseFloat(box.style.left) || 0;
-                const startTop = parseFloat(box.style.top) || 0;
-                function onMove(ev) {
-                    const dx = (ev.pageX - startX) / SCALE;
-                    const dy = (ev.pageY - startY) / SCALE;
-                    box.style.left = (startLeft + dx) + 'px';
-                    box.style.top = (startTop + dy) + 'px';
-                }
-                function onUp() {
-                    saveBoxState(box);
-                    document.removeEventListener('mousemove', onMove);
-                    document.removeEventListener('mouseup', onUp);
-                }
-                document.addEventListener('mousemove', onMove);
-                document.addEventListener('mouseup', onUp);
-            });
-        }
-        function makeResizable(box, opt = { minW: 80, minH: 36, maxW: 600, maxH: 240 }) {
-            const handle = box.querySelector('.resize-handle');
-            handle.addEventListener('mousedown', (e) => {
-                if (!document.body.classList.contains('edit-on')) return;
-                e.preventDefault(); e.stopPropagation();
-                const startX = e.pageX, startY = e.pageY;
-                const startW = parseFloat(getComputedStyle(box).width);
-                const startH = parseFloat(getComputedStyle(box).height);
-                function onMove(ev) {
-                    const newW = Math.min(opt.maxW, Math.max(opt.minW, startW + (ev.pageX - startX) / SCALE));
-                    const newH = Math.min(opt.maxH, Math.max(opt.minH, startH + (ev.pageY - startY) / SCALE));
-                    box.style.width = newW + 'px';
-                    box.style.height = newH + 'px';
-                    adjustFontSize(box);
-                }
-                function onUp() {
-                    saveBoxState(box);
-                    document.removeEventListener('mousemove', onMove);
-                    document.removeEventListener('mouseup', onUp);
-                }
-                document.addEventListener('mousemove', onMove);
-                document.addEventListener('mouseup', onUp);
-            });
-        }
+    // Cohérence box2 -> box3 (record)
+    box2Input.addEventListener('input', (e) => {
+      const n = e.target.valueAsNumber; const val2 = Number.isFinite(n) ? n : 0;
+      const val3 = parseInt(box3Input.value, 10) || 0;
+      if (val2 > val3) box3Input.value = val2;
+    });
 
-        /* =========================
-           Mode édition & login
-           ========================= */
-        let isAuthenticated = false;
-        function setEditMode(on) {
-            document.body.classList.toggle('edit-on', on);
-            document.body.classList.toggle('edit-off', !on);
-            gear.textContent = on ? '✖️' : '⚙️';
-            gear.title = on ? 'Quitter le mode édition' : 'Activer le mode édition';
-        }
-        setEditMode(false);
+    // Éco / Luminosité : affichage conditionnel
+    function refreshVisibility() {
+      brightRow.classList.toggle('hidden', !brightEnabled.checked);
+      const brightSep = document.getElementById('brightSep');
+      if (brightSep) brightSep.classList.toggle('hidden', !brightEnabled.checked);
+      ecoRows.classList.toggle('hidden', !ecoEnabled.checked);
+    }
+    brightEnabled.addEventListener('change', refreshVisibility);
+    ecoEnabled.addEventListener('change', refreshVisibility);
+    brightLevel.addEventListener('input', updateBrightLabelFromLevel);
 
-        gear.addEventListener('click', () => {
-            if (document.body.classList.contains('edit-on')) { setEditMode(false); return; }
-            if (isAuthenticated) setEditMode(true);
-            else {
-                loginError.textContent = '';
-                loginPass.value = '';
-                modal.classList.add('active');
-                setTimeout(() => loginUser.focus(), 50);
-            }
-        });
-        loginCancel.addEventListener('click', () => modal.classList.remove('active'));
-        loginOk.addEventListener('click', tryLogin);
-        modal.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') tryLogin();
-            if (e.key === 'Escape') modal.classList.remove('active');
-        });
-        function tryLogin() {
-            const u = (loginUser.value || '').trim();
-            const p = (loginPass.value || '').trim();
-            if (u === 'administrateur' && p === 'stramatel') {
-                isAuthenticated = true;
-                modal.classList.remove('active');
-                setEditMode(true);
-            } else {
-                loginError.textContent = 'Identifiants invalides.';
-            }
-        }
+    // Couleurs: init pickers (non persistées)
+    function initColorPicker(box) {
+      const picker = box.querySelector('.color-picker');
+      const input = box.querySelector('input[type="number"]');
+      picker.addEventListener('click', (e) => {
+        const sw = e.target.closest('.color-swatch'); if (!sw) return;
+        const colorKey = sw.dataset.color;
+        box.dataset.color = colorKey; // trace couleur courante
+        applyColorToInput(input, colorKey);
+        selectSwatch(picker, colorKey);
+      });
+    }
 
-        /* =========================
-           Jauge de luminosité
-           ========================= */
-        const BRIGHT_LUT = [10, 49, 88, 127, 169, 212, 255]; // 0..6 -> valeurs
-        function levelToBright(lvl) { return BRIGHT_LUT[lvl] ?? 127; }
-        function brightToLevel(val) {
-            // niveau le plus proche de la valeur
-            let idx = 0, best = Infinity;
-            const v = parseInt(val ?? 127, 10);
-            for (let i = 0; i < BRIGHT_LUT.length; i++) {
-                const d = Math.abs(BRIGHT_LUT[i] - v);
-                if (d < best) { best = d; idx = i; }
-            }
-            return idx;
-        }
-        function updateBrightLabelFromLevel() {
-            const lvl = parseInt(brightLevel.value, 10);
-            const val = levelToBright(lvl);
-            brightLabel.textContent = `${lvl} `;//(${val})`;
-        }
+    function applyColorFromCode(boxId, codeStr) {
+      const input = document.querySelector(`#${boxId} input[type="number"]`);
+      const picker = document.querySelector(`#${boxId} .color-picker`);
+      const key = CodeToColorKey[String(codeStr)] || 'white';
+      document.getElementById(boxId).dataset.color = key;
+      applyColorToInput(input, key);
+      selectSwatch(picker, key);
+    }
 
-        /* =========================
-           Import / Export JSON
-           ========================= */
-        // mapping couleurs UI <-> codes (JSON)
-        const ColorKey = { red: "0", green: "1", blue: "2", amber: "3", white: "4" };
-        const ColorFromCode = { "0": "red", "1": "green", "2": "blue", "3": "amber", "4": "white" };
+    // === Télémetrie / POST serveur ===
+    const TELEMETRY_URL = '/index_indu.htm'; // même ressource (HTTP2)
 
-        function readBoxState(id) {
-            const b = document.getElementById(id);
-            const inp = b.querySelector('input[type="number"]');
-            const uiColor = localStorage.getItem(COLOR_PREFIX + id) || 'white';
-            return {
-                left: parseInt(b.style.left) || 0,
-                top: parseInt(b.style.top) || 0,
-                width: parseInt(getComputedStyle(b).width),
-                height: parseInt(getComputedStyle(b).height),
-                color: ColorKey[uiColor],
-                value: Number.isFinite(inp.valueAsNumber) ? inp.valueAsNumber : 0
-            };
-        }
+    function getLedCodeForBox(boxId) {
+      const input = document.querySelector(`#${boxId} input[type="number"]`);
+      const key = input?.dataset?.color || document.getElementById(boxId)?.dataset?.color || 'white';
+      return ColorKeyToCode[key] ?? 4;
+    }
 
-        function gatherConfig() {
-            return {
-                boxes: {
-                    box1: readBoxState("box1"),
-                    box2: readBoxState("box2"),
-                    box3: readBoxState("box3")
-                },
-                // fontVariant: boldToggle.checked ? "1" : "0",
-                // accidentDate: accidentDate.value || "",
-                // BrightEnabled: brightEnabled.checked ? 1 : 0,
-                Bright: levelToBright(parseInt(brightLevel.value, 10)),
-                EcoParamsEnabled: ecoEnabled.checked ? 1 : 0,
-                StartTime: startTime.value || "00:00:00",
-                StopTime: stopTime.value || "23:59:00"
-            };
-        }
+    function nowISODate() {
+      const d = new Date();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${d.getFullYear()}-${m}-${day}`;
+    }
+    function nowISODateTime() { return new Date().toISOString(); }
 
-        function applyBoxConfig(id, cfg) {
-            const b = document.getElementById(id);
-            const inp = b.querySelector('input[type="number"]');
-            b.style.left = ((cfg.left ?? 0)) + "px";
-            b.style.top = ((cfg.top ?? 0)) + "px";
-            b.style.width = ((cfg.width ?? 120)) + "px";
-            b.style.height = ((cfg.height ?? 44)) + "px";
-            adjustFontSize(b);
+    function buildTelemetryPayload() {
+      const box1 = box1Input.valueAsNumber || 0;
+      const box2 = box2Input.valueAsNumber || 0;
+      const box3 = box3Input.valueAsNumber || 0;
 
-            // inp.value = Number(cfg.value ?? 0);
-            const uiColor = ColorFromCode[String(cfg.color ?? "4")] || "white";
-            applyColorToInput(inp, uiColor);
-            localStorage.setItem(COLOR_PREFIX + id, uiColor);
-            b.querySelectorAll('.color-swatch').forEach(s => {
-                s.style.outline = (s.dataset.color === uiColor) ? '2px solid #333' : 'none';
-            });
-        }
+      const brightEnabledFlag = brightEnabled.checked ? 1 : 0;
+      const brightValue = levelToBright(parseInt(brightLevel.value, 10));
+      const ecoEnabledFlag = ecoEnabled.checked ? 1 : 0;
 
-        function applyConfig(cfg) {
-            if (cfg.boxes) {
-                if (cfg.boxes.box1) applyBoxConfig("box1", cfg.boxes.box1);
-                if (cfg.boxes.box2) applyBoxConfig("box2", cfg.boxes.box2);
-                if (cfg.boxes.box3) applyBoxConfig("box3", cfg.boxes.box3);
-            }
-            // Police
-            const isBold = String(cfg.fontVariant ?? "0") === "1";
-            boldToggle.checked = isBold;
-            applyFontVariant(isBold ? 'bold' : 'regular');
+      return {
+        AccidentsCount: box1,
+        DaysWithoutAccident: box2,
+        RecordDaysWithoutAccident: box3,
+        LastAccidentDate: accidentDate.value || nowISODate(),
+        Bold: boldToggle.checked ? 1 : 0,
+        BrightEnabled: brightEnabledFlag,
+        ...(brightEnabledFlag ? { Bright: brightValue } : {}),
+        EcoParamsEnabled: ecoEnabledFlag,
+        StartTime: normalizeHHMM(startTime.value), StopTime: normalizeHHMM(stopTime.value),
+        LedColors: {
+          box1: getLedCodeForBox('box1'),
+          box2: getLedCodeForBox('box2'),
+          box3: getLedCodeForBox('box3'),
+        },
+        Now: nowISODate(),
+      };
+    }
 
-            // Date
-            if (typeof cfg.accidentDate === 'string') accidentDate.value = cfg.accidentDate;
+    async function postTelemetry(payload) {
+      const formData = new URLSearchParams();
+      formData.append('accidents_count', payload.AccidentsCount);
+      formData.append('days_without_accident', payload.DaysWithoutAccident);
+      formData.append('record_days_without_accident', payload.RecordDaysWithoutAccident);
+      formData.append('last_accident_date', payload.LastAccidentDate);
+      formData.append('bold', payload.Bold);
+      formData.append('bright_enabled', payload.BrightEnabled);
+      if (payload.Bright !== undefined) formData.append('bright', payload.Bright);
+      formData.append('eco_params_enabled', payload.EcoParamsEnabled);
+      formData.append('start_time', payload.StartTime || '00:00');
+      formData.append('stop_time', payload.StopTime || '00:00');
+      formData.append('led_color_1', payload.LedColors.box1);
+      formData.append('led_color_2', payload.LedColors.box2);
+      formData.append('led_color_3', payload.LedColors.box3);
+      formData.append('now', payload.Now);
 
-            // Luminosité
-            brightEnabled.checked = (Number(cfg.BrightEnabled) === 1);
-            applyBrightnessFromConfigValue(cfg.Bright ?? 127);
+      try {
+        const res = await fetch(TELEMETRY_URL, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: formData.toString() });
+        if (!res.ok) console.warn('POST telemetry échec:', res.status);
+      } catch (err) { console.warn('POST telemetry erreur réseau:', err); }
+    }
 
-            // Eco
-            ecoEnabled.checked = (Number(cfg.EcoParamsEnabled) === 1);
-            if (cfg.StartTime) startTime.value = cfg.StartTime;
-            if (cfg.StopTime) stopTime.value = cfg.StopTime;
+    applyBtn.addEventListener('click', () => {
+      postTelemetry(buildTelemetryPayload());
+      applyBtn.textContent = 'Mise à jour…';
+      setTimeout(() => applyBtn.textContent = 'Mise à jour panneau', 400);
+    });
 
-            refreshVisibility();
-            // saveLocalConfig(cfg); // persiste localement
-        }
+    /* =========================
+       Initialisation
+       ========================= */
+    // Prépare interactions sur les 3 boxes
+    document.querySelectorAll('.box').forEach((box) => {
+      makeDraggable(box);
+      makeResizable(box);
+      initColorPicker(box);
+      adjustFontSize(box);
+    });
 
-        function saveLocalConfig(cfg) {
-            try { localStorage.setItem(CONFIG_STORAGE_KEY, JSON.stringify(cfg)); }
-            catch (e) { console.warn('Impossible de sauvegarder la config locale', e); }
-        }
-        function loadLocalConfigAndApply() {
-            try {
-                const raw = localStorage.getItem(CONFIG_STORAGE_KEY);
-                if (!raw) return;
-                applyConfig(JSON.parse(raw));
-            } catch (e) {
-                console.warn('Config locale invalide', e);
-            }
-        }
+    // Charger ancien format puis nouveau format (positions uniquement)
+    if (!loadLayout()) migrateLegacyLayout();
+    applyLayout(loadLayout());
 
-        // Export / Import
-        exportBtn.addEventListener('click', () => {
-            const blob = new Blob([JSON.stringify(gatherConfig(), null, 2)], { type: 'application/json' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'panneau-config.json';
-            a.click();
-            URL.revokeObjectURL(a.href);
-        });
-        importBtn.addEventListener('click', () => importInp.click());
-        importInp.addEventListener('change', async (e) => {
-            const f = e.target.files?.[0]; if (!f) return;
-            try {
-                const cfg = JSON.parse(await f.text());
-                applyConfig(cfg);
-            } catch (err) {
-                alert("Fichier JSON invalide.");
-            } finally {
-                importInp.value = "";
-            }
-        });
+    // Appliquer couleurs depuis le firmware (pas de persistance)
+    window.addEventListener('DOMContentLoaded', () => {
+      // Charger l'image locale si le nom correspond au fond attendu
+      loadBgFromStorageIfNameMatches();
 
-        // Bascule police
-        function applyFontVariant(variant) {
-            document.body.classList.toggle('led-bold', variant === 'bold');
-        }
-        boldToggle.addEventListener('change', () => {
-            applyFontVariant(boldToggle.checked ? 'bold' : 'regular');
-            // saveLocalConfig(gatherConfig());
-        });
+      const mapCode = { '0':'red', '1':'green', '2':'blue', '3':'amber', '4':'white' };
+      const c1 = document.getElementById('ledColor1')?.value; if (c1 !== undefined) applyColorFromCode('box1', c1);
+      const c2 = document.getElementById('ledColor2')?.value; if (c2 !== undefined) applyColorFromCode('box2', c2);
+      const c3 = document.getElementById('ledColor3')?.value; if (c3 !== undefined) applyColorFromCode('box3', c3);
 
-        // Image de fond (local preview)
-        bgFile.addEventListener('change', (e) => {
-            const file = e.target.files?.[0];
-            if (!file) return;
-            const url = URL.createObjectURL(file);
-            bg.src = url;
-            bg.onload = () => { sizeStageToImage(); URL.revokeObjectURL(url); };
-        });
+      const brightServerEl = document.getElementById('brightServer');
+      const srvBright = parseInt(brightServerEl?.value, 10);
+      if (!Number.isNaN(srvBright)) applyBrightnessFromConfigValue(srvBright);
 
-        // Accident (confirmation)
-        accidentBtn.addEventListener('click', () => accidentModal.classList.add('active'));
-        accidentNo.addEventListener('click', () => accidentModal.classList.remove('active'));
-        accidentYes.addEventListener('click', () => {
-            const box1 = document.querySelector('#box1 input[type="number"]');
-            const box2 = document.querySelector('#box2 input[type="number"]');
-            const v = Number.isFinite(box1.valueAsNumber) ? box1.valueAsNumber : 0;
-            box1.value = v + 1;         // +1
-            box2.value = 0;             // reset jours sans accident
-            accidentDate.value = todayISO();
-            // saveLocalConfig(gatherConfig());
-            //envoie des infos au panneau
-            console.log('POST payload', buildTelemetryPayload());
-            postTelemetry(buildTelemetryPayload());
-            accidentModal.classList.remove('active');
-        });
-        // --- Écouteur sur la box2 ---
-        box2Input.addEventListener('input', (e) => {
-            const n = e.target.valueAsNumber;            // NaN si vide
-            const val_box2 = Number.isFinite(n) ? n : 0;
-            // console.log('box2 modifiée =>', val_box2);
+      // const testEl = document.getElementById('test');
+      // if (testEl && !Number.isNaN(srvBright)) testEl.value = String(srvBright);
 
-            const val_box3 = parseInt(box3Input.value, 10) || 0;
+      applyFontVariant(boldToggle.checked ? 'bold' : 'regular');
 
-            if (val_box2 > val_box3)
-                box3Input.value = val_box2;
-        });
-
-        // Éco / Luminosité : affichage conditionnel
-        function refreshVisibility() {
-            brightRow.classList.toggle('hidden', !brightEnabled.checked);
-            const brightSep = document.getElementById('brightSep');
-            if (brightSep) {
-                brightSep.classList.toggle('hidden', !brightEnabled.checked);
-            }
-
-            ecoRows.classList.toggle('hidden', !ecoEnabled.checked);
-        }
-        brightEnabled.addEventListener('change', () => { refreshVisibility(); /*saveLocalConfig(gatherConfig());*/ });
-        ecoEnabled.addEventListener('change', () => { refreshVisibility(); /*saveLocalConfig(gatherConfig()); */});
-        // startTime.addEventListener('change', () => saveLocalConfig(gatherConfig()));
-        // stopTime.addEventListener('change', () => saveLocalConfig(gatherConfig()));
-        brightLevel.addEventListener('input', () => {
-            updateBrightLabelFromLevel();
-            // saveLocalConfig(gatherConfig());
-        });
-
-        // Applique la valeur Bright (10..255) sur le slider (0..6)
-        function applyBrightnessFromConfigValue(val) {
-            const lvl = brightToLevel(val);
-            brightLevel.value = String(lvl);
-            updateBrightLabelFromLevel();
-        }
-
-        // Drag/resize init + couleurs + font-size
-        document.querySelectorAll('.box').forEach(box => {
-            loadBoxState(box);
-            makeDraggable(box);
-            makeResizable(box);
-            initColorPicker(box);
-            loadBoxColor(box);
-            adjustFontSize(box);
-            window.addEventListener('beforeunload', () => saveBoxState(box));
-        });
-
-        // === Télémetrie / POST serveur ===
-        // Mets ici ton endpoint : même origine => '/api/telemetry', sinon 'http://IP:PORT/api/telemetry'
-        const TELEMETRY_URL = '/index_indu.htm';
-        // Codes JSON demandés : 0=rouge;1=vert;2=bleu;3=ambre;4=blanc
-        const ColorKeyToCode = { red: 0, green: 1, blue: 2, amber: 3, white: 4 };
-
-        function getUIColorForBox(boxId) {
-            // récupère la couleur UI mémorisée ('red','green','blue','amber','white')
-            return localStorage.getItem(COLOR_PREFIX + boxId) || 'white';
-        }
-        function getLedCodeForBox(boxId) {
-            const ui = getUIColorForBox(boxId);
-            return ColorKeyToCode[ui] ?? 4;
-        }
-
-        function nowISODate() {
-            const d = new Date();
-            const m = String(d.getMonth() + 1).padStart(2, '0');
-            const day = String(d.getDate()).padStart(2, '0');
-            return `${d.getFullYear()}-${m}-${day}`;
-        }
-        function nowISODateTime() {
-            return new Date().toISOString(); // date actuelle (avec heure) au format ISO
-        }
-
-        function buildTelemetryPayload() {
-            // valeurs des 3 boxes
-            const box1 = document.querySelector('#box1 input[type="number"]').valueAsNumber || 0; // nb d'accidents
-            const box2 = document.querySelector('#box2 input[type="number"]').valueAsNumber || 0; // jours sans accident
-            const box3 = document.querySelector('#box3 input[type="number"]').valueAsNumber || 0; // record de jours sans accident
-
-            // luminosité (si activée -> valeur LUT 10..255, sinon omettre)
-            const brightEnabledFlag = brightEnabled.checked ? 1 : 0;
-            const brightValue = levelToBright(parseInt(brightLevel.value, 10));
-
-            // horaires éco (si activés -> inclure start/stop)
-            const ecoEnabledFlag = ecoEnabled.checked ? 1 : 0;
-
-            return {
-                AccidentsCount: box1,
-                DaysWithoutAccident: box2,
-                RecordDaysWithoutAccident: box3,
-                LastAccidentDate: accidentDate.value || nowISODate(), // JJ-MM-AAAA en ISO 'YYYY-MM-DD'
-                Bold: boldToggle.checked ? 1 : 0,
-                BrightEnabled: brightEnabledFlag,
-                ...(brightEnabledFlag ? { Bright: brightValue } : {}),
-                EcoParamsEnabled: ecoEnabledFlag,
-                ...(ecoEnabledFlag ? { StartTime: startTime.value, StopTime: stopTime.value } : {}),
-                // couleurs des LED (codes 0..4)
-                LedColors: {
-                    box1: getLedCodeForBox('box1'),
-                    box2: getLedCodeForBox('box2'),
-                    box3: getLedCodeForBox('box3'),
-                },
-                Now: nowISODateTime()
-            };
-        }
-
-        //fonction d'envoie
-        async function postTelemetry(payload) {
-            const formData = new URLSearchParams();
-            formData.append("AccidentsCount", payload.AccidentsCount);
-            formData.append("DaysWithoutAccident", payload.DaysWithoutAccident);
-            formData.append("RecordDaysWithoutAccident", payload.RecordDaysWithoutAccident);
-            formData.append("LastAccidentDate", payload.LastAccidentDate);
-            formData.append("Bold", payload.Bold);
-            formData.append("BrightEnabled", payload.BrightEnabled);
-            if (payload.Bright !== undefined) formData.append("Bright", payload.Bright);
-            formData.append("EcoParamsEnabled", payload.EcoParamsEnabled);
-            if (payload.StartTime) formData.append("StartTime", payload.StartTime);
-            if (payload.StopTime) formData.append("StopTime", payload.StopTime);
-            formData.append("LedColor1", payload.LedColors.box1);
-            formData.append("LedColor2", payload.LedColors.box2);
-            formData.append("LedColor3", payload.LedColors.box3);
-            formData.append("Now", payload.Now);
-
-            try {
-                const res = await fetch(TELEMETRY_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: formData.toString()
-                });
-                if (!res.ok) {
-                    console.warn('POST telemetry échec:', res.status);
-                }
-            } catch (err) {
-                console.warn('POST telemetry erreur réseau:', err);
-            }
-        }
-        // appui sur le bouton mise à jour
-        applyBtn.addEventListener('click', () => {
-            const cfg = gatherConfig();         
-            // saveLocalConfig(cfg);               
-            postTelemetry(buildTelemetryPayload());  // ← envoi des infos courantes
-            // petit feedback visuel (optionnel)
-            applyBtn.textContent = 'Mise à jour…';
-            setTimeout(() => applyBtn.textContent = 'Mise à jour panneau', 400);
-        });
-
-        // Chargement config locale (si dispo) puis synchro affichage
-        loadLocalConfigAndApply();
-        refreshVisibility();
-        updateBrightLabelFromLevel();
-    </script>
+      refreshVisibility();
+      updateBrightLabelFromLevel();
+    });
+  </script>
 </body>
-
 </html>

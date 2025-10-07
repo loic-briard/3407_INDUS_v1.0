@@ -16,6 +16,8 @@
 #include "03_Variables.h"
 #include "04_Fonctions.h"
 #include "EEPROM.h"
+#include "GenericTypeDefs.h"
+#include "time_sync.h"
 
 unsigned char BusyXLCDstr(void);
 
@@ -103,7 +105,6 @@ void Initialisations(void)
 	
 	Init_Broches_Remappables();
 	
-    attente_synchro = 0;
     UC_TEST = 0;
     
 	AD1PCFG = 0xFFFB;
@@ -136,39 +137,7 @@ void Initialisations(void)
 	LCD_TRIS_RW = SORTIE;		// R/W
 	LCD_TRIS_E = SORTIE;		// E
 	
-    //Efface le LCD
-	if( (B_RAM_NON_EFFACEE1 != 1)	||
-		(B_RAM_NON_EFFACEE2 != 1))
-	{
-		B_RAM_NON_EFFACEE1 = 1;
-		B_RAM_NON_EFFACEE2 = 1;
-		
-		memset(CODE_NTP_SERVER, 0x00, sizeof(CODE_NTP_SERVER));
-		CODE_NTP_SERVER[0] = 'e';
-		CODE_NTP_SERVER[1] = 'p';
-		CODE_NTP_SERVER[2] = 'o';
-		CODE_NTP_SERVER[3] = 'n';
-		CODE_NTP_SERVER[4] = 'a';
-		CODE_NTP_SERVER[5] = '.';
-		CODE_NTP_SERVER[6] = 's';
-		CODE_NTP_SERVER[7] = 't';
-		CODE_NTP_SERVER[8] = 'r';
-		CODE_NTP_SERVER[9] = 'a';
-		CODE_NTP_SERVER[10] = 'm';
-		CODE_NTP_SERVER[11] = 'a';
-		CODE_NTP_SERVER[12] = 't';
-		CODE_NTP_SERVER[13] = 'e';
-		CODE_NTP_SERVER[14] = 'l';
-		CODE_NTP_SERVER[15] = '.';
-		CODE_NTP_SERVER[16] = 'l';
-		CODE_NTP_SERVER[17] = 'o';
-		CODE_NTP_SERVER[18] = 'c';
-        CODE_NTP_SERVER[19] = 'a';
-        CODE_NTP_SERVER[20] = 'l';
-		
-		CODE_IP_AUTO = 1;     
-	}
-	
+    	
 	// Liaison asynchrone 1 (Synchro temps horloge mère)
 	TRISFbits.TRISF8 = SORTIE;      // TX1
 	TRISFbits.TRISF3 = ENTREE;      // RX1
@@ -223,13 +192,12 @@ void Initialisations(void)
 	IFS4bits.U2ERIF = 0;
 
 	// Leds
-	TRISDbits.TRISD5 = SORTIE;      // LED 1
-	TRISDbits.TRISD6 = SORTIE;      // LED 2
-	TRISDbits.TRISD7 = SORTIE;      // LED 3
+	TRISDbits.TRISD5 = SORTIE;      // LED 1 dcf
+	TRISDbits.TRISD6 = SORTIE;      // LED 2 led synchro heure
+	TRISDbits.TRISD7 = SORTIE;      // LED 3 si besoin
 
-	LED_SYNCHRO_HEURE = 0;
-	LED_DCF = 0;
-	LED_3 = 0;
+	TRISGbits.TRISG0 = ENTREE;   // DCF sur RG0 en entrée
+    LED_DCF = 0; LED_SYNCHRO_HEURE = 0; LED_3 = 0;
 	
 	//Liaison SPI1 Ethernet
 	TRISGbits.TRISG6 = SORTIE;      // SCK1
@@ -274,40 +242,7 @@ void Initialisations(void)
 	Delay_10_mS();
 	Delay_10_mS();
 	
-	//initialisation variables à 0
-	MEM_CODE_IP_AUTO = 0xff;
-	SYNCHRO = 0x00;
-	FIN_TRAME = 0x01;
-	DIZ_HEURE_UTC = 0x00;
-	UNI_HEURE_UTC = 0x00;
-	DIZ_MIN_UTC = 0x00;
-	UNI_MIN_UTC = 0x00;
-	DIZ_SEC_UTC = 0x00;
-	UNI_SEC_UTC = 0x00;
-	DIZ_JOUR_UTC = 0x00;
-	UNI_JOUR_UTC = 0x00;
-	DIZ_MOIS_UTC = 0x00;
-	UNI_MOIS_UTC = 0x00;
-	MIL_AN_UTC = 0x00;
-	CEN_AN_UTC =0x00;
-	DIZ_AN_UTC = 0x00;
-	UNI_AN_UTC = 0x00;
-	CODE_DECAL_HORAIRE = 0x00;
-	DECAL_HORAIRE = 0x00;
-	DEC_HOR_NEG=0x00;
-	DIZ_HEURE_DCF = 0x00;
-	UNI_HEURE_DCF = 0x00;
-	DIZ_MIN_DCF = 0x00;
-	UNI_MIN_DCF = 0x00;
-	DIZ_SEC_DCF = 0x00;
-	UNI_SEC_DCF = 0x00;
-	DIZ_JOUR_DCF = 0x00;
-	UNI_JOUR_DCF = 0x00;
-	DIZ_MOIS_DCF = 0x00;
-	UNI_MOIS_DCF = 0x00;
-	DIZ_AN_DCF = 0x00;
-	UNI_AN_DCF = 0x00;
-	NUM_JOUR_DCF = 0x00;
+	
 	UC_POINT_TRAME_RECEPT_RX1 = 0x00;
 	UC_COMPT_NON_RECEP_CODE_DEBUT = 0;
 
@@ -315,127 +250,16 @@ void Initialisations(void)
 	NUM_SEC = 0x00;
 	CPTR100ms = 0x00;
 	CPTR_LED = 0x00;
-	CODE_FUS_HOR = 0x00;
-    
-    FORCAGE_MARCHE = 0x00;
-    FORCAGE_ARRET = 0x00;
-    CYCLE_OK = 0;
-    PLAGE_OK = 0;
-    JOURS_OK = 0;
-    J1 = 0;
-    J2 = 0;
-    J_WEEK = 0;
-    WEEKEND = 0;
-    INIT = 0;
-    JOUR_PRECEDENT = 0;
-    TRAME = 0;
-    START_STOP = 0;
-    HEURE_D = 0;
-    HEURE_F = 0;
-    HEURE_ACTU = 0;
-    MIN_D = 0;
-    MIN_F = 0;
-    MIN_ACTU = 0;
-    
-    for(i=0;i<5;i++)
-    {
-    JOURS_SELECT[i] = 0x30;
-    JOURS_SELECT_BUF[i] = 0x30;
-    JOURS_SELECT_FINALE[i] = 0x30;
-    }
-    
-	
-	CODE_DECAL_HORAIRE=CONST_CODE_DECAL_HORAIRE;            //((PORTAbits.RA4*0x10)|(PORTBbits.RB5*0x08)|(PORTBbits.RB6*0x04)|(PORTBbits.RB7*0x02)|(PORTBbits.RB8*0x01));	
-	CODE_CHANGEMENT_HEURE=CONST_CODE_CHANGEMENT_HEURE;      //((PORTAbits.RA4*0x10)|(PORTBbits.RB5*0x08)|(PORTBbits.RB6*0x04)|(PORTBbits.RB7*0x02)|(PORTBbits.RB8*0x01));
-
-	NBR_HORLOGE_SECONDAIRE = 3;
-	for(i=0;i<NBR_HORLOGE_SECONDAIRE;i++)
-	{
-		CODE_ADR_IP_HORL_SECONDAIRE[i][0]='1';
-		CODE_ADR_IP_HORL_SECONDAIRE[i][1]='9';
-		CODE_ADR_IP_HORL_SECONDAIRE[i][2]='2';
-		CODE_ADR_IP_HORL_SECONDAIRE[i][3]='.';
-		CODE_ADR_IP_HORL_SECONDAIRE[i][4]='1';
-		CODE_ADR_IP_HORL_SECONDAIRE[i][5]='6';
-		CODE_ADR_IP_HORL_SECONDAIRE[i][6]='8';
-		CODE_ADR_IP_HORL_SECONDAIRE[i][7]='.';
-		CODE_ADR_IP_HORL_SECONDAIRE[i][8]='1';
-		CODE_ADR_IP_HORL_SECONDAIRE[i][9]='0';
-		CODE_ADR_IP_HORL_SECONDAIRE[i][10]='0';
-		CODE_ADR_IP_HORL_SECONDAIRE[i][11]='.';
-		CODE_ADR_IP_HORL_SECONDAIRE[i][12]='1';
-		CODE_ADR_IP_HORL_SECONDAIRE[i][13]=i+0x30;
-		CODE_ADR_IP_HORL_SECONDAIRE[i][14]=0;
-		
-		CODE_NOM_HORL_SECONDAIRE[i][0] ='H';
-		CODE_NOM_HORL_SECONDAIRE[i][1] ='o';
-		CODE_NOM_HORL_SECONDAIRE[i][2] ='r';
-		CODE_NOM_HORL_SECONDAIRE[i][3] =' ';
-		CODE_NOM_HORL_SECONDAIRE[i][4] =i+0x30;
-		CODE_NOM_HORL_SECONDAIRE[i][5] =0;
-	}
-	
-	for(i=0;i<16;i++)
-	{
-		NOM_SONDE_TEMP[i][0] ='S';
-		NOM_SONDE_TEMP[i][1] ='o';
-		NOM_SONDE_TEMP[i][2] ='n';
-		NOM_SONDE_TEMP[i][3] ='d';
-		NOM_SONDE_TEMP[i][4] ='e';
-		NOM_SONDE_TEMP[i][5] =' ';
-		NOM_SONDE_TEMP[i][6] =i+0x30;
-		NOM_SONDE_TEMP[i][7] =0;
-	}
-	UC_DUREE_AFFICHAGE[0] = 2;
-	UC_DUREE_AFFICHAGE[1] = 2;
-	UC_DUREE_AFFICHAGE[2] = 2;
-	UC_DUREE_AFFICHAGE[3] = 0;
-	UC_DUREE_AFFICHAGE[4] = 0;
-	
-	UC_HEURE_VIEILL[0][0] = 1;
-	UC_HEURE_VIEILL[0][1] = 8;
-
-	UC_HEURE_VIEILL[0][2] = 0;
-	UC_HEURE_VIEILL[0][3] = 0;
-
-	UC_HEURE_VIEILL[1][0] = 0;
-	UC_HEURE_VIEILL[1][1] = 7;
-
-	UC_HEURE_VIEILL[1][2] = 4;
-	UC_HEURE_VIEILL[1][3] = 5;
-
-	Mise_a_heure = 0;
-
-	buf_heure_GMT[0] = '1';
-	buf_heure_GMT[1] = '0';
-	buf_heure_GMT[2] = ':';
-	buf_heure_GMT[3] = '0';
-	buf_heure_GMT[4] = '0';
-	buf_heure_GMT[5] = ':';
-	buf_heure_GMT[6] = '0';
-	buf_heure_GMT[7] = '0';
-	buf_heure_GMT[8] = ' ';
-	buf_heure_GMT[9] = '0';
-	buf_heure_GMT[10]= '6';
-	buf_heure_GMT[11]= '/';
-	buf_heure_GMT[12]= '0';
-	buf_heure_GMT[13]= '4';
-	buf_heure_GMT[14]= '/';
-	buf_heure_GMT[15]= '2';
-	buf_heure_GMT[16]= '0';
-	buf_heure_GMT[17]= '2';
-	buf_heure_GMT[18]= '2';
-	buf_heure_GMT[19]= 0;
-    
+        
     //initialisation des variables lies aux accidents
     NB_Accidents = EEPROMReadByte(ADR_NB_ACCIDENTS);
     if(NB_Accidents == 0xFF)
         NB_Accidents = 0;
-    NB_Jours_Sans_Accidents = EEPROMReadByte(ADR_NB_JOURS_SANS_ACCIDENTS);
-    if(NB_Jours_Sans_Accidents == 0xFF)
+    NB_Jours_Sans_Accidents = EEP_ReadU32(ADR_NB_JOURS_SANS_ACCIDENTS);
+    if(NB_Jours_Sans_Accidents == 0xFFFFFFFFUL)
         NB_Jours_Sans_Accidents = 0;
-    NB_Records_Jours = EEPROMReadByte(ADR_NB_RECORDS_JOURS);
-    if(NB_Records_Jours == 0xFF)
+    NB_Records_Jours = EEP_ReadU32(ADR_NB_RECORDS_JOURS);
+    if(NB_Records_Jours == 0xFFFFFFFFUL)
         NB_Records_Jours = 0;    
     
     Bold = EEPROMReadByte(ADR_BOLD);
@@ -444,165 +268,29 @@ void Initialisations(void)
     Bright_Enabled = EEPROMReadByte(ADR_BRIGHT_ENABLED);
     if(Bright_Enabled == 0xFF)
         Bright_Enabled = 0;    
+    Bright = EEPROMReadByte(ADR_BRIGHT);
+    if(Bright == 0xFF)
+        Bright = 127;    
     
     Led_Color_1 = EEPROMReadByte(ADR_LED_COLOR_1);
     if(Led_Color_1 == 0xFF)
         Led_Color_1 = 0;
+    Led_Color_2 = EEPROMReadByte(ADR_LED_COLOR_2);
+    if(Led_Color_2 == 0xFF)
+        Led_Color_2 = 0;
+    Led_Color_3 = EEPROMReadByte(ADR_LED_COLOR_3);
+    if(Led_Color_3 == 0xFF)
+        Led_Color_3 = 0;
+    
+    Eco_Enabled = EEPROMReadByte(ADR_ECO_ENABLED);
+    if(Eco_Enabled == 0xFF)
+        Eco_Enabled = 0;  
     
     LoadLastAccidentDate(&Last_Accident_Date);
+    LoadHoraire(&Horaire_Allumage, ADR_HORAIRE_ALLUMAGE);
+    LoadHoraire(&Horaire_Extinction, ADR_HORAIRE_EXTINCTION);
     
-}
-
-// ENTREES		: valeur à écrire sur le port data du LCD
-// SORTIES		: aucune
-// E/S			: aucune
-// DESCRIPTION	: Init_Lcd
-//
-// GLOBALES		: aucune
-void Init_Lcd (void)
-{
-	// Init du LCD
-	Init_Lcd_1(0x30);
-	ClrWdt();               // Mise à jour du watchdog
-	Init_Lcd_1(0x30);
-	ClrWdt();				// Mise à jour du watchdog
-	Init_Lcd_1(0x30);
-	ClrWdt();				// Mise à jour du watchdog
-	Init_Lcd_1(0x38);
-	ClrWdt();				// Mise à jour du watchdog
-	Init_Lcd_1(0x0C);
-	ClrWdt();				// Mise à jour du watchdog
-	Init_Lcd_1(0x01);
-	ClrWdt();				// Mise à jour du watchdog
-	Init_Lcd_1(0x06);
-	ClrWdt();				// Mise à jour du watchdog
-}
-
-// ENTREES		: valeur à écrire sur le port data du LCD
-// SORTIES		: aucune
-// E/S			: aucune
-// DESCRIPTION	: Init_Lcd_1
-//
-// GLOBALES		: aucune
-void Init_Lcd_1 ( unsigned char octet_lcd)
-{
-	LCD_WRITE_DATA (octet_lcd);
-	Envoi_Instruction_Au_Lcd();
-	LCD_RS = 0;
-}
-
-// ENTREES		: aucune
-// SORTIES		: aucune
-// DESCRIPTION	: Ecrire_2lignes_Lcd
-//
-// GLOBALES		:aucune
-void Ecrire_2lignes_Lcd(void)
-{
-	CHARGER_2LIGNES_LCD();
-	AFFICHER_2LIGNES_LCD();
-}
-
-// ENTREES		: aucune
-// SORTIES		: aucune
-// E/S			: aucune
-// DESCRIPTION	: CHARGER_2LIGNES_LCD
-//
-// GLOBALES		: aucune
-void CHARGER_2LIGNES_LCD(void)
-{
-	char i;
-	// Attention le pointeur UP_VAR_LOCAL_LCD est de type const rom (poiteur sur les messages situés dans la mémoire ROM)
-	for (i = 0; i < 16; i++)
-	{
-		UC_LCD_LIGNE[i] = *(UC_PT_CHAINE_LCD + i);
-	}
-}
-
-// ENTREES		: aucune
-// SORTIES		: aucune
-// E/S			: aucune
-// DESCRIPTION	: AFFICHER_2LIGNES_LCD
-//
-// GLOBALES		: aucune
-void AFFICHER_2LIGNES_LCD(void)
-{
-		unsigned char i = 0, index_message = 0, msk = 0;
-	unsigned char * message;
-	
-//Affichage de la ligne 1		
-	LCD_RS = 0;	
-	Delay_2_5_microS();     // Attente de 8 µs
-	LCD_WRITE_DATA (0x80);
-	Envoi_Instruction_Au_Lcd();
-	index_message = 0;
-	LCD_RS = 1;	
-	
-	for (index_message = 0; index_message < 8; index_message++)
-	{
-		LCD_WRITE_DATA (UC_LCD_LIGNE[index_message]);
-		Envoi_Instruction_Au_Lcd();
-	}
-//Affichage de la ligne 2		
-	LCD_RS = 0;	
-	Delay_2_5_microS();     // Attente de 8 µs
-	LCD_WRITE_DATA (0xC0);
-	Envoi_Instruction_Au_Lcd();
-	LCD_RS = 1;	
-	
-	for (index_message = 8; index_message < 16; index_message++)
-	{
-		LCD_WRITE_DATA (UC_LCD_LIGNE[index_message]);
-		Envoi_Instruction_Au_Lcd();
-	}
-}
-
-// ENTREES		: aucune
-// SORTIES		: aucune
-// E/S			: aucune
-// DESCRIPTION	: LCD_WRITE_DATA
-//
-// GLOBALES		: aucune
-void LCD_WRITE_DATA (unsigned char var)
-{
-	if(var & 0x01)
-		LATEbits.LATE0 = 1;
-	else
-		LATEbits.LATE0 = 0;
-		
-	if(var & 0x02)
-		LATEbits.LATE1 = 1;
-	else
-		LATEbits.LATE1 = 0;
-		
-	if(var & 0x04)
-		LATEbits.LATE2 = 1;
-	else
-		LATEbits.LATE2 = 0;
-		
-	if(var & 0x08)
-		LATEbits.LATE3 = 1;
-	else
-		LATEbits.LATE3 = 0;
-		
-	if(var & 0x10)
-		LATEbits.LATE4 = 1;
-	else
-		LATEbits.LATE4 = 0;
-		
-	if(var & 0x20)
-		LATEbits.LATE5 = 1;
-	else
-		LATEbits.LATE5 = 0;
-		
-	if(var & 0x40)
-		LATEbits.LATE6 = 1;
-	else
-		LATEbits.LATE6 = 0;
-		
-	if(var & 0x80)
-		LATEbits.LATE7 = 1;
-	else
-		LATEbits.LATE7 = 0;
+    Nop();    
 }
 
 void Delay_2_5_microS(void)	// 2.5 µs mesuré
@@ -621,56 +309,6 @@ void Delay_2_5_microS(void)	// 2.5 µs mesuré
 	Nop();
 	Nop();
 	Nop();
-}
-
-// ENTREES		: aucune
-// SORTIES		: aucune
-// E/S			: aucune
-// DESCRIPTION	: Envoi_Instruction_Au_Lcd
-//
-// GLOBALES		: aucune
-void Envoi_Instruction_Au_Lcd (void)
-{
-	char busy_ok=0;
-	
-	LCD_RW = 0;
-	Delay_2_5_microS();     // Attente de 2.5 µs
-	
-	LCD_E = 1;
-	Delay_2_5_microS();		// Attente de 2.5 µs
-
-	LCD_E = 0;
-	Delay_2_5_microS();		// Attente de 2.5 µs
-	
-	LCD_RW = 1;
-	LCD_RS  = 0;
-	Delay_2_5_microS();		// Attente de 2.5 µs
-
-	LCD_DIR_DB7 = ENTREE;       // Lecture de la broche busy (broche DB7)
-	Delay_2_5_microS();			// Attente de 2.5 µs
-	
-	// Attente du retour du signal busy du LCD
-	do
-	{
-		LCD_RW = 1;
-		Delay_2_5_microS();     // Attente de 2.5 µs
-		
-		LCD_E = 1;
-		Delay_2_5_microS();		// Attente de 2.5 µs
-		
-		busy_ok = LCD_READ_BUSY;
-		LCD_E = 0;
-		Delay_2_5_microS();		// Attente de 2.5 µs
-		
-		LCD_RW = 0;
-		Delay_2_5_microS();		// Attente de 2.5 µs
-		
-	}while(busy_ok);			// Le LCD est prêt lorsque le signal busy est à 0
-
-	LCD_DIR_DB7 = SORTIE;		// On remet le port en sortie
-	LCD_RS  = 1;
-	LCD_RW = 1;	
-	Delay_2_5_microS();			// Attente de 2.5 µs
 }
 
 //void Delay_10_microS(void)
@@ -727,204 +365,6 @@ void TEMPO_3S(void)
 	}while (var < 100);     // Attente de 3 secondes
 }
 
-////////récupération du nombre d'heure de décalage
-void DECALAGE_HORAIRE (void)		
-{
-	if (CODE_DECAL_HORAIRE >= 0x0C)						//Comparaison avec UTC code switch 0x0C
-		DECAL_HORAIRE = CODE_DECAL_HORAIRE - 0x0C ;
-
-	if (CODE_DECAL_HORAIRE < 0x0C)
-	{
-		DECAL_HORAIRE = 0x0C - CODE_DECAL_HORAIRE ;		//Décalage horaire négatif	
-		DEC_HOR_NEG = 1;
-	}
-	if (CODE_DECAL_HORAIRE == 0x0C)
-		CODE_FUS_HOR = 0x00;
-	if (CODE_DECAL_HORAIRE == 0x0D)
-		CODE_FUS_HOR = 0x01;
-	if (CODE_DECAL_HORAIRE == 0x0E)
-		CODE_FUS_HOR = 0x02;
-	if (CODE_DECAL_HORAIRE == 0x0F)
-		CODE_FUS_HOR = 0x03;
-}
-
-////////Réglage heure locale
-void Mise_heure_locale (void)				
-{
-	struct tm heure;
-
-	time_t temps_sec = 0, temps_sec1 = 0;
-	unsigned int Dec_Hor_sec;
-
-	heure.tm_sec =((DIZ_SEC_UTC * 10) + UNI_SEC_UTC);         //remplissage de la structure tm avec les données UTC
-	heure.tm_min =((DIZ_MIN_UTC * 10) + UNI_MIN_UTC);
-	heure.tm_hour =((DIZ_HEURE_UTC * 10) + UNI_HEURE_UTC);
-	heure.tm_mday =((DIZ_JOUR_UTC * 10) + UNI_JOUR_UTC);
-	heure.tm_mon =(((DIZ_MOIS_UTC * 10) + UNI_MOIS_UTC) - 1);                                                   //month = mois -1
-	heure.tm_year =(((MIL_AN_UTC * 1000) + (CEN_AN_UTC * 100) + (DIZ_AN_UTC * 10) + UNI_AN_UTC) - 1900);        //year = année-1900
-	heure.tm_wday = 0;
-	heure.tm_yday = 0;
-	heure.tm_isdst = 0;
-
-	Dec_Hor_sec = (DECAL_HORAIRE * 3600) ;			//traduction du décalage horaire d'heure en secondes
-
-	temps_sec = mktime(&heure);						//traduction du temps en seconde depuis 1970
-	temps_sec1 = mktime(&heure);
-    
-	//Trame DCF
-	if (DEC_HOR_NEG == 1)							//traitement du décalage horaire
-	{
-		temps_sec = (temps_sec - Dec_Hor_sec);		//+1min pour comuniquer l'heure exacte
-		DEC_HOR_NEG = 0;
-	}
-	else
-		temps_sec = (temps_sec + Dec_Hor_sec);		//+1min pour comuniquer l'heure exacte
-
-	heure = *localtime(&temps_sec);					//traduction du temps en seconde en temps structure
-
-	DIZ_SEC_DCF = (heure.tm_sec)/10;					//récupération des données temporelles
-	UNI_SEC_DCF = (heure.tm_sec)%10;
-	DIZ_MIN_DCF = (heure.tm_min)/10;
-	UNI_MIN_DCF = (heure.tm_min)%10;
-	DIZ_HEURE_DCF = (heure.tm_hour)/10;
-	UNI_HEURE_DCF = (heure.tm_hour)%10;
-	DIZ_JOUR_DCF = (heure.tm_mday)/10;
-	UNI_JOUR_DCF = (heure.tm_mday)%10;
-	DIZ_MOIS_DCF = ((heure.tm_mon)+1)/10;	
-	UNI_MOIS_DCF = ((heure.tm_mon)+1)%10;	
-	MIL_AN_DCF = (((heure.tm_year)+1900)/1000);	
-	CEN_AN_DCF = (((heure.tm_year)+1900)%1000)/100;
-	DIZ_AN_DCF = (((heure.tm_year)+1900)%100)/10;	
-	UNI_AN_DCF = ((heure.tm_year)+1900)%10;
-	NUM_JOUR_DCF = heure.tm_wday;
-
-//	if (NUM_JOUR_DCF ==0)
-//		NUM_JOUR_DCF = 7;
-
-	//Trame RS485
-	if (DEC_HOR_NEG ==1)                //traitement du décalage horaire
-	{
-		temps_sec1 = (temps_sec1 - Dec_Hor_sec);        //+1min pour comuniquer l'heure exacte
-		DEC_HOR_NEG = 0;
-	}
-	else
-		temps_sec1= (temps_sec1 + Dec_Hor_sec);         //+1min pour comuniquer l'heure exacte
-
-	heure = *localtime(&temps_sec1);					//traduction du temps en seconde en temps structure
-}
-
-/////Chamgement d'heure été hiver DCF
-void chamgement_heure_etehiver (void)
-{
-	struct tm heure;
-	time_t temps_sec = 0, temps_sec1 = 0;
-
-	unsigned char etat_chgtetehiver, index;
-	int heure1;
-	long mois_date_heure;
-
-	heure.tm_sec =((DIZ_SEC_DCF * 10) + UNI_SEC_DCF);     //remplissage de la structure tm avec les données UTC
-	heure.tm_min =((DIZ_MIN_DCF * 10) + UNI_MIN_DCF);
-	heure.tm_hour =((DIZ_HEURE_DCF * 10) + UNI_HEURE_DCF);
-	heure.tm_mday =((DIZ_JOUR_DCF * 10) + UNI_JOUR_DCF);
-	heure.tm_mon =(((DIZ_MOIS_DCF * 10) + UNI_MOIS_DCF) - 1);												//month = mois -1
-	heure.tm_year =(((MIL_AN_DCF * 1000) + (CEN_AN_DCF * 100) + (DIZ_AN_DCF * 10) + UNI_AN_DCF) - 1900);		//year = année-1900
-	heure.tm_wday = 0;
-	heure.tm_yday = 0;
-	heure.tm_isdst = 0;
-
-	//Pattes CN 15/16/21 pour réglage du code des dates de changement d'heure	
-	etat_chgtetehiver = CODE_CHANGEMENT_HEURE;// ??? ((PORTBbits.RB9*0x04) | (PORTBbits.RB10*0x02) | (PORTBbits.RB11*0x01));
-	index = ((DIZ_AN_UTC * 10) + UNI_AN_UTC) - 21;
-
-	temps_sec = mktime(&heure);
-
-	if (etat_chgtetehiver == 0x00)		//Pas de changement  d'heure été hiver
-	{}
-
-	if (etat_chgtetehiver == 0x01)		//EUROPE..	à 1h UTC
-	{	
-		mois_date_heure = ((DIZ_MOIS_UTC*100000)+(UNI_MOIS_UTC*10000)+(DIZ_JOUR_UTC*1000)+(UNI_JOUR_UTC*100)+(DIZ_HEURE_UTC*10)+UNI_HEURE_UTC);
-		if ((CHANGEMENT_HEURE1 [index][0]<=mois_date_heure) && (mois_date_heure<CHANGEMENT_HEURE1[index][1])) 
-		{
-			temps_sec=temps_sec+3600;
-//			heure1 = ((DIZ_HEURE_DCF*10)+UNI_HEURE_DCF)+1;
-//			DIZ_HEURE_DCF = heure1/10;
-//			UNI_HEURE_DCF = heure1%10;
-//			DIZ_HEURE_RS = heure1/10;
-//			UNI_HEURE_RS = heure1%10;
-			CODE_FUS_HOR = 0x02;
-		}
-	}
-
-
-	if (etat_chgtetehiver == 0x02)		//Etats unis..	à 2 h locale
-	{	
-		mois_date_heure = ((DIZ_MOIS_DCF*100000)+(UNI_MOIS_DCF*10000)+(DIZ_JOUR_DCF*1000)+(UNI_JOUR_DCF*100)+(DIZ_HEURE_DCF*10)+UNI_HEURE_DCF);
-		if ((CHANGEMENT_HEURE2[index][0]<=mois_date_heure) && (mois_date_heure<CHANGEMENT_HEURE2[index][1]))
-		{
-			temps_sec=temps_sec+3600;
-//			heure1 = ((DIZ_HEURE_DCF*10)+UNI_HEURE_DCF)+1;
-//			DIZ_HEURE_DCF = heure1/10;
-//			UNI_HEURE_DCF = heure1%10;
-//			DIZ_HEURE_RS = heure1/10;
-//			UNI_HEURE_RS = heure1%10;
-			CODE_FUS_HOR = 0x02;
-		}
-	}
-
-	if (etat_chgtetehiver == 0x03)		//Mexique...	à 2h locale
-	{	
-		mois_date_heure = ((DIZ_MOIS_DCF*100000)+(UNI_MOIS_DCF*10000)+(DIZ_JOUR_DCF*1000)+(UNI_JOUR_DCF*100)+(DIZ_HEURE_DCF*10)+UNI_HEURE_DCF);
-		if ((CHANGEMENT_HEURE3[index][0]<=mois_date_heure) && (mois_date_heure<CHANGEMENT_HEURE3[index][1]))
-		{
-			temps_sec=temps_sec+3600;
-//			heure1 = ((DIZ_HEURE_DCF*10)+UNI_HEURE_DCF)+1;
-//			DIZ_HEURE_DCF = heure1/10;
-//			UNI_HEURE_DCF = heure1%10;
-//			DIZ_HEURE_RS = heure1/10;
-//			UNI_HEURE_RS = heure1%10;
-			CODE_FUS_HOR = 0x02;
-		}
-	}
-	heure = *localtime(&temps_sec);					//traduction du temps en seconde en temps structure	
-
-	struct tm *newtime;
-
-	newtime = localtime(&temps_sec);
-			
-	strftime(buf_heure_GMT, 20, "%H:%M:%S %d/%m/%Y", newtime);
-	buf_heure_GMT[20]='\0';
-
-	//putsUART2((ROM char*)"\n\rHeure horloge :\r\n");//+buf[0]+buf[1]);
-	//putsUART((char *)buf_heure_GMT);
-	
-	
-	DIZ_HEURE_DCF = (heure.tm_hour)/10;
-	UNI_HEURE_DCF = (heure.tm_hour)%10;
-	DIZ_MIN_DCF = (heure.tm_min)/10;
-	UNI_MIN_DCF = (heure.tm_min)%10;
-	DIZ_SEC_DCF = (heure.tm_sec)/10;					//récupération des données temporelles
-	UNI_SEC_DCF = (heure.tm_sec)%10;
-	DIZ_JOUR_DCF = (heure.tm_mday)/10;
-	UNI_JOUR_DCF = (heure.tm_mday)%10;
-	DIZ_MOIS_DCF = ((heure.tm_mon)+1)/10;	
-	UNI_MOIS_DCF = ((heure.tm_mon)+1)%10;	
-	MIL_AN_DCF=	(((heure.tm_year)+1900)/1000);	
-	CEN_AN_DCF=(((heure.tm_year)+1900)%1000)/100;
-	DIZ_AN_DCF = (((heure.tm_year)+1900)%100)/10;	
-	UNI_AN_DCF = ((heure.tm_year)+1900)%10;
-	NUM_JOUR_DCF = heure.tm_wday;
-}
-
-void traite_24h (void)
-{
-	if((DIZ_HEURE_DCF==2)&&(UNI_HEURE_DCF==4))
-	{
-		DIZ_HEURE_DCF=0;
-		UNI_HEURE_DCF=0;
-	}	
-}
 void LectureTEMP_RS (unsigned char code_sonde)
 {
 	unsigned char i,p;
@@ -1019,351 +459,21 @@ void Lire_Sonde_Rs485(unsigned char adr,
 		*temp_air_avec_offset = 0;
 }
 
-void Affichage_Temp_Horloge(short temp)
-{
-	unsigned char var[4];
-	var[0] = 0;
-	var[1] = 0;
-	var[2] = 0;
-	var[3] = 0;
-	
-	if (temp == 8888)
-	{
-		UC_AFFICH_TEMP[0] = 0x40;
-		UC_AFFICH_TEMP[1] = 0x40;
-		UC_AFFICH_TEMP[2] = 0x00;
-		UC_AFFICH_TEMP[3] = 0x00;
-	}
-	else
-	{
-		itoa2(temp/10,var);
-		if (var[0] != '-')
-		{
-			if (var[1] == 0x00)
-			{
-				UC_AFFICH_TEMP[0] = 0x00;
-				UC_AFFICH_TEMP[1] = CODE_ACCEPTABLE_1[var[0]];
-			}	
-			else
-			{	
-				UC_AFFICH_TEMP[0] = CODE_ACCEPTABLE_1[var[0]];
-				UC_AFFICH_TEMP[1] = CODE_ACCEPTABLE_1[var[1]];
-			}	
-			UC_AFFICH_TEMP[2] = 0x4B;
-			UC_AFFICH_TEMP[3] = 0x00;
-		}
-		else
-		{
-			if (var[2] != 0x00)
-			{
-				UC_AFFICH_TEMP[0] = 0x40;
-				UC_AFFICH_TEMP[1] = CODE_ACCEPTABLE_1[var[1]];
-				UC_AFFICH_TEMP[2] = CODE_ACCEPTABLE_1[var[2]];
-				UC_AFFICH_TEMP[3] = 0x00;
-			}                        
-			else
-			{
-				UC_AFFICH_TEMP[0] = 0x40;
-				UC_AFFICH_TEMP[1] = CODE_ACCEPTABLE_1[var[1]];
-				UC_AFFICH_TEMP[2] = 0x4B;
-				UC_AFFICH_TEMP[3] = 0x00;
-			}                        
-		}                        
-	}                        
-	UC_AFFICH_TEMP[4] = 0;
-}
-
-void Affichage_Temp(short temp)
-{
-	unsigned char var[4];
-	var[0] = 0;
-	var[1] = 0;
-	var[2] = 0;
-	var[3] = 0;
-	
-	if (temp == 8888)
-	{
-		UC_AFFICH_TEMP[0] = '-';
-		UC_AFFICH_TEMP[1] = '-';
-		UC_AFFICH_TEMP[2] = ' ';
-		UC_AFFICH_TEMP[3] = ' ';
-	}
-	else
-	{
-		itoa2(temp/10,var);
-		if (var[0] != '-')
-		{
-			if (var[1] == 0x00)
-			{
-				UC_AFFICH_TEMP[0] = ' ';
-				UC_AFFICH_TEMP[1] = var[0];
-			}	
-			else
-			{	
-				UC_AFFICH_TEMP[0] = var[0];
-				UC_AFFICH_TEMP[1] = var[1];
-			}	
-			UC_AFFICH_TEMP[2] = ' ';
-			UC_AFFICH_TEMP[3] = ' ';
-		}
-		else
-		{
-			if (var[2] != 0x00)
-			{
-				UC_AFFICH_TEMP[0] = '-';
-				UC_AFFICH_TEMP[1] = var[1];
-				UC_AFFICH_TEMP[2] = var[2];
-				UC_AFFICH_TEMP[3] = ' ';
-			}                        
-			else
-			{
-				UC_AFFICH_TEMP[0] = '-';
-				UC_AFFICH_TEMP[1] = var[1];
-				UC_AFFICH_TEMP[2] = ' ';
-				UC_AFFICH_TEMP[3] = ' ';
-			}                        
-		}                        
-	}                        
-	UC_AFFICH_TEMP[4] = 0;
-}
-void Affichage_Temp_Page_Web(short temp)
-{
-	unsigned char var[4];
-	var[0] = 0;
-	var[1] = 0;
-	var[2] = 0;
-	var[3] = 0;
-	
-	if (temp == 8888)
-	{
-		UC_AFFICH_TEMP[0] = '0';
-		UC_AFFICH_TEMP[1] = 0;
-		UC_AFFICH_TEMP[2] = 0;
-		UC_AFFICH_TEMP[3] = 0;
-	}
-	else
-	{
-		itoa2(temp/10,var);
-		if (var[0] != '-')
-		{
-			UC_AFFICH_TEMP[0] = var[0];
-			UC_AFFICH_TEMP[1] = var[1];
-			UC_AFFICH_TEMP[2] = 0;
-			UC_AFFICH_TEMP[3] = 0;
-		}
-		else
-		{
-			UC_AFFICH_TEMP[0] = '-';
-			UC_AFFICH_TEMP[1] = var[1];
-			UC_AFFICH_TEMP[2] = var[2];
-			UC_AFFICH_TEMP[3] = 0;
-		}                        
-	}                        
-	UC_AFFICH_TEMP[4] = 0;
-}
-void Affichage_Temp_sans_degre(short temp)
-{
-	unsigned char var[4];
-	var[0] = 0;
-	var[1] = 0;
-	var[2] = 0;
-	var[3] = 0;
-	
-	if (temp == 8888)
-	{
-		UC_AFFICH_TEMP[0] = '0';
-		UC_AFFICH_TEMP[1] = 0;
-		UC_AFFICH_TEMP[2] = 0;
-		UC_AFFICH_TEMP[3] = 0;
-	}
-	else
-	{
-		itoa2(temp,var);
-		if (var[0] != '-')
-		{
-			UC_AFFICH_TEMP[0] = var[0];
-			UC_AFFICH_TEMP[1] = var[1];
-			UC_AFFICH_TEMP[2] = var[2];
-			UC_AFFICH_TEMP[3] = 0;
-		}
-		else
-		{
-			UC_AFFICH_TEMP[0] = '-';
-			UC_AFFICH_TEMP[1] = var[1];
-			UC_AFFICH_TEMP[2] = var[2];
-			UC_AFFICH_TEMP[3] = var[3];
-		}                        
-	}                        
-	UC_AFFICH_TEMP[4] = 0;
-}
-
-void Depart_Vieillissement(void)
-{
-    if (START_STOP == 0)            // Permet le lancement unique de la fonction si celle-ci est déjà en marche
-    {
-        LED_DCF = 1;
-        TRAME = 1;                  // Permet de dire que l'on veut envoyer une trame de START
-        Trame_Vieillissement();     // Fonction permettant d'envoyer les trames correspondantes
-    }
-}
-
-void Arret_Vieillissement(void)
-{
-    if (START_STOP == 1)            
-    {
-        LED_DCF = 0;
-        CYCLE_OK = 0;               // Réinitialise la valeur afin de sortir du cyle
-        TRAME = 0;                  // Permet de dire que l'on veut envoyer une trame de STOP
-        Trame_Vieillissement();  
-    }
-}
-
-void Trame_Vieillissement(void)
-{
-    DE2_ADM = 1;
-    Delay_1_mS();
-    
-    unsigned char i,j;
-    if (TRAME == 1)
-    {
-        for(i = 0; i < 4; i++)
-        {
-            WriteUART2(Trame_GO[i]);
-            while (!U2STAbits.TRMT);
-        }
-        IFS1bits.U2TXIF=0;
-           
-        START_STOP = 1;
-    }
-    if (TRAME == 0)
-    {
-        for(i = 0; i < 4; i++)
-        {
-            WriteUART2(Trame_STOP[i]);
-            while (!U2STAbits.TRMT);
-        }
-        IFS1bits.U2TXIF=0;
-            
-        START_STOP = 0;
-    }
-}
-
-void Test_Plage_Horaire(void)
-{
-    Concatener_Heure_Direct();      // Fonction permettant créer un nombre entier avec l'heure (ex: 19h35 --> 1935)
-    Concatener_Heure_Plage();       // Fonction permettant créer des nombres entier avec l'heure des palges horaires
- 
-    if (J1 == 1)
-    {
-        if ((HEURE_D <= HEURE_ACTU) && (HEURE_ACTU<= 0x937))
-            PLAGE_OK = 1;
-        else
-            PLAGE_OK = 0;
-    }
-    
-    if (J_WEEK == 1)
-        PLAGE_OK = 1;
-    
-    if (J2 == 1)
-    {
-        if ((0x00 <= HEURE_ACTU) && (HEURE_ACTU < HEURE_F))
-            PLAGE_OK = 1;
-        else
-        {
-            PLAGE_OK = 0;
-            WEEKEND = 0;
-        }
-    }
-}
-
-void Test_Jours(void)
-{  
-    Test_Weekend();
-    
-    if (WEEKEND == 0)
-    {
-        if(JOURS_SELECT_FINALE[NUM_JOUR_DCF - 1] == 0x31)
-        {
-            JOURS_OK = 1;
-            J1 = 1;
-            J2 = 0;
-            JOUR_PRECEDENT = NUM_JOUR_DCF;
-        }
-        else if (NUM_JOUR_DCF == JOUR_PRECEDENT + 1)
-        {
-            JOURS_OK = 1;
-            J1 = 0;
-            J2 = 1;
-            
-        }
-        else
-        {
-            J1 = 0;
-            J2 = 0;
-            JOURS_OK = 0;
-            JOUR_PRECEDENT = 0;
-        }
-    }
-    else if (WEEKEND == 1)
-    {
-        if ((NUM_JOUR_DCF == 6) || (NUM_JOUR_DCF == 7))
-        {
-            JOURS_OK = 1;
-            J1 = 0;
-            J_WEEK = 1;
-            J2 = 0;
-        }
-        else if (NUM_JOUR_DCF == 1)
-        {
-            JOURS_OK = 1;
-            J1 = 0;
-            J_WEEK = 0;
-            J2 = 1;
-        }
-    }
-}
-
-void Concatener_Heure_Direct(void)
-{   
-    HEURE_ACTU = DIZ_HEURE_DCF * 0x3E8  + UNI_HEURE_DCF * 0x64 + DIZ_MIN_DCF * 0xA + UNI_MIN_DCF;
-}
-
-void Concatener_Heure_Plage(void)
-{
-    unsigned char i;
-    
-    for (i = 0; i < 2; i++)     // La boucle for permet de sélectionner l'heure de début ou l'heure de fin
-    {
-        if (i == 0)
-            HEURE_D = UC_HEURE_VIEILL[i][0] * 0x3E8 + UC_HEURE_VIEILL[i][1] * 0x64 + UC_HEURE_VIEILL[i][2] * 0xA + UC_HEURE_VIEILL[i][3];
-
-        if (i == 1)
-            HEURE_F = UC_HEURE_VIEILL[i][0] * 0x3E8 + UC_HEURE_VIEILL[i][1] * 0x64 + UC_HEURE_VIEILL[i][2] * 0xA + UC_HEURE_VIEILL[i][3];
-    }
-}
-
-void Test_Weekend(void)
-{ 
-    if (((NUM_JOUR_DCF == 6) || (NUM_JOUR_DCF == 7)) && ((NUM_JOUR_DCF == JOUR_PRECEDENT + 1) || (NUM_JOUR_DCF == JOUR_PRECEDENT + 2)))
-        WEEKEND = 1;
-    else if ((NUM_JOUR_DCF == 1) && (WEEKEND == 1))
-        WEEKEND = 1;
-}
 // ---------------------------------------- fonction piur indus sécurité ----------------------------------------
-void SaveLastAccidentDate(struct last_Acc_Date *date_last_acc)//unsigned int year, unsigned int month, unsigned int day
+void SaveDate(struct struct_Date *date,unsigned int adr)//unsigned int year, unsigned int month, unsigned int day
 {
     // bornes simples
-    if(date_last_acc->year < 2000) date_last_acc->year = 2000;
-    if(date_last_acc->month < 1 || date_last_acc->month > 12) date_last_acc->month = 1;
-    if(date_last_acc->day   < 1 || date_last_acc->day   > 31) date_last_acc->day   = 1;
+    if(date->year < 2000) date->year = 2000;
+    if(date->month < 1 || date->month > 12) date->month = 1;
+    if(date->day   < 1 || date->day   > 31) date->day   = 1;
 
-    unsigned int y = (unsigned int)(date_last_acc->year - 2000);
+    unsigned int y = (unsigned int)(date->year - 2000);
 
-    EEPROMWriteByte(y,     ADR_LAST_ACCIDENT_DATE + 0);
-    EEPROMWriteByte(date_last_acc->month, ADR_LAST_ACCIDENT_DATE + 1);
-    EEPROMWriteByte(date_last_acc->day,   ADR_LAST_ACCIDENT_DATE + 2);
+    EEPROMWriteByte(y,     adr + 0);
+    EEPROMWriteByte(date->month, adr + 1);
+    EEPROMWriteByte(date->day,   adr + 2);
 }
-BOOL LoadLastAccidentDate(struct last_Acc_Date *date_last_acc)//unsigned int *year, unsigned int *month, unsigned int *day
+BOOL LoadLastAccidentDate(struct struct_Date *date_last_acc)//unsigned int *year, unsigned int *month, unsigned int *day
 {
     unsigned int y = EEPROMReadByte(ADR_LAST_ACCIDENT_DATE + 0);
     unsigned int m = EEPROMReadByte(ADR_LAST_ACCIDENT_DATE + 1);
@@ -1383,11 +493,7 @@ BOOL LoadLastAccidentDate(struct last_Acc_Date *date_last_acc)//unsigned int *ye
         
     return 1;
 }
-//void ParseDate(const char *str, struct last_Acc_Date *d)
-//{
-//    sscanf(str, "%4u-%2u-%2u", &d->year, &d->month, &d->day);
-//}
-unsigned int ParseDate(const char* s, struct last_Acc_Date* out)
+unsigned int ParseDate(const char* s, struct struct_Date* out)
 {
     unsigned int y, m, d;
     if(!s || !out) return 0;
@@ -1408,8 +514,60 @@ unsigned int ParseDate(const char* s, struct last_Acc_Date* out)
     out->day   = (unsigned char)d;
     return 1;
 }
-
-unsigned int DatesEqual(struct last_Acc_Date* a, struct last_Acc_Date* b)
+unsigned int DatesEqual(struct struct_Date* a, struct struct_Date* b)
 {
     return (a->year==b->year) && (a->month==b->month) && (a->day==b->day);
 }
+
+// --------------------------- horaire -------------------------------------------------//
+BOOL LoadHoraire(struct struct_Heure *horaire_all_ext,unsigned int adr)
+{
+    unsigned char h = EEPROMReadByte(adr + 0);
+    unsigned char m = EEPROMReadByte(adr + 1);
+
+    // EEPROM neuve / non écrite
+    if (h == 0xFF && m == 0xFF )
+        return 0;
+
+    // Sanity simple
+    if (h > 23 || m > 59 || h < 0 || m < 0)
+        return 0;
+
+    horaire_all_ext->hour = h;
+    horaire_all_ext->min  = m;
+    return 1;
+}
+
+
+
+unsigned int ParseTime(const char* s, struct struct_Heure* out)
+{
+    unsigned h=0, m=0;
+    if (!s || !out) return 0;
+
+    // Attend "HH:MM"
+    h = (unsigned int)( (s[0]-'0')*10u + (s[1]-'0') );
+    m = (unsigned int)( (s[3]-'0')*10u + (s[4]-'0') );
+//    if (sscanf(s, "%2u:%2u", &h, &m) != 2) return 0;
+    if (h > 23u || m > 59u) return 0;
+
+    out->hour = (uint8_t)h;
+    out->min  = (uint8_t)m;
+    return 1;
+}
+
+unsigned int TimeEqual(struct struct_Heure* a, struct struct_Heure* b)
+{
+    return (a->hour == b->hour) && (a->min == b->min);
+}
+
+
+void SaveHoraireAllExt(const struct struct_Heure *horaire_all_ext, unsigned int adr)
+{
+    uint8_t h = (horaire_all_ext->hour > 23 || horaire_all_ext->hour < 0) ? 7  : horaire_all_ext->hour;
+    uint8_t m = (horaire_all_ext->min > 59 || horaire_all_ext->hour < 0) ? 0  : horaire_all_ext->min;
+
+    EEPROMWriteByte(h, adr + 0);
+    EEPROMWriteByte(m, adr + 1);
+}
+

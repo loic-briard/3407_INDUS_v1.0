@@ -127,8 +127,8 @@ static DWORD dwSNTPSeconds = 0;
 
 // Tick count of last update
 static DWORD dwLastUpdateTick = 0;
-extern unsigned char attente_synchro;
-extern unsigned char CODE_NTP_SERVER[30],Demande_heure_page_web;
+//extern unsigned char attente_synchro;
+//extern unsigned char CODE_NTP_SERVER[30],Demande_heure_page_web;
 
 /*****************************************************************************
   Function:
@@ -184,7 +184,7 @@ void SNTPClient(void)
 	{
 		case SM_HOME:
 			if(MySocket == INVALID_UDP_SOCKET)
-                MySocket = UDPOpenEx((DWORD)(PTR_BASE)CODE_NTP_SERVER, UDP_OPEN_RAM_HOST, 0, NTP_SERVER_PORT);
+//                MySocket = UDPOpenEx((DWORD)(PTR_BASE)CODE_NTP_SERVER, UDP_OPEN_RAM_HOST, 0, NTP_SERVER_PORT);
 //				MySocket = UDPOpenEx((DWORD)&CODE_NTP_SERVER,UDP_OPEN_RAM_HOST,0,NTP_SERVER_PORT);
 
 			
@@ -351,7 +351,7 @@ void SNTPClient(void)
 			#ifdef WIFI_NET_TEST
 				wifi_net_test_print("SNTP: current time", dwSNTPSeconds);
 			#endif
-			attente_synchro = 1;
+//			attente_synchro = 1;
 			break;
 
 		case SM_SHORT_WAIT:
@@ -365,10 +365,9 @@ void SNTPClient(void)
 
 		case SM_WAIT:
 			// Requery the NTP server after a specified NTP_QUERY_INTERVAL time (ex: 10 minutes) has elapsed.
-			if((TickGetDiv64K() - dwTimer > (NTP_QUERY_INTERVAL/65536ull))	||
-				(Demande_heure_page_web == 1))
+			if((TickGetDiv64K() - dwTimer > (NTP_QUERY_INTERVAL/65536ull))/*||(Demande_heure_page_web == 1)*/)
 			{
-				Demande_heure_page_web = 0;
+//				Demande_heure_page_web = 0;
 				SNTPState = SM_HOME;
 				MySocket = INVALID_UDP_SOCKET;
 			}

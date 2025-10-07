@@ -7,6 +7,8 @@
 #include "nv_mem.h"
 #include "net_tasks.h"
 #include "EEPROM.h"
+#include "time_sync.h"
+#include <stdbool.h>
 
 void App_Init(void)
 {
@@ -26,6 +28,14 @@ void App_Init(void)
 
     InitNVMemContents();    // charge AppConfig/gPrefs depuis NVM (ou défauts si vide)
     Stack_Init_All();       // StackInit + Zeroconf/mDNS si activés
+    
+        /* Europe/Paris : base UTC+1, DST EU activée */
+    TimeSync_TZ tz = {
+        .base_offset_min = 60,   /* hiver */
+        .use_eu_rule     = true,
+        .dst_enabled     = true
+    };
+    TimeSync_Init(tz);
     
     
 

@@ -1,1 +1,0 @@
- -c -mcpu=$(MP_PROCESSOR_OPTION)        -g -omf=elf -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mlarge-code -mlarge-data -O0 -I".." -I"../Output file" -I"../TCPIP Stack" -I"." -msmart-io=1 -msfr-warn=off   C:\Loic\0_INDUSTRIE\0_PROGRAMME_MPLAB\3407\Interface_securite_3407_v3\TCPIP Stack\TCP.c

@@ -59,6 +59,13 @@ void HTTPPrint_nb_records_jours(void);
 void HTTPPrint_bold(void);
 void HTTPPrint_last_accident_date(void);
 void HTTPPrint_bright_enabled(void);
+void HTTPPrint_led_color_1(void);
+void HTTPPrint_led_color_2(void);
+void HTTPPrint_led_color_3(void);
+void HTTPPrint_bright(void);
+void HTTPPrint_eco_enabled(void);
+void HTTPPrint_start_time(void);
+void HTTPPrint_stop_time(void);
 
 void HTTPPrint(DWORD callbackID)
 {
@@ -84,6 +91,27 @@ void HTTPPrint(DWORD callbackID)
 			break;
         case 0x0000007e:
 			HTTPPrint_bright_enabled();
+			break;
+        case 0x0000007f:
+			HTTPPrint_led_color_1();
+			break;
+        case 0x00000080:
+			HTTPPrint_led_color_2();
+			break;
+        case 0x00000081:
+			HTTPPrint_led_color_3();
+			break;
+        case 0x00000082:
+			HTTPPrint_bright();
+			break;
+        case 0x00000083:
+			HTTPPrint_eco_enabled();
+			break;
+        case 0x00000084:
+			HTTPPrint_start_time();
+			break;
+        case 0x00000085:
+			HTTPPrint_stop_time();
 			break;
 		default:
 			// Output notification for undefined values

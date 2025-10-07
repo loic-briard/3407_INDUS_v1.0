@@ -95,7 +95,7 @@
 //#define STACK_USE_DYNAMICDNS_CLIENT		// Dynamic DNS client updater module
 //#define STACK_USE_BERKELEY_API			// Berekely Sockets APIs are available
 //#define STACK_USE_ZEROCONF_LINK_LOCAL	// Zeroconf IPv4 Link-Local Addressing
-//#define STACK_USE_ZEROCONF_MDNS_SD		// Zeroconf mDNS and mDNS service discovery
+#define STACK_USE_ZEROCONF_MDNS_SD		// Zeroconf mDNS and mDNS service discovery
 
 #define UDP_ENVOI_ESCLAVE_PORT	9761
 
@@ -338,7 +338,7 @@
 	// Indicate what file to serve when no specific one is requested
 	#define HTTP_DEFAULT_FILE		"index_indu.htm"
 	#define HTTPS_DEFAULT_FILE		"index_indu.htm"
-	#define HTTP_DEFAULT_LEN		(10u)		// For buffer overrun protection.
+	#define HTTP_DEFAULT_LEN		(16u)		// For buffer overrun protection.
 												// Set to longest length of above two strings.
 
 	// Configure MPFS over HTTP updating
@@ -363,7 +363,7 @@
 	#define HTTPS_PORT				(443u)
 	
     // Define the maximum data length for reading cookie and GET/POST arguments (bytes)
-	#define HTTP_MAX_DATA_LEN		(1024u)
+	#define HTTP_MAX_DATA_LEN		(512u)
 	
     // Define the minimum number of bytes free in the TX FIFO before executing callbacks
 	#define HTTP_MIN_CALLBACK_FREE	(16u)
