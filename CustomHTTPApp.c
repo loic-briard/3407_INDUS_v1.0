@@ -61,12 +61,15 @@
 #include "03_Variables.h"
 #include "EEPROM.h"
 #include "04_Fonctions.h"
+#include "uart_utils.h"
+#include "02_Constantes.h"
+//#include "uart_utils.h"
 
 static HTTP_IO_RESULT HTTPPostConfig(void);
 
 extern void Delay_10_microS(void);
 
-extern unsigned char attente_synchro, Demande_heure_page_web;
+//extern unsigned char attente_synchro, Demande_heure_page_web;
 extern unsigned char CODE_IP_AUTO, CODE_IP_AUTO_SECONDAIRE;
 extern unsigned char NBR_HORLOGE_SECONDAIRE;
 extern unsigned char CODE_CHANGEMENT_HEURE;
@@ -320,7 +323,8 @@ HTTP_IO_RESULT HTTPExecutePost(void) {
 static HTTP_IO_RESULT HTTPPostConfig(void) {    
     BYTE index_param;
     struct struct_Date lastAccident;
-    struct struct_Date now;
+    struct struct_Date nowDate;
+    struct struct_Heure nowHeure;
 
 #define SM_READ_NAME 		(0u)
 #define SM_READ_VALUE 		(1u)
@@ -520,7 +524,7 @@ static HTTP_IO_RESULT HTTPPostConfig(void) {
                 case STARTTIME:
                 {
                     struct struct_Heure newH = Horaire_Allumage; // base actuelle
-                    UC_TEST = 0;
+                    
                     // curHTTP.data contient "HH:MM"
                     if (ParseTime((const char*)curHTTP.data, &newH)) { // 0 => START
                         if (!TimeEqual(&Horaire_Allumage, &newH)) {
@@ -546,24 +550,55 @@ static HTTP_IO_RESULT HTTPPostConfig(void) {
                     break;
                 }
                 case NOW:                    
-                    /* init explicite (C89) */
-                    now.year = 0u;
-                    now.month = 0u;
-                    now.day = 0u;
+                    nowDate.year = 0u;
+                    nowDate.month = 0u;
+                    nowDate.day = 0u;
+                    nowHeure.hour =0u;    
+                    nowHeure.min =0u;    
+                    nowHeure.sec =0u;   
+                    
+                    const char* v = (const char*)curHTTP.data;  // ex: "2025-10-08_10:12:34" ou "2025-10-08T10:12:34.123Z"
+                    char dateBuf[11] = {0};  // "YYYY-MM-DD"
+                    char timeBuf[9]  = {0};  // "HH:MM:SS" (ou "HH:MM" -> ss=00)
 
-                    /* curHTTP.data doit pointer sur la valeur "YYYY-MM-DD" */
-                    if (ParseDate((const char*) curHTTP.data, &now)) {
-                        if (!DatesEqual(&Now_Date_Post, &now)) {
-                            /* l?affectation de struct est autorisée en C */
-                            Now_Date_Post = now;
+                    // Sépare "date" et "heure" de façon tolérante
+                    if (v && strlen(v) >= 16u) { // au minimum "YYYY-MM-DD_HH:MM"
+                        // 1) copie la date
+                        memcpy(dateBuf, v, 10u); // positions 0..9
+                        dateBuf[10] = '\0';
+
+                        // 2) reconstruit "HH:MM:SS" depuis positions connues (ignore ms et Z si présents)
+                        // On accepte séparateur '_' ou 'T' en position 10
+                        // HH: v[11..12], MM: v[14..15], SS: v[17..18] si présents
+                        timeBuf[0]=v[11]; timeBuf[1]=v[12];
+                        timeBuf[2]=':';
+                        timeBuf[3]=v[14]; timeBuf[4]=v[15];
+                        if (strlen(v) >= 19u) {
+                            timeBuf[5]=':'; timeBuf[6]=v[17]; timeBuf[7]=v[18];
+                            timeBuf[8]='\0';
+                        } else {
+                            // pas de secondes -> "HH:MM"
+                            timeBuf[5]='\0';
                         }
                     }
-                    
-                    TimeSync_Update();
-                    Seconde_UTC = 0;
-                    DST = true;
-                    TimeSync_GetLocal(&Date_UTC, &Heure_UTC, &Seconde_UTC, &DST);
     
+                    /* curHTTP.data doit pointer sur la valeur "YYYY-MM-DD" */
+                    if (dateBuf[0] && ParseDate(dateBuf, &nowDate)) {
+                        if (!DatesEqual(&Now_Date, &nowDate)) {
+                            /* l?affectation de struct est autorisée en C */
+                            Now_Date = nowDate;
+                        }
+                    }
+                    if (timeBuf[0] && ParseTime(timeBuf, &nowHeure)) {
+                        if (!TimeEqual(&Now_Heure, &nowHeure)) {
+                            /* l?affectation de struct est autorisée en C */
+                            Now_Heure = nowHeure;
+                        }
+                    }
+                    // === ENVOI SUR UART1 ===
+                    DE1_ADM = 1;
+                    UART1_SendNowISO8601(); 
+                    
                     index_param = 0;
                     curHTTP.smPost = SM_READ_FINISHING;
                     break;

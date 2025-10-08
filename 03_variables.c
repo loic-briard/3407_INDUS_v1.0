@@ -15,11 +15,10 @@ unsigned char
 __attribute__ ((persistent))
 
 struct struct_Date Last_Accident_Date;
-struct struct_Date Now_Date_Post;
+struct struct_Date Now_Date;
+struct struct_Heure Now_Heure;
 struct struct_Heure Horaire_Allumage;
 struct struct_Heure Horaire_Extinction;
-struct struct_Date Date_UTC;
-struct struct_Heure Heure_UTC;
 
 unsigned int
     NB_Accidents,
@@ -41,8 +40,6 @@ unsigned long
     NB_Jours_Sans_Accidents,
     NB_Records_Jours;
 
-bool DST; //Daylight Saving Time
-
 __attribute__ ((persistent))
 unsigned char
 	NOM_SONDE_TEMP[16][15],
@@ -58,7 +55,6 @@ unsigned char
 	UC_TABLE_REC_SONDE[10],
         
     UC_TEST,
-    Seconde_UTC,
     
     CODE_IP_AUTO,
 	CODE_IP_AUTO_SECONDAIRE,

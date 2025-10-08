@@ -2,10 +2,13 @@
 #include "02_Constantes.h"
 #include "03_Variables.h"
 
+volatile uint16_t g_ms_acc = 0;
+volatile bool g_flag_1s = false;
 // ISR Timer2 (copie de ton code)
 void __attribute__((interrupt, auto_psv)) _T2Interrupt(void)
 {
     IFS0bits.T2IF = 0;
+    
     CPTR_LED++;
     UC_TEMPO_2MS++;
 

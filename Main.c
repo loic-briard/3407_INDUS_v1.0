@@ -13,8 +13,10 @@
 
 #include "app_init.h"
 #include "net_tasks.h"
-#include "time_sync.h"
+//#include "time_sync.h"
 #include "EEPROM.h"
+#include "uart_utils.h"
+//#include "uart_utils.h"
 
 /*** Configuration Bits (laisser ici uniquement) ***/
 #pragma config POSCMOD = HS
@@ -34,18 +36,23 @@
 #pragma config JTAGEN = OFF
 
 int main(void)
-{
+{    
     App_Init();                 // Init matériel + LCD + Tick + MPFS + NVM + Stack
-
+    
     while (1)
     {
         ClrWdt();
 
         Network_CoreTasks();        // stack + apps + zeroconf/mdns
         ApplyDHCPMode_IfChanged();  // bascule DHCP si flag changé
-
-        // Réactive ces deux-là si besoin :
-        // Sensors_Task();          
-        // UDP_Envoi_Esclave_Task();
+        
+        DE1_ADM = 0;
+        if (UART1_HadActivity()) {
+            uint8_t buf[64];
+            size_t n = UART1_Read(buf, sizeof(buf));  // lit ce qui est déjà arrivé
+            Nop();
+            // -> exploite buf[0..n-1]
+            UART1_ClearActivity();
+        }
     }
 }

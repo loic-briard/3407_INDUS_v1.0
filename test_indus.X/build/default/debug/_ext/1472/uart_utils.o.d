@@ -20,7 +20,7 @@ build/default/debug/_ext/1472/uart_utils.o: ../uart_utils.c \
  ../TCPIP\ Stack/HTTP2.h ../TCPIP\ Stack/ICMP.h \
  ../TCPIP\ Stack/Announce.h ../TCPIP\ Stack/NBNS.h \
  ../TCPIP\ Stack/Reboot.h ../TCPIP\ Stack/SNTP.h ../02_Constantes.h \
- ../03_Variables.h ../GenericTypeDefs.h
+ ../03_Variables.h ../GenericTypeDefs.h ../uart_utils.h
 
 ../TCPIP\ Stack/TCPIP.h:
 
@@ -109,3 +109,5 @@ build/default/debug/_ext/1472/uart_utils.o: ../uart_utils.c \
 ../03_Variables.h:
 
 ../GenericTypeDefs.h:
+
+../uart_utils.h:

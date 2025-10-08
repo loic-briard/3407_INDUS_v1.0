@@ -20,7 +20,7 @@ build/default/debug/_ext/1472/Main.o: ../Main.c ../TCPIP\ Stack/stdlib.h \
  ../TCPIP\ Stack/Announce.h ../TCPIP\ Stack/NBNS.h \
  ../TCPIP\ Stack/Reboot.h ../TCPIP\ Stack/SNTP.h ../TCPIP\ Stack/UART.h \
  ../02_Constantes.h ../04_Fonctions.h ../app_init.h ../net_tasks.h \
- ../time_sync.h ../EEPROM.h
+ ../EEPROM.h ../uart_utils.h
 
 ../TCPIP\ Stack/stdlib.h:
 
@@ -116,6 +116,6 @@ build/default/debug/_ext/1472/Main.o: ../Main.c ../TCPIP\ Stack/stdlib.h \
 
 ../net_tasks.h:
 
-../time_sync.h:
-
 ../EEPROM.h:
+
+../uart_utils.h:

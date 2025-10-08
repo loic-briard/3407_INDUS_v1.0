@@ -7,11 +7,11 @@
       <logicalFolder name="f1" displayName="Config" projectFiles="true">
         <itemPath>../app_init.h</itemPath>
         <itemPath>../net_tasks.h</itemPath>
-        <itemPath>../time_sync.h</itemPath>
         <itemPath>../board_init.h</itemPath>
         <itemPath>../uart_utils.h</itemPath>
         <itemPath>../EEPROM.h</itemPath>
         <itemPath>../nv_mem.h</itemPath>
+        <itemPath>../time_sync.h</itemPath>
       </logicalFolder>
       <logicalFolder name="TCPIP Stack" displayName="TCPIP Stack" projectFiles="true">
         <itemPath>../TCPIP Stack/Announce.h</itemPath>
@@ -85,10 +85,10 @@
         <itemPath>../board_init.c</itemPath>
         <itemPath>../app_init.c</itemPath>
         <itemPath>../net_tasks.c</itemPath>
-        <itemPath>../time_sync.c</itemPath>
         <itemPath>../uart_utils.c</itemPath>
         <itemPath>../EEPROM.c</itemPath>
         <itemPath>../nv_mem.c</itemPath>
+        <itemPath>../time_sync.c</itemPath>
       </logicalFolder>
       <logicalFolder name="TCPIP Stack" displayName="TCPIP Stack" projectFiles="true">
         <itemPath>../TCPIP Stack/Announce.c</itemPath>
@@ -189,6 +189,62 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <item path="../TCPIP Stack/LCDBlocking.c" ex="true" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../TCPIP Stack/UART.c" ex="true" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../TCPIP Stack/UART.h" ex="true" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../time_sync.c" ex="true" overriding="false">
+        <C30>
+        </C30>
+        <C30-AR>
+        </C30-AR>
+        <C30-AS>
+        </C30-AS>
+        <C30-CO>
+        </C30-CO>
+        <C30-LD>
+        </C30-LD>
+        <C30Global>
+        </C30Global>
+      </item>
+      <item path="../time_sync.h" ex="true" overriding="false">
         <C30>
         </C30>
         <C30-AR>
@@ -391,7 +447,7 @@
         <property key="debugoptions.debug-startup" value="Use system settings"/>
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.simultaneous.debug" value="false"/>
-        <property key="debugoptions.useswbreakpoints" value="true"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="event.recorder.debugger.behavior" value="Running"/>
         <property key="event.recorder.enabled" value="false"/>
         <property key="event.recorder.scvd.files" value=""/>

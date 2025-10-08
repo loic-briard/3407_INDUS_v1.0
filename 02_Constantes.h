@@ -25,9 +25,9 @@ MESS_ACCEUIL[17];
 
 //---Constantes ports entrées/sorties------------------------------------------
 #define DCF_IN              PORTGbits.RG0   // lecture du signal DCF (niveau logique)
-#define LED_DCF             LATDbits.LATD5
-#define LED_SYNCHRO_HEURE   LATDbits.LATD6
-#define LED_3               LATDbits.LATD7
+#define LED_5               LATDbits.LATD5
+#define LED_6               LATDbits.LATD6
+#define LED_7               LATDbits.LATD7
 
 
 #define CONST_CODE_DECAL_HORAIRE	0x0D //+ 1 heure

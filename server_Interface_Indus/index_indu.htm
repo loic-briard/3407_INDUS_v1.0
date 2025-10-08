@@ -502,13 +502,19 @@
         }
       }catch(e){ console.warn('Lecture fond local impossible', e); }
     }
+    function loadBgFromStorage(){
+      try{
+        const raw = localStorage.getItem(BG_IMAGE_KEY);
+        if(!raw) return;
+        const rec = JSON.parse(raw);
+        if (rec?.dataUrl){
+          bg.src = rec.dataUrl;
+          if (rec?.name) bg.dataset.bgName = rec.name; // garder trace
+        }
+      }catch(e){ console.warn('Lecture fond local impossible', e); }
+    }
     function storeBgFile(file){
-      const wanted = expectedBgName();
-      if (normalizeFileName(file.name) !== wanted){
-        alert(`Le nom du fichier (« ${file.name} ») ne correspond pas au fond attendu (« ${wanted} »). Renommez le fichier pour qu'il corresponde.`);
-        return false;
-      }
-      if (file.size > 2.5 * 1024 * 1024){ // ~2.5 Mo
+      if (file.size > 2.5 * 1024 * 1024){
         alert('Image trop volumineuse pour le stockage local (> 2.5 Mo).');
         return false;
       }
@@ -516,12 +522,14 @@
       reader.onload = () => {
         const rec = { name: file.name, type: file.type, size: file.size, dataUrl: reader.result, ts: Date.now() };
         try{ localStorage.setItem(BG_IMAGE_KEY, JSON.stringify(rec)); }
-        catch(e){ alert("Impossible d’enregistrer le fond (quota de stockage atteint)."); }
+        catch(e){ alert("Impossible d’enregistrer le fond (quota de stockage atteint)."); return; }
         bg.src = rec.dataUrl;
+        bg.dataset.bgName = file.name; // optionnel
       };
       reader.readAsDataURL(file);
       return true;
     }
+
     bgFile.addEventListener('change', (e) => { const file = e.target.files?.[0]; if (!file) return; storeBgFile(file); });
     const clearBgBtn = document.getElementById('clearBg');
     if (clearBgBtn) clearBgBtn.addEventListener('click', () => { localStorage.removeItem(BG_IMAGE_KEY); bg.src = bg.dataset.bgName || 'fond.png'; });
@@ -592,7 +600,15 @@
       const day = String(d.getDate()).padStart(2, '0');
       return `${d.getFullYear()}-${m}-${day}`;
     }
-    function nowISODateTime() { return new Date().toISOString(); }
+    function nowISODateTime() { 
+      const d = new Date();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      const h = String(d.getHours()).padStart(2, '0');
+      const min = String(d.getMinutes()).padStart(2, '0');
+      const sec = String(d.getSeconds()).padStart(2, '0');
+      return `${d.getFullYear()}-${m}-${day}_${h}:${min}:${sec}`;
+    }
 
     function buildTelemetryPayload() {
       const box1 = box1Input.valueAsNumber || 0;
@@ -618,7 +634,8 @@
           box2: getLedCodeForBox('box2'),
           box3: getLedCodeForBox('box3'),
         },
-        Now: nowISODate(),
+        Now: nowISODateTime(),
+        // Now: nowISODate(),
       };
     }
 

@@ -70,7 +70,7 @@
 	                       unsigned int uart_data_wait);
 	char DataRdyUART2(void);
 	char BusyUART2(void);
-	unsigned int ReadUART2(void);
+//	unsigned int ReadUART2(void);
 	void WriteUART2(unsigned int data);
 #elif defined( __PIC32MX__ )
     #define putrsUART2(x) putsUART2(x)

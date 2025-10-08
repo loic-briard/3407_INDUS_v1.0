@@ -22,7 +22,7 @@ unsigned int ParseDate(const char* s, struct struct_Date* out);
 unsigned int DatesEqual(struct struct_Date* a, struct struct_Date* b);
 
 BOOL LoadHoraire(struct struct_Heure *horaire_all_ext, unsigned int adr);
-unsigned int ParseTime(const char* s, struct struct_Heure* out);
+unsigned int ParseTime(const char* string, struct struct_Heure* out);
 unsigned int TimeEqual(struct struct_Heure* a, struct struct_Heure* b);
 void SaveHoraireAllExt(const struct struct_Heure *horaireAllExt,unsigned int adr);
 

@@ -1,49 +1,45 @@
 #ifndef TIME_SYNC_H
 #define TIME_SYNC_H
-
 #include <stdint.h>
 #include <stdbool.h>
 
-/* Types de base (tes structures) */
-//struct struct_Date { unsigned int year, month, day; };
-//struct struct_Heure { unsigned int hour, min; };
+/* ===== Types de base ===== */
+//extern struct struct_Date { unsigned int year, month, day; };
+//extern struct struct_Heure { unsigned int hour, min; };
 
-/* Règle DST simple (heure d?été) */
+/* Snapshot prêt à l?emploi */
 typedef struct {
-    bool enabled;              /* true = on calcule DST, false = ignore */
-    /* Règles ?dernier dimanche? à 01:00 UTC (règle Europe/Paris classique) */
-    /* Si tu veux une autre région, tu peux fournir des callbacks (voir plus bas). */
-} TimeSync_DstEU;
-
-/* Fuseau horaire et DST attachés au module */
-typedef struct {
-    int16_t base_offset_min;   /* ex: +60 pour UTC+1, -300 pour UTC-5 */
-    bool    use_eu_rule;       /* si true, utilise l?algorithme EU par défaut */
-    bool    dst_enabled;       /* active la gestion DST */
-} TimeSync_TZ;
-
-/* État courant */
-typedef struct {
-    struct struct_Date utc_date;
-    struct struct_Heure utc_time;
-    uint8_t utc_sec;
-
-    struct struct_Date local_date;
-    struct struct_Heure local_time;
-    uint8_t local_sec;
-
-    bool dst_active;           /* true si DST actif pour l?instant courant */
-} TimeSync_State;
+    struct_Date  date;
+    struct_Heure heure;   /* (nommé 'heure' pour éviter tout conflit de macro) */
+    uint8_t             sec;
+    bool                dst;      /* seulement pour la version locale */
+} TimeSync_Instant;
 
 /* ===== API ===== */
-void TimeSync_Init(TimeSync_TZ tz);           /* à appeler au boot (choix fuseau/DST) */
-bool TimeSync_Update(void);                   /* lit SNTP, met à jour UTC + Local, renvoie true si OK */
+void TimeSync_Init(TimeSync_TZ tz);
+
+/* Poser l'UTC directement (ex: depuis POST "Now" ou une source GPS/DCF77) */
+void TimeSync_SetUTC(const struct struct_Date* d, const struct struct_Heure* h, uint8_t sec);
+/* Parse et pose: "YYYY-MM-DDTHH:MM:SS(.ms)Z" ? UTC */
+bool TimeSync_SetUTC_ISO8601(const char* iso_utc);
+
+/* A appeler chaque seconde (depuis ton timer) :
+   - +1s sur l'UTC
+   - met à jour les secondes locales
+   - et quand la minute UTC change, recalcule entièrement l'heure locale (fuseau + DST).
+*/
+void TimeSync_Tick1s(void);
+
+/* Lecture */
 void TimeSync_GetUTC(struct struct_Date* d, struct struct_Heure* h, uint8_t* sec);
 void TimeSync_GetLocal(struct struct_Date* d, struct struct_Heure* h, uint8_t* sec, bool* dst_on);
 
-/* Helpers de formatage / parsing */
-void TimeSync_FormatISODate(const struct struct_Date* d, char out[11]);    /* YYYY-MM-DD */
-void TimeSync_FormatHHMM(const struct struct_Heure* h, char out[6]);       /* HH:MM */
-bool TimeSync_ParseISODate(const char* s, struct struct_Date* d);          /* "YYYY-MM-DD" */
+/* Raccourcis "one-liner" */
+TimeSync_Instant TimeSync_NowLocal(void);
+TimeSync_Instant TimeSync_NowUTC(void);
+
+/* Helpers de formatage */
+void TimeSync_FormatISODate(const struct struct_Date* d, char out[11]);  /* "YYYY-MM-DD" */
+void TimeSync_FormatHHMM(const struct struct_Heure* h, char out[6]);     /* "HH:MM"      */
 
 #endif /* TIME_SYNC_H */

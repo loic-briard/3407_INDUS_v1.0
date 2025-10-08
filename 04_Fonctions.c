@@ -17,7 +17,6 @@
 #include "04_Fonctions.h"
 #include "EEPROM.h"
 #include "GenericTypeDefs.h"
-#include "time_sync.h"
 
 unsigned char BusyXLCDstr(void);
 
@@ -136,60 +135,6 @@ void Initialisations(void)
 	LCD_TRIS_RS = SORTIE;       // RS
 	LCD_TRIS_RW = SORTIE;		// R/W
 	LCD_TRIS_E = SORTIE;		// E
-	
-    	
-	// Liaison asynchrone 1 (Synchro temps horloge mère)
-	TRISFbits.TRISF8 = SORTIE;      // TX1
-	TRISFbits.TRISF3 = ENTREE;      // RX1
-	TRISFbits.TRISF5 = SORTIE;      // DE
-	DE1_ADM = 1;
-						
-	U1BRG = 25;     // BAUD Rate Setting for 19200
-//	U1BRG = 51;		// BAUD Rate Setting for 9600
-
-	IPC3bits.U1TXIP = 4;    // Set Uart TX Interrupt Priority 4
-	IPC2bits.U1RXIP = 4;    // Set Uart RX Interrupt Priority 4
-
-	U1MODE = 0;             // 1-stop bit
-                            // No Parity, 8-data bits
-	U1MODEbits.USIDL = 1;
-	U1MODEbits.BRGH = 0;            // Mode High speed
-	
-	U1STA = 0;
-	U1STAbits.UTXISEL1 = 1;			// Interruption lorsque le charactère est transmit et que le buffer est vie
-	U1STAbits.URXISEL = 0;
-	U1MODEbits.UARTEN   = 1;		// Enable UART
-	U1STAbits.UTXEN     = 1;		// Enable UART Tx
-	
-	IFS0bits.U1TXIF = 0;
-	IFS4bits.U1ERIF = 0;
-
-
-	// Liaison asynchrone 2 (Sondes de t°)
-	TRISDbits.TRISD8 = SORTIE;      // TX2
-	TRISDbits.TRISD10 = ENTREE;     // RX2
-	TRISDbits.TRISD9 = SORTIE;      // DE2
-	DE2_ADM = 1;
-					
-	U2BRG = 25;     // BAUD Rate Setting for 19200
-//	U2BRG = 51;		// BAUD Rate Setting for 9600
-
-	IPC7bits.U2TXIP = 4;        // Set Uart TX Interrupt Priority 4
-	IPC7bits.U2RXIP = 4;        // Set Uart RX Interrupt Priority 4
-
-	U2MODE = 0;                 // 1-stop bit
-                                // No Parity, 8-data bits
-	U2MODEbits.USIDL = 1;
-	U2MODEbits.BRGH = 0;		// Mode High speed
-	
-	U2STA = 0;
-	U2STAbits.UTXISEL1 = 1;         // Interruption lorsque le charactère est transmit et que le buffer est vie
-	U2STAbits.URXISEL = 0;
-	U2MODEbits.UARTEN   = 1;		// Enable UART
-	U2STAbits.UTXEN     = 1;        // Enable UART Tx
-	
-	IFS1bits.U2TXIF = 0;
-	IFS4bits.U2ERIF = 0;
 
 	// Leds
 	TRISDbits.TRISD5 = SORTIE;      // LED 1 dcf
@@ -197,7 +142,9 @@ void Initialisations(void)
 	TRISDbits.TRISD7 = SORTIE;      // LED 3 si besoin
 
 	TRISGbits.TRISG0 = ENTREE;   // DCF sur RG0 en entrée
-    LED_DCF = 0; LED_SYNCHRO_HEURE = 0; LED_3 = 0;
+    LED_5 = 0; 
+    LED_6 = 0;
+    LED_7 = 0;
 	
 	//Liaison SPI1 Ethernet
 	TRISGbits.TRISG6 = SORTIE;      // SCK1
@@ -365,99 +312,99 @@ void TEMPO_3S(void)
 	}while (var < 100);     // Attente de 3 secondes
 }
 
-void LectureTEMP_RS (unsigned char code_sonde)
-{
-	unsigned char i,p;
-	unsigned char var_recept;
-	
-	UC_TABLE_EMI_SONDE[0]=code_sonde;							//Préparation trame demande de température E0 pour sonde air
-	UC_TABLE_EMI_SONDE[1]=0x0D;
+//void LectureTEMP_RS (unsigned char code_sonde)
+//{
+//	unsigned char i,p;
+//	unsigned char var_recept;
+//	
+//	UC_TABLE_EMI_SONDE[0]=code_sonde;							//Préparation trame demande de température E0 pour sonde air
+//	UC_TABLE_EMI_SONDE[1]=0x0D;
+//
+//
+//	DE2_ADM = 1;											// Mise en émission
+//	Delay_1_mS();	// Attente de 1 ms
+//
+//	while (!U2STAbits.TRMT);
+//	WriteUART2( UC_TABLE_EMI_SONDE[0]);			// Transmission de l'octet sur USART1
+//	while (!U2STAbits.TRMT);
+//	WriteUART2( UC_TABLE_EMI_SONDE[1]);			// Transmission de l'octet sur USART1
+//	while (!U2STAbits.TRMT);
+//	IFS1bits.U2TXIF=0;
+//
+//	DE2_ADM = 0;											// Mise en réception
+//
+//	Delay_1_mS();	// Attente de 1 ms
+//
+//	IFS1bits.U2RXIF = 0;
+//	var_recept = ReadUART2();					// Charge la valeur du registre de réception dans var_recept
+//	p = 0;
+//	UC_TEMPO_2MS = 0;
+//	do
+//	{
+//		if(U2STAbits.OERR)
+//			U2STAbits.OERR = 0;
+//	
+//		if((U2STAbits.FERR)||(U2STAbits.PERR))
+//			var_recept = ReadUART2();
+//	
+//		if(DataRdyUART2())								// Réception filaire par RX2
+//		{
+//			var_recept = ReadUART2();					// Charge la valeur du registre de réception dans var_recept
+//			IFS1bits.U2RXIF = 0;
+//		}
+//		else
+//			var_recept = 0xFF;			
+//		if (var_recept==code_sonde)							//Si code début trame E0 => pointeur à 0
+//			p=0;
+//		if (var_recept != 0xFF)
+//		{
+//			if(p <= 10)
+//				UC_TABLE_REC_SONDE[p] = var_recept;			//Réception de la trame dans la table de réception
+//			if(p < 10)
+//				p++;
+//		}
+//	}while ((var_recept !=0x0D)&&(UC_TEMPO_2MS<20));		//attente du 0x0D (fin de trame) ou pendant 20ms		
+//
+//	Delay_1_mS();	// Attente de 1 ms
+//	Delay_1_mS();	// Attente de 1 ms
+//	Delay_1_mS();	// Attente de 1 ms
+//
+//}
 
-
-	DE2_ADM = 1;											// Mise en émission
-	Delay_1_mS();	// Attente de 1 ms
-
-	while (!U2STAbits.TRMT);
-	WriteUART2( UC_TABLE_EMI_SONDE[0]);			// Transmission de l'octet sur USART1
-	while (!U2STAbits.TRMT);
-	WriteUART2( UC_TABLE_EMI_SONDE[1]);			// Transmission de l'octet sur USART1
-	while (!U2STAbits.TRMT);
-	IFS1bits.U2TXIF=0;
-
-	DE2_ADM = 0;											// Mise en réception
-
-	Delay_1_mS();	// Attente de 1 ms
-
-	IFS1bits.U2RXIF = 0;
-	var_recept = ReadUART2();					// Charge la valeur du registre de réception dans var_recept
-	p = 0;
-	UC_TEMPO_2MS = 0;
-	do
-	{
-		if(U2STAbits.OERR)
-			U2STAbits.OERR = 0;
-	
-		if((U2STAbits.FERR)||(U2STAbits.PERR))
-			var_recept = ReadUART2();
-	
-		if(DataRdyUART2())								// Réception filaire par RX2
-		{
-			var_recept = ReadUART2();					// Charge la valeur du registre de réception dans var_recept
-			IFS1bits.U2RXIF = 0;
-		}
-		else
-			var_recept = 0xFF;			
-		if (var_recept==code_sonde)							//Si code début trame E0 => pointeur à 0
-			p=0;
-		if (var_recept != 0xFF)
-		{
-			if(p <= 10)
-				UC_TABLE_REC_SONDE[p] = var_recept;			//Réception de la trame dans la table de réception
-			if(p < 10)
-				p++;
-		}
-	}while ((var_recept !=0x0D)&&(UC_TEMPO_2MS<20));		//attente du 0x0D (fin de trame) ou pendant 20ms		
-
-	Delay_1_mS();	// Attente de 1 ms
-	Delay_1_mS();	// Attente de 1 ms
-	Delay_1_mS();	// Attente de 1 ms
-
-}
-
-void Lire_Sonde_Rs485(unsigned char adr, 
-				short * temp_air_avec_offset, 
-				short * correc_air, 
-				short * temp_air_mesure,				
-				short * temp_prog)					
-{
-	unsigned short tempS, tempH;
-
-//	*temp_air_mesure = 8888;	
-//  *temp_air_avec_offset = 8888;
-
-	LectureTEMP_RS (adr);													//Si pas de réponse I2C => demande sur la RS485
-	if (UC_TABLE_REC_SONDE[0]==adr)									//Si code sonde OK (E0 pour sonde air), alors mise en forme des données température
-	{
-		 *temp_air_mesure =((((unsigned short)UC_TABLE_REC_SONDE[2]-0x30)*100)+(((unsigned short)UC_TABLE_REC_SONDE[3]-0x30)*10)+(((unsigned short)UC_TABLE_REC_SONDE[4]-0x30)));
-
-		if (UC_TABLE_REC_SONDE[1]==0x2D)
-			*temp_air_mesure = -*temp_air_mesure;
-			
-		UC_TABLE_REC_SONDE[0] = 0x00;
-		UC_TABLE_REC_SONDE[1] = 0x00;
-		UC_TABLE_REC_SONDE[2] = 0x00;
-		UC_TABLE_REC_SONDE[3] = 0x00;
-		UC_TABLE_REC_SONDE[4] = 0x00;
-		UC_TABLE_REC_SONDE[5] = 0x00;
-			
-		*temp_air_avec_offset = *temp_air_mesure + *correc_air;
-	}
-	else
-		*temp_air_mesure = 8888;
-
-	if((*temp_air_avec_offset > -10)&&(*temp_air_avec_offset < 10))	// Permet d'éviter d'afficher - 0° si la température est inférieur à 1°
-		*temp_air_avec_offset = 0;
-}
+//void Lire_Sonde_Rs485(unsigned char adr, 
+//				short * temp_air_avec_offset, 
+//				short * correc_air, 
+//				short * temp_air_mesure,				
+//				short * temp_prog)					
+//{
+//	unsigned short tempS, tempH;
+//
+////	*temp_air_mesure = 8888;	
+////  *temp_air_avec_offset = 8888;
+//
+//	LectureTEMP_RS (adr);													//Si pas de réponse I2C => demande sur la RS485
+//	if (UC_TABLE_REC_SONDE[0]==adr)									//Si code sonde OK (E0 pour sonde air), alors mise en forme des données température
+//	{
+//		 *temp_air_mesure =((((unsigned short)UC_TABLE_REC_SONDE[2]-0x30)*100)+(((unsigned short)UC_TABLE_REC_SONDE[3]-0x30)*10)+(((unsigned short)UC_TABLE_REC_SONDE[4]-0x30)));
+//
+//		if (UC_TABLE_REC_SONDE[1]==0x2D)
+//			*temp_air_mesure = -*temp_air_mesure;
+//			
+//		UC_TABLE_REC_SONDE[0] = 0x00;
+//		UC_TABLE_REC_SONDE[1] = 0x00;
+//		UC_TABLE_REC_SONDE[2] = 0x00;
+//		UC_TABLE_REC_SONDE[3] = 0x00;
+//		UC_TABLE_REC_SONDE[4] = 0x00;
+//		UC_TABLE_REC_SONDE[5] = 0x00;
+//			
+//		*temp_air_avec_offset = *temp_air_mesure + *correc_air;
+//	}
+//	else
+//		*temp_air_mesure = 8888;
+//
+//	if((*temp_air_avec_offset > -10)&&(*temp_air_avec_offset < 10))	// Permet d'éviter d'afficher - 0° si la température est inférieur à 1°
+//		*temp_air_avec_offset = 0;
+//}
 
 // ---------------------------------------- fonction piur indus sécurité ----------------------------------------
 void SaveDate(struct struct_Date *date,unsigned int adr)//unsigned int year, unsigned int month, unsigned int day
@@ -524,6 +471,7 @@ BOOL LoadHoraire(struct struct_Heure *horaire_all_ext,unsigned int adr)
 {
     unsigned char h = EEPROMReadByte(adr + 0);
     unsigned char m = EEPROMReadByte(adr + 1);
+    unsigned char s = 0;
 
     // EEPROM neuve / non écrite
     if (h == 0xFF && m == 0xFF )
@@ -535,24 +483,27 @@ BOOL LoadHoraire(struct struct_Heure *horaire_all_ext,unsigned int adr)
 
     horaire_all_ext->hour = h;
     horaire_all_ext->min  = m;
+    horaire_all_ext->sec  = s;
     return 1;
 }
 
 
 
-unsigned int ParseTime(const char* s, struct struct_Heure* out)
+unsigned int ParseTime(const char* string, struct struct_Heure* out)
 {
-    unsigned h=0, m=0;
-    if (!s || !out) return 0;
+    unsigned h=0, m=0, s=0;
+    if (!string || !out) return 0;
 
     // Attend "HH:MM"
-    h = (unsigned int)( (s[0]-'0')*10u + (s[1]-'0') );
-    m = (unsigned int)( (s[3]-'0')*10u + (s[4]-'0') );
+    h = (unsigned int)( (string[0]-'0')*10u + (string[1]-'0') );
+    m = (unsigned int)( (string[3]-'0')*10u + (string[4]-'0') );
+    s = (unsigned int)( (string[6]-'0')*10u + (string[7]-'0') );
 //    if (sscanf(s, "%2u:%2u", &h, &m) != 2) return 0;
     if (h > 23u || m > 59u) return 0;
 
     out->hour = (uint8_t)h;
     out->min  = (uint8_t)m;
+    out->sec  = (uint8_t)s;
     return 1;
 }
 

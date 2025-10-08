@@ -20,8 +20,7 @@ build/default/debug/_ext/1472/04_Fonctions.o: ../04_Fonctions.c \
  ../TCPIP\ Stack/Announce.h ../TCPIP\ Stack/NBNS.h \
  ../TCPIP\ Stack/Reboot.h ../TCPIP\ Stack/SNTP.h \
  ../TCPIP\ Stack/Helpers.h ../TCPIP\ Stack/UART.h ../02_Constantes.h \
- ../03_Variables.h ../GenericTypeDefs.h ../04_Fonctions.h ../EEPROM.h \
- ../time_sync.h
+ ../03_Variables.h ../GenericTypeDefs.h ../04_Fonctions.h ../EEPROM.h
 
 ../TCPIP\ Stack/string.h:
 
@@ -116,5 +115,3 @@ build/default/debug/_ext/1472/04_Fonctions.o: ../04_Fonctions.c \
 ../04_Fonctions.h:
 
 ../EEPROM.h:
-
-../time_sync.h:

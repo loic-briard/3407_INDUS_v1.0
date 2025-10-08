@@ -22,14 +22,14 @@ struct struct_Date {
 struct struct_Heure {
     unsigned int hour;
     unsigned int min;
+    unsigned int sec;
 };
 
 extern struct struct_Date Last_Accident_Date;
-extern struct struct_Date Now_Date_Post;
+extern struct struct_Date Now_Date;
+extern struct struct_Heure Now_Heure;
 extern struct struct_Heure Horaire_Allumage;
 extern struct struct_Heure Horaire_Extinction;
-extern struct struct_Date Date_UTC;
-extern struct struct_Heure Heure_UTC;
 
 extern unsigned int
     NB_Accidents,
@@ -51,8 +51,6 @@ extern unsigned long
     NB_Jours_Sans_Accidents,
     NB_Records_Jours;
 
-extern bool DST; //Daylight Saving Time
-
 __attribute__ ((persistent))
 extern unsigned char
 	NOM_SONDE_TEMP[16][15],
@@ -68,7 +66,6 @@ extern unsigned char
 	UC_TABLE_REC_SONDE[10],
         
     UC_TEST,
-    Seconde_UTC,
     
     CODE_IP_AUTO,
 	CODE_IP_AUTO_SECONDAIRE,
